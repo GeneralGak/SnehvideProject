@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1022
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnehvideProject", "SnehvideProject\SnehvideProject.csproj", "{1A853529-3835-470A-8FC1-938B1F33F9D0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1A853529-3835-470A-8FC1-938B1F33F9D0}.Debug|x86.ActiveCfg = Debug|x86
+		{1A853529-3835-470A-8FC1-938B1F33F9D0}.Debug|x86.Build.0 = Debug|x86
+		{1A853529-3835-470A-8FC1-938B1F33F9D0}.Release|x86.ActiveCfg = Release|x86
+		{1A853529-3835-470A-8FC1-938B1F33F9D0}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8929C70E-4997-4207-BE4E-AC78045EBBDB}
+	EndGlobalSection
+EndGlobal
