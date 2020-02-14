@@ -12,6 +12,16 @@ namespace SnehvideProject
 		GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
 
+		/// <summary>
+		/// Used for accessing screen size elsewhere in the code
+		/// </summary>
+		public static Vector2 ScrSize { get; private set; }
+
+		/// <summary>
+		/// Used for scaling drawn objects with screen size
+		/// </summary>
+		public static float ScrScale { get; private set; }
+
 		public GameWorld()
 		{
 			graphics = new GraphicsDeviceManager(this);
@@ -27,6 +37,12 @@ namespace SnehvideProject
 		protected override void Initialize()
 		{
 			// TODO: Add your initialization logic here
+
+			// Saves screen width and height in ScrSize vector to be acessed later
+			ScrSize = new Vector2(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
+
+			// Set screen scale
+			ScrScale = 1;
 
 			base.Initialize();
 		}
@@ -75,7 +91,11 @@ namespace SnehvideProject
 		{
 			GraphicsDevice.Clear(Color.CornflowerBlue);
 
+			spriteBatch.Begin(SpriteSortMode.FrontToBack, null, null, null, null, null ,Camera.Transform);
+
 			// TODO: Add your drawing code here
+
+			spriteBatch.End();
 
 			base.Draw(gameTime);
 		}
