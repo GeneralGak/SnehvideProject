@@ -57,6 +57,10 @@ namespace SnehvideProject
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 
 			// TODO: use this.Content to load your game content here
+
+			Assets.LoadContent(Content);
+
+
 		}
 
 		/// <summary>
