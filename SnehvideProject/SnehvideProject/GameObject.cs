@@ -9,9 +9,13 @@ using System.Threading.Tasks;
 
 namespace SnehvideProject
 {
-    public abstract class GameObject
+
+	public enum Faction { Player, Enemy, Neutral };
+
+	public abstract class GameObject
     {
-        // FIELDS
+		// FIELDS
+		protected Faction faction = Faction.Neutral;
         protected Vector2 position;
         protected float drawLayer = 0.01f;
         protected float rotation;
@@ -64,7 +68,13 @@ namespace SnehvideProject
             get { return sprite; }
         }
 
-        public float Size { get => size; set => size = value; }
+		public Faction Faction
+		{
+			get { return faction; }
+			set { faction = value; }
+		}
+
+		public float Size { get => size; set => size = value; }
         public bool IsHidden { get; set; }
 
         /// <summary>

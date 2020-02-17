@@ -56,6 +56,7 @@ namespace SnehvideProject
 			set { isAlive = value; }
 		}
 
+
 		/// <summary>
 		/// Character dies
 		/// </summary>
@@ -64,7 +65,7 @@ namespace SnehvideProject
 		/// <summary>
 		/// Character attacks
 		/// </summary>
-		public abstract void Attack();
+		public abstract void Attack(GameObject gameObject);
 
 		/// <summary>
 		/// Update health of character
@@ -108,7 +109,10 @@ namespace SnehvideProject
 		{
 
 			positionPreMove = position;
-			CanAttack();
+			foreach(GameObject gameObject in GameWorld.GameObjects)
+			{
+				CanAttack(gameObject);
+			}
 
 		}
 
@@ -121,28 +125,30 @@ namespace SnehvideProject
 
 		public abstract void OnTakeDamage();
 
-		public bool CanAttack()
+		public bool CanAttack(GameObject gameObject)
 		{
-			foreach (GameObject gameObject in GameWorld.GameObjects)
-			{
-				if (gameObject != null && gameObject is IPlayerUnit)
-				{
-					// Player is not close enough
-					if ((this.position.X + attackRange) < (gameObject.Position.X) || (this.position.X - attackRange) > (gameObject.Position.X))
-					{
-						return false;
-					}
 
-					// Player is not close enough
-					if ((this.position.Y + attackRange) < (gameObject.Position.Y) || (this.position.Y - attackRange) > (gameObject.Position.Y))
-					{
-						return false;
-					}
+			if (gameObject != null)
+			{
+				// Character is not close enough
+				if ((this.position.X + attackRange) < (gameObject.Position.X) || (this.position.X - attackRange) > (gameObject.Position.X))
+				{
+					return false;
+				}
+
+				// Character is not close enough
+				if ((this.position.Y + attackRange) < (gameObject.Position.Y) || (this.position.Y - attackRange) > (gameObject.Position.Y))
+				{
+					return false;
 				}
 			}
+			else
+			{
+				return false;
+			}
+			
 
-			// Player is close enough
-			Console.WriteLine("Can Attack");
+			// Character is close enough
 			return true;
 		}
 

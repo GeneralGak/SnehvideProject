@@ -118,7 +118,7 @@ namespace SnehvideProject
 
 			// Test Monster and Dwarf
 			monster = new AppleMonster(new Vector2(100, 100));
-			dwarf = new Fighter(new Vector2(200, 200));
+			dwarf = new Fighter(new Vector2(500, 500));
 			GameObjects.Add(monster);
 			GameObjects.Add(dwarf);
 
@@ -191,8 +191,8 @@ namespace SnehvideProject
 		{
 			GraphicsDevice.Clear(Color.CornflowerBlue);
 
-			spriteBatch.Begin(sortMode: SpriteSortMode.FrontToBack, null, SamplerState.PointClamp, null, null, null, Camera.Transform);
-			//spriteBatch.Begin();
+			//spriteBatch.Begin(sortMode: SpriteSortMode.FrontToBack, null, SamplerState.PointClamp, null, null, null, Camera.Transform);
+			spriteBatch.Begin();
 
 			// TODO: Add your drawing code here
 

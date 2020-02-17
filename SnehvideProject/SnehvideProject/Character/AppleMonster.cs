@@ -7,20 +7,26 @@ using Microsoft.Xna.Framework;
 
 namespace SnehvideProject
 {
-	public class AppleMonster : Character
+	public class AppleMonster : Character, ICanTakeDamage
 	{
 
 
 		public AppleMonster(Vector2 position)
 		{
 			this.Position = position;
+			attackRange = 150;
+			this.Faction = Faction.Enemy;
 			ChangeSprite(Assets.AppleMonsterSprite);
 		}
 
 
-		public override void Attack()
+		public override void Attack(GameObject gameObject)
 		{
-			throw new NotImplementedException();
+			if(CanAttack(gameObject) == true && gameObject.Faction != this.Faction && gameObject is ICanTakeDamage)
+			{
+				Console.WriteLine("Can Attack Dwarf");
+				//velocity = Vector2.Zero;
+			}
 		}
 
 		public override void Die()
@@ -33,44 +39,57 @@ namespace SnehvideProject
 			throw new NotImplementedException();
 		}
 
-		public bool CanSeeDwarf()
+		public bool CanSeeDwarf(GameObject gameObject)
 		{
-			foreach(GameObject gameObject in GameWorld.GameObjects)
+
+			if(gameObject != null)
 			{
-
-				if(gameObject != null)
+				if ((this.position.X + 500) < (gameObject.Position.X) || (this.position.X - 500) > (gameObject.Position.X))
 				{
-					if ((this.position.X + 300) > (gameObject.Position.X) || (this.position.X - 300) < (gameObject.Position.X))
-					{
-						if (gameObject is IPlayerUnit)
-						{
-							Console.WriteLine("Can see Dwarf");
-							return true;
-						}
 
-					}
-
-
-					if ((this.position.Y + 300) > (gameObject.Position.Y) || (this.position.Y - 300) < (gameObject.Position.Y))
-					{
-						if (gameObject is IPlayerUnit)
-						{
-							Console.WriteLine("Can see Dwarf");
-							return true;
-						}
-					}
+					return false;
+					
 				}
-								
+
+
+				if ((this.position.Y + 500) < (gameObject.Position.Y) || (this.position.Y - 500) > (gameObject.Position.Y))
+				{
+						
+					return false;					
+				}
+			}
+			else
+			{
+				return false;
 			}
 
-			
-			return false;
+
+			return true;
 		}
 
 		public override void Update(GameTime gameTime)
 		{
 			base.Update(gameTime);
-			CanSeeDwarf();
+			foreach(GameObject gameObject in GameWorld.GameObjects)
+			{
+				if(CanSeeDwarf(gameObject) == true && gameObject is IPlayerUnit)
+				{
+					Console.WriteLine("Can see Dwarf");
+					//velocity = gameObject.Position;
+				}
+				else
+				{
+					velocity = Vector2.Zero;
+				}
+				Attack(gameObject);
+			}
+
+			if(velocity != Vector2.Zero)
+			{
+				velocity.Normalize();
+			}
+
+			Move(gameTime);
 		}
 
 	}

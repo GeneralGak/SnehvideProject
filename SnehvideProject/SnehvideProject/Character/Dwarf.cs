@@ -8,7 +8,7 @@ namespace SnehvideProject
 {
     public abstract class Dwarf : Character
     {
-        public override void Attack()
+        public override void Attack(GameObject gameObject)
         {
             throw new NotImplementedException();
         }
