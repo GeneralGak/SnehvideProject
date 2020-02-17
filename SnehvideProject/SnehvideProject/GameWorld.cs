@@ -114,7 +114,7 @@ namespace SnehvideProject
 
 			// TODO: use this.Content to load your game content here
 
-			//gameMap = new Map();
+			gameMap = new Map();
 
 			// Test Monster and Dwarf
 			monster = new AppleMonster(new Vector2(100, 100));
@@ -149,7 +149,7 @@ namespace SnehvideProject
 				Exit();
 
 			// TODO: Add your update logic here
-
+			Camera.Update();
 			foreach (GameObject gameObject in GameObjects)
 			{
 				//Update all objects in active room
@@ -191,8 +191,8 @@ namespace SnehvideProject
 		{
 			GraphicsDevice.Clear(Color.CornflowerBlue);
 
-			//spriteBatch.Begin(SpriteSortMode.FrontToBack, null, null, null, null, null, Camera.Transform);
-			spriteBatch.Begin();
+			spriteBatch.Begin(sortMode: SpriteSortMode.FrontToBack, null, SamplerState.PointClamp, null, null, null, Camera.Transform);
+			//spriteBatch.Begin();
 
 			// TODO: Add your drawing code here
 

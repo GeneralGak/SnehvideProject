@@ -40,7 +40,7 @@ namespace SnehvideProject
 				
 				if ((this.position.X + 600) > (gameObject.Position.X) || (this.position.X - 600) < (gameObject.Position.X))
 				{
-					if (gameObject != null && gameObject is IPlayerUnits)
+					if (gameObject != null && gameObject is IPlayerUnit)
 					{
 						Console.WriteLine("Can see Dwarf");
 						return true;
@@ -51,7 +51,7 @@ namespace SnehvideProject
 				
 				if ((this.position.Y + 600) > (gameObject.Position.Y) || (this.position.Y - 600) < (gameObject.Position.Y))
 				{
-					if (gameObject != null && gameObject is IPlayerUnits)
+					if (gameObject != null && gameObject is IPlayerUnit)
 					{
 						Console.WriteLine("Can see Dwarf");
 						return true;
