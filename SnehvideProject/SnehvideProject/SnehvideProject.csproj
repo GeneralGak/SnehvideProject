@@ -45,6 +45,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Character\AppleMonster.cs" />
+    <Compile Include="EnemyWaves.cs" />
     <Compile Include="ICanTakeDamage.cs" />
     <Compile Include="IPlayerUnit.cs" />
     <Compile Include="Map plus objects\Appletree.cs" />
