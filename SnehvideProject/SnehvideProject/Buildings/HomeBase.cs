@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SnehvideProject
 {
-    class HomeBase
+    class HomeBase : Building, IPlayerUnits
     {
     }
 }

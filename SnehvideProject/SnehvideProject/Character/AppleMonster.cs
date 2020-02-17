@@ -9,6 +9,14 @@ namespace SnehvideProject
 {
 	class AppleMonster : Character
 	{
+
+
+		public AppleMonster(Vector2 position)
+		{
+
+		}
+
+
 		public override void Attack()
 		{
 			throw new NotImplementedException();
@@ -45,6 +53,7 @@ namespace SnehvideProject
 			}
 
 			// Player is close enough
+			Console.WriteLine("Can see Dwarf");
 			return true;
 		}
 

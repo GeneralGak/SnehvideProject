@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SnehvideProject
 {
-    class Miner : Dwarf
+    class Miner : Dwarf, IPlayerUnits
     {
     }
 }

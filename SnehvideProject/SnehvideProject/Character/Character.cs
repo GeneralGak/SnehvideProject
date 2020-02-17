@@ -142,6 +142,7 @@ namespace SnehvideProject
 			}
 
 			// Player is close enough
+			Console.WriteLine("Can Attack");
 			return true;
 		}
 
