@@ -9,8 +9,29 @@ namespace SnehvideProject
 	/// </summary>
 	public class GameWorld : Game
 	{
-		GraphicsDeviceManager graphics;
-		SpriteBatch spriteBatch;
+		//FIELDS
+		private GraphicsDeviceManager graphics;
+		private SpriteBatch spriteBatch;
+		private static Vector2 scrSize;
+		private static float scrScale;
+
+		// PROPERTIES
+
+		/// <summary>
+		/// Used for accessing screen size elsewhere in the code
+		/// </summary>
+		public static Vector2 ScrSize
+		{
+			get { return scrSize; }
+		}
+
+		/// <summary>
+		/// Used for accessing scaling elsewhere in the code
+		/// </summary>
+		public static float ScrScale
+		{
+			get { return scrScale; }
+		}
 
 		public GameWorld()
 		{
@@ -28,6 +49,12 @@ namespace SnehvideProject
 		{
 			// TODO: Add your initialization logic here
 
+			// Sets screen width and height in a vector
+			scrSize = new Vector2(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
+
+			// Sets screen scale
+			scrScale = 1;
+
 			base.Initialize();
 		}
 
@@ -43,8 +70,6 @@ namespace SnehvideProject
 			// TODO: use this.Content to load your game content here
 
 			Assets.LoadContent(Content);
-
-
 		}
 
 		/// <summary>
@@ -79,7 +104,11 @@ namespace SnehvideProject
 		{
 			GraphicsDevice.Clear(Color.CornflowerBlue);
 
+			spriteBatch.Begin(SpriteSortMode.FrontToBack, null, null, null, null, null, Camera.Transform);
+
 			// TODO: Add your drawing code here
+
+			spriteBatch.End();
 
 			base.Draw(gameTime);
 		}
