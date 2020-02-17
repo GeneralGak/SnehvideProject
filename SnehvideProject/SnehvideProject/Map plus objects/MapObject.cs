@@ -57,13 +57,13 @@ namespace SnehvideProject
 
                     switch (coordinate)
                     {
-                        case (0):
+                        case (1):
                             {
                                 GameObject newTree = new Tree(Assets.TreeSprite, new Vector2(x * size, y * size));
                                 GameWorld.GameObjects.Add(newTree);
                                 break;
                             }
-                        case (1):
+                        case (2):
                             {
                                 GameObject newAppletree = new Appletree(Assets.AppletreeSprite, new Vector2(x * size, y * size));
                                 GameWorld.GameObjects.Add(newAppletree);

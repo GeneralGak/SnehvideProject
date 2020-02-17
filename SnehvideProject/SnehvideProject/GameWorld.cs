@@ -112,12 +112,12 @@ namespace SnehvideProject
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 			Assets.LoadContent(Content);
 
-			// TODO: use this.Content to load your game content here
+            // TODO: use this.Content to load your game content here
 
 			gameMap = new Map();
 
-			// Test Monster and Dwarf
-			monster = new AppleMonster(new Vector2(100, 100));
+            // Test Monster and Dwarf
+            monster = new AppleMonster(new Vector2(100, 100));
 			dwarf = new Fighter(new Vector2(500, 500));
 			GameObjects.Add(monster);
 			GameObjects.Add(dwarf);
