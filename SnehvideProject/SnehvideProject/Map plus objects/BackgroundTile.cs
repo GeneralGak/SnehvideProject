@@ -15,7 +15,7 @@ namespace SnehvideProject
         public BackgroundTile(Texture2D sprite, Vector2 position, int coordinate)
         {
             base.sprite = sprite;
-            base.position = position;
+            this.position = position;
             this.coordinate = coordinate;
         }
 
