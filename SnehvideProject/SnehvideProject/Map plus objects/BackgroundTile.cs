@@ -30,13 +30,13 @@ namespace SnehvideProject
             switch (coordinate)
             {
                 case (0):
-                    sprite = Assets.grassSprite;
+                    sprite = Assets.GrassSprite;
                     break;
                 case (1):
-                    sprite = Assets.groundSprite;
+                    sprite = Assets.GroundSprite;
                     break;
                 case (2):
-                    sprite = Assets.waterSprite;
+                    sprite = Assets.WaterSprite;
                     break;
             }
         }

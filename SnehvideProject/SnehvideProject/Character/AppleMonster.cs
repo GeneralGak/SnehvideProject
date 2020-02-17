@@ -13,6 +13,7 @@ namespace SnehvideProject
 
 		public AppleMonster(Vector2 position)
 		{
+			this.Position = position;
 			ChangeSprite(Assets.AppleMonsterSprite);
 		}
 
@@ -37,27 +38,29 @@ namespace SnehvideProject
 			foreach(GameObject gameObject in GameWorld.GameObjects)
 			{
 
-				
-				if ((this.position.X + 600) > (gameObject.Position.X) || (this.position.X - 600) < (gameObject.Position.X))
+				if(gameObject != null)
 				{
-					if (gameObject != null && gameObject is IPlayerUnits)
+					if ((this.position.X + 300) > (gameObject.Position.X) || (this.position.X - 300) < (gameObject.Position.X))
 					{
-						Console.WriteLine("Can see Dwarf");
-						return true;
-					}
-						
-				}
+						if (gameObject is IPlayerUnit)
+						{
+							Console.WriteLine("Can see Dwarf");
+							return true;
+						}
 
-				
-				if ((this.position.Y + 600) > (gameObject.Position.Y) || (this.position.Y - 600) < (gameObject.Position.Y))
-				{
-					if (gameObject != null && gameObject is IPlayerUnits)
+					}
+
+
+					if ((this.position.Y + 300) > (gameObject.Position.Y) || (this.position.Y - 300) < (gameObject.Position.Y))
 					{
-						Console.WriteLine("Can see Dwarf");
-						return true;
+						if (gameObject is IPlayerUnit)
+						{
+							Console.WriteLine("Can see Dwarf");
+							return true;
+						}
 					}
 				}
-				
+								
 			}
 
 			

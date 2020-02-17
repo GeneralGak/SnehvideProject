@@ -104,16 +104,16 @@ namespace SnehvideProject
 
 			// Test Monster and Dwarf
 			monster = new AppleMonster(new Vector2(100, 100));
-			dwarf = new Fighter(new Vector2(500, 500));
+			dwarf = new Fighter(new Vector2(200, 200));
 			GameObjects.Add(monster);
 			GameObjects.Add(dwarf);
 
 
-            foreach (GameObject gameObject in GameObjects)
-            {
-                gameObject.LoadContent(Content);
-            }
-        }
+			//foreach (GameObject gameObject in GameObjects)
+			//{
+			//    gameObject.LoadContent(Content);
+			//}
+		}
 
 		/// <summary>
 		/// UnloadContent will be called once per game and is the place to unload
