@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace SnehvideProject
 {
-    class Fighter : Dwarf, IPlayerUnits
+    public class Fighter : Dwarf, IPlayerUnits
     {
 
 		public Fighter(Vector2 position)
 		{
-
+			ChangeSprite(Assets.DwarfFighterSprite);
 		}
 
     }

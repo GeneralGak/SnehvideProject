@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SnehvideProject
 {
-    class Dwarf : Character
+    public abstract class Dwarf : Character
     {
         public override void Attack()
         {
@@ -23,9 +23,5 @@ namespace SnehvideProject
             throw new NotImplementedException();
         }
 
-        public override void Reload()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
