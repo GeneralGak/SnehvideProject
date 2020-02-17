@@ -109,7 +109,11 @@ namespace SnehvideProject
 			GameObjects.Add(dwarf);
 
 
-		}
+            foreach (GameObject gameObject in GameObjects)
+            {
+                gameObject.LoadContent(Content);
+            }
+        }
 
 		/// <summary>
 		/// UnloadContent will be called once per game and is the place to unload
@@ -173,7 +177,8 @@ namespace SnehvideProject
 		{
 			GraphicsDevice.Clear(Color.CornflowerBlue);
 
-			spriteBatch.Begin(SpriteSortMode.FrontToBack, null, null, null, null, null, Camera.Transform);
+			//spriteBatch.Begin(SpriteSortMode.FrontToBack, null, null, null, null, null, Camera.Transform);
+			spriteBatch.Begin();
 
 			// TODO: Add your drawing code here
 

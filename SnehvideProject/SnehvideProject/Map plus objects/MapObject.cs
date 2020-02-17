@@ -9,7 +9,12 @@ namespace SnehvideProject
 {
     class MapObject
     {
-        private int coordinate;
+        private static int coordinate;
+
+        public static int Coordinate
+        {
+            get { return coordinate; }
+        }
         protected void GenerateLevel(int[,] layerOne, int[,] layerTwo, float size)
         {
             // Layer one is for background tiles.
@@ -23,17 +28,20 @@ namespace SnehvideProject
                     {
                         case (0):
                             {
-                                GameObject newGrass = new BackgroundTile(Assets.GrassSprite, new Vector2(x * GameWorld.ScrScale, y * GameWorld.ScrScale));
+                                GameObject newGrass = new BackgroundTile(Assets.grassSprite, new Vector2(x * GameWorld.ScrScale, y * GameWorld.ScrScale), coordinate);
+                                GameWorld.GameObjects.Add(newGrass);
                                 break;
                             }
                         case (1):
                             {
-                                GameObject newGround = new BackgroundTile(Assets.GroundSprite, new Vector2(x * GameWorld.ScrScale, y * GameWorld.ScrScale));
+                                GameObject newGround = new BackgroundTile(Assets.groundSprite, new Vector2(x * GameWorld.ScrScale, y * GameWorld.ScrScale), coordinate);
+                                GameWorld.GameObjects.Add(newGround);
                                 break;
                             }
                         case (2):
                             {
-                                GameObject newWater = new BackgroundTile(Assets.WaterSprite, new Vector2(x * GameWorld.ScrScale, y * GameWorld.ScrScale));
+                                GameObject newWater = new BackgroundTile(Assets.waterSprite, new Vector2(x * GameWorld.ScrScale, y * GameWorld.ScrScale), coordinate);
+                                GameWorld.GameObjects.Add(newWater);
                                 break;
                             }
                     }
@@ -51,12 +59,14 @@ namespace SnehvideProject
                     {
                         case (0):
                             {
-                                GameObject newTree = new Tree(Assets.TreeSprite, new Vector2(x * GameWorld.ScrScale, y * GameWorld.ScrScale));
+                                GameObject newTree = new Tree(Assets.treeSprite, new Vector2(x * GameWorld.ScrScale, y * GameWorld.ScrScale));
+                                GameWorld.GameObjects.Add(newTree);
                                 break;
                             }
                         case (1):
                             {
-                                GameObject newAppletree = new Appletree(Assets.AppletreeSprite, new Vector2(x * GameWorld.ScrScale, y * GameWorld.ScrScale));
+                                GameObject newAppletree = new Appletree(Assets.appletreeSprite, new Vector2(x * GameWorld.ScrScale, y * GameWorld.ScrScale));
+                                GameWorld.GameObjects.Add(newAppletree);
                                 break;
                             }
                     }

@@ -14,6 +14,5 @@ namespace SnehvideProject
 		{
 			ChangeSprite(Assets.DwarfFighterSprite);
 		}
-
     }
 }
