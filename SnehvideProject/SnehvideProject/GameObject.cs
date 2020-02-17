@@ -10,12 +10,12 @@ namespace SnehvideProject
 {
 	public abstract class GameObject
 	{
-
+		// FIELDS
 		protected Vector2 position;
 		protected float drawLayer = 0.01f;
 		protected float rotation;
 		protected float size = 1;
-		protected string name;
+		protected string name; // Behøver vi name?
 		protected Vector2 origin;
 		protected Texture2D sprite;
 		protected Texture2D[] sprites;
@@ -23,30 +23,28 @@ namespace SnehvideProject
 		protected bool spriteFlippedY;
 		protected bool isHidden;
 
-		public GameObject(Vector2 position)
-		{
-			this.position = position;
-		}
+		//PROPERTIES
 
-		public GameObject() { }
-
+		/// <summary>
+		/// Position Property
+		/// </summary>
 		public Vector2 Position
 		{
 			get { return position; }
 			set { position = value; }
 		}
 
-		public float PositionY
-		{
-			get { return position.Y; }
-			set { position.Y = value; }
-		}
+		//public float PositionY
+		//{
+		//	get { return position.Y; }
+		//	set { position.Y = value; }
+		//}
 
-		public float PositionX
-		{
-			get { return position.X; }
-			set { position.X = value; }
-		}
+		//public float PositionX
+		//{
+		//	get { return position.X; }
+		//	set { position.X = value; }
+		//}
 
 		public bool SpriteFlippedX
 		{
@@ -67,6 +65,20 @@ namespace SnehvideProject
 
 		public float Size { get => size; set => size = value; }
 		public bool IsHidden { get; set; }
+
+		/// <summary>
+		/// Empty GameObject Constructor
+		/// </summary>
+		public GameObject() { }
+
+		/// <summary>
+		/// GameObject constructor with 1 parameter for position
+		/// </summary>
+		/// <param name="position"></param>
+		public GameObject(Vector2 position)
+		{
+			this.position = position;
+		}
 
 		/// <summary>
 		/// Runs every frame
