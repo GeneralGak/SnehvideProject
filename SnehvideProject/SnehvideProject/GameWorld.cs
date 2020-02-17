@@ -21,7 +21,10 @@ namespace SnehvideProject
 		public static List<GameObject> NewGameObjects = new List<GameObject>();
 		public static List<GameObject> RemoveGameObjects = new List<GameObject>();
 
-		public static void AddGameObject(GameObject gameObject)
+        private static int screenWidth;
+        private static int screenHeight;
+
+        public static void AddGameObject(GameObject gameObject)
 		{
 			NewGameObjects.Add(gameObject);
 		}
@@ -60,7 +63,10 @@ namespace SnehvideProject
 			get { return scrScale; }
 		}
 
-        public static float TileSize { get => tileSize; set => tileSize = value; }
+        public static float TileSize
+        {
+            get { return tileSize; }
+        }
 
         public GameWorld()
 		{
@@ -77,13 +83,21 @@ namespace SnehvideProject
 		/// </summary>
 		protected override void Initialize()
 		{
-			// TODO: Add your initialization logic here
+            // TODO: Add your initialization logic here
 
-			// Sets screen width and height in a vector
-			scrSize = new Vector2(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
-            tileSize = 64 * scrScale;
+            // Adjusts the game window to the screen resolution
+            graphics.PreferredBackBufferWidth = GraphicsDevice.DisplayMode.Width;
+            graphics.PreferredBackBufferHeight = GraphicsDevice.DisplayMode.Height;
+            graphics.ApplyChanges();
+            screenWidth = graphics.PreferredBackBufferWidth;
+            screenHeight = graphics.PreferredBackBufferHeight;
+
+            // Sets screen width and height in a vector
+            scrSize = new Vector2(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
 			// Sets screen scale
 			scrScale = ((1f / 1920f) * GraphicsDevice.DisplayMode.Width);
+            // Sets tilesize
+            tileSize = 64 * scrScale;
 
 			base.Initialize();
 		}
@@ -100,7 +114,7 @@ namespace SnehvideProject
 
 			// TODO: use this.Content to load your game content here
 
-			//gameMap = new Map();
+			gameMap = new Map();
 
 			// Test Monster and Dwarf
 			monster = new AppleMonster(new Vector2(100, 100));
@@ -135,7 +149,7 @@ namespace SnehvideProject
 				Exit();
 
 			// TODO: Add your update logic here
-
+			Camera.Update();
 			foreach (GameObject gameObject in GameObjects)
 			{
 				//Update all objects in active room
@@ -177,8 +191,8 @@ namespace SnehvideProject
 		{
 			GraphicsDevice.Clear(Color.CornflowerBlue);
 
-			//spriteBatch.Begin(SpriteSortMode.FrontToBack, null, null, null, null, null, Camera.Transform);
-			spriteBatch.Begin();
+			spriteBatch.Begin(sortMode: SpriteSortMode.FrontToBack, null, SamplerState.PointClamp, null, null, null, Camera.Transform);
+			//spriteBatch.Begin();
 
 			// TODO: Add your drawing code here
 

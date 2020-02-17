@@ -13,7 +13,7 @@ namespace SnehvideProject
         public Tree(Texture2D sprite, Vector2 position)
         {
             base.sprite = sprite;
-            base.position = position;
+            this.position = position;
         }
 
         public override void OnCollision(GameObject gameobject)
