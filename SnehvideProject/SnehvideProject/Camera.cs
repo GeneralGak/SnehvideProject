@@ -10,10 +10,14 @@ namespace SnehvideProject
 {
 	static class Camera
 	{
-		private static Vector2 velocity;
-		public static Vector2 CamPos = Vector2.Zero;
+        // FIELDS
+        private static KeyboardState keyState = Keyboard.GetState();
+        private static Vector2 velocity;
+		private static Vector2 CamPos = Vector2.Zero;
 		private static float speed = 10, previousScrollValue;
-		public static float CamZoom = 1;
+		private static float CamZoom = 1;
+
+        // METHODS
 
         /// <summary>
         /// Transform accessed by GameWorld for displaying objects at translated position
@@ -33,11 +37,10 @@ namespace SnehvideProject
         }
 
         /// <summary>
-        /// Handles input from the user. Unput includes moving the camera and camerazoom.
+        /// Handles input from the user. Input includes moving the camera and camerazoom.
         /// </summary>
         private static void HandleInput()
         {
-            KeyboardState keyState = Keyboard.GetState();
             velocity = Vector2.Zero;
 
             if (keyState.IsKeyDown(Keys.W)) // Up
@@ -60,8 +63,7 @@ namespace SnehvideProject
                 velocity.X += 1;
             }
 
-            // Zoom limit
-                if (keyState.IsKeyDown(Keys.E))
+                if (keyState.IsKeyDown(Keys.E)) // Zoom in
                 {
                     CamZoom += 0.05f * CamZoom; // value * CamZoom to negate warping effect
                 }
@@ -69,16 +71,18 @@ namespace SnehvideProject
                 //{
                 //    CamZoom += 0.05f * CamZoom * 5;
                 //}
-                if (keyState.IsKeyDown(Keys.Q))
+                if (keyState.IsKeyDown(Keys.Q)) // Zoom out
                 {
                     CamZoom -= 0.05f * CamZoom;
                 }
-                //else if (GameWorld.Mousestate.ScrollWheelValue < previousScrollValue)
-                //{
-                //    CamZoom -= 0.05f * CamZoom * 5;
-                //}
+            //else if (GameWorld.Mousestate.ScrollWheelValue < previousScrollValue)
+            //{
+            //    CamZoom -= 0.05f * CamZoom * 5;
+            //}
 
-            CamPos += velocity * speed / CamZoom;
+            // Changes cameraposition based on velocity multiplied by speed. Speed is divided by CamZoom to avoid slowing down when zooming in
+            // or speeding up when zooming out.
+            CamPos += velocity * speed / CamZoom; 
 
             //previousScrollValue = GameWorld.Mousestate.ScrollWheelValue;
         }
