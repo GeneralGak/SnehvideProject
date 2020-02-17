@@ -36,18 +36,6 @@ namespace SnehvideProject
 			set { position = value; }
 		}
 
-		public float PositionY
-		{
-			get { return position.Y; }
-			set { position.Y = value; }
-		}
-
-		public float PositionX
-		{
-			get { return position.X; }
-			set { position.X = value; }
-		}
-
 		public bool SpriteFlippedX
 		{
 			get { return spriteFlippedX; }

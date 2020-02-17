@@ -11,7 +11,11 @@ namespace SnehvideProject
 	public static class Assets
 	{
 
-		static Texture2D playerSprite;
+		static Texture2D AppleMonsterSprite;
+		static Texture2D DwarfMinerSprite;
+		static Texture2D DwarfFighterSprite;
+		static Texture2D FriendlyBarrackSprite;
+		static Texture2D FriendlyMineSprite;
 
 		public static void LoadContent(ContentManager content)
 		{
