@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -78,6 +79,11 @@ namespace SnehvideProject
         public GameObject(Vector2 position)
         {
             this.position = position;
+        }
+
+        public virtual void LoadContent(ContentManager content)
+        {
+
         }
 
         /// <summary>

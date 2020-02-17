@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -16,9 +17,16 @@ namespace SnehvideProject
             base.position = position;
         }
 
+
         public override void OnCollision(GameObject gameobject)
         {
 
+        }
+
+        public override void LoadContent(ContentManager content)
+        {
+            sprite;
+            position;
         }
     }
 }

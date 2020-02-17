@@ -100,7 +100,12 @@ namespace SnehvideProject
             gameMap = new Map();
 
 			Assets.LoadContent(Content);
-		}
+
+            foreach (GameObject gameObject in GameObjects)
+            {
+                gameObject.LoadContent(Content);
+            }
+        }
 
 		/// <summary>
 		/// UnloadContent will be called once per game and is the place to unload
