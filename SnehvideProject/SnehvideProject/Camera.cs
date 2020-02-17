@@ -82,7 +82,7 @@ namespace SnehvideProject
 
             // Changes cameraposition based on velocity multiplied by speed. Speed is divided by CamZoom to avoid slowing down when zooming in
             // or speeding up when zooming out.
-            camPos += velocity * speed / camZoom; 
+            camPos += velocity * speed / camZoom;
 
             //previousScrollValue = GameWorld.Mousestate.ScrollWheelValue;
         }
