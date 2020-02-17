@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SnehvideProject
 {
-    class Dwarf : Character
+    public abstract class Dwarf : Character
     {
         public override void Attack()
         {

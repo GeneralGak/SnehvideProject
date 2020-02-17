@@ -10,26 +10,28 @@ namespace SnehvideProject
 {
 	public static class Assets
 	{
-		public static Texture2D appleMonsterSprite;
-		public static Texture2D dwarfMinerSprite;
-		public static Texture2D dwarfFighterSprite;
-		public static Texture2D friendlyBarrackSprite;
-		public static Texture2D friendlyMineSprite;
+		public static Texture2D AppleMonsterSprite;
+		public static Texture2D DwarfMinerSprite;
+		public static Texture2D DwarfFighterSprite;
+		public static Texture2D FriendlyBarrackSprite;
+		public static Texture2D FriendlyMineSprite;
 
 		// Map objects and background tiles.
-		public static Texture2D grassSprite;
-		public static Texture2D groundSprite;
-		public static Texture2D waterSprite;
-		public static Texture2D appletreeSprite;
-		public static Texture2D treeSprite;
+		public static Texture2D GrassSprite;
+		public static Texture2D GroundSprite;
+		public static Texture2D WaterSprite;
+		public static Texture2D AppletreeSprite;
+		public static Texture2D TreeSprite;
 
         public static void LoadContent(ContentManager content)
 		{
-            grassSprite = content.Load<Texture2D> ("tile_02");
-			groundSprite = content.Load<Texture2D> ("tile_06");
-            waterSprite = content.Load<Texture2D>("tile_19");
-            appletreeSprite = content.Load<Texture2D>("Appletree");
-            treeSprite = content.Load<Texture2D>("Tree");
+            GrassSprite = content.Load<Texture2D> ("tile_02");
+			GroundSprite = content.Load<Texture2D> ("tile_06");
+            WaterSprite = content.Load<Texture2D>("tile_19");
+            AppletreeSprite = content.Load<Texture2D>("Appletree");
+            TreeSprite = content.Load<Texture2D>("Tree");
+			AppleMonsterSprite = content.Load<Texture2D>("MonsterÆble");
+			DwarfFighterSprite = content.Load<Texture2D>("Dwarf Sprite Sheet");
 		}
 	}
 }

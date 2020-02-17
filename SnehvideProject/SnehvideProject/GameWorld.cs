@@ -40,6 +40,8 @@ namespace SnehvideProject
 		private static Vector2 scrSize;
 		private static float scrScale;
         private static float tileSize;
+		public static AppleMonster monster;
+		public static Fighter dwarf;
 
         private Map gameMap;
 
@@ -108,12 +110,18 @@ namespace SnehvideProject
 		{
 			// Create a new SpriteBatch, which can be used to draw textures.
 			spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            // TODO: use this.Content to load your game content here
-
-            gameMap = new Map();
-
 			Assets.LoadContent(Content);
+
+			// TODO: use this.Content to load your game content here
+
+			//gameMap = new Map();
+
+			// Test Monster and Dwarf
+			monster = new AppleMonster(new Vector2(100, 100));
+			dwarf = new Fighter(new Vector2(500, 500));
+			GameObjects.Add(monster);
+			GameObjects.Add(dwarf);
+
 
             foreach (GameObject gameObject in GameObjects)
             {
