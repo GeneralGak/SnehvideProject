@@ -24,16 +24,19 @@ namespace SnehvideProject
                         case (0):
                             {
                                 GameObject newGrass = new BackgroundTile(Assets.grassSprite, new Vector2(x * GameWorld.ScrScale, y * GameWorld.ScrScale));
+                                GameWorld.GameObjects.Add(newGrass);
                                 break;
                             }
                         case (1):
                             {
                                 GameObject newGround = new BackgroundTile(Assets.groundSprite, new Vector2(x * GameWorld.ScrScale, y * GameWorld.ScrScale));
+                                GameWorld.GameObjects.Add(newGround);
                                 break;
                             }
                         case (2):
                             {
                                 GameObject newWater = new BackgroundTile(Assets.waterSprite, new Vector2(x * GameWorld.ScrScale, y * GameWorld.ScrScale));
+                                GameWorld.GameObjects.Add(newWater);
                                 break;
                             }
                     }
@@ -52,11 +55,13 @@ namespace SnehvideProject
                         case (0):
                             {
                                 GameObject newTree = new Tree(Assets.treeSprite, new Vector2(x * GameWorld.ScrScale, y * GameWorld.ScrScale));
+                                GameWorld.GameObjects.Add(newTree);
                                 break;
                             }
                         case (1):
                             {
                                 GameObject newAppletree = new Appletree(Assets.appletreeSprite, new Vector2(x * GameWorld.ScrScale, y * GameWorld.ScrScale));
+                                GameWorld.GameObjects.Add(newAppletree);
                                 break;
                             }
                     }
