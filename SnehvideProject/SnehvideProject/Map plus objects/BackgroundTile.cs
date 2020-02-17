@@ -11,10 +11,12 @@ namespace SnehvideProject
 {
     class BackgroundTile : GameObject
     {
-        public BackgroundTile(Texture2D sprite, Vector2 position)
+        private int coordinate;
+        public BackgroundTile(Texture2D sprite, Vector2 position, int coordinate)
         {
             base.sprite = sprite;
             base.position = position;
+            this.coordinate = coordinate;
         }
 
 
@@ -25,8 +27,18 @@ namespace SnehvideProject
 
         public override void LoadContent(ContentManager content)
         {
-            sprite;
-            position;
+            switch (coordinate)
+            {
+                case (0):
+                    sprite = Assets.grassSprite;
+                    break;
+                case (1):
+                    sprite = Assets.groundSprite;
+                    break;
+                case (2):
+                    sprite = Assets.waterSprite;
+                    break;
+            }
         }
     }
 }
