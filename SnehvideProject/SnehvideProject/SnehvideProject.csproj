@@ -48,7 +48,7 @@
     <Compile Include="IPlayerUnits.cs" />
     <Compile Include="Map plus objects\Appletree.cs" />
     <Compile Include="Assets.cs" />
-    <Compile Include="Map plus objects\BackgroundTiles.cs" />
+    <Compile Include="Map plus objects\BackgroundTile.cs" />
     <Compile Include="Buildings\Barrack.cs" />
     <Compile Include="Buildings\Building.cs" />
     <Compile Include="Camera.cs" />

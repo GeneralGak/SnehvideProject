@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace SnehvideProject
 {
-    class Appletree : GameObject
+    class BackgroundTile : GameObject
     {
-        public Appletree(Texture2D sprite, Vector2 position)
+        public BackgroundTile(Texture2D sprite, Vector2 position)
         {
             base.sprite = sprite;
             base.position = position;
