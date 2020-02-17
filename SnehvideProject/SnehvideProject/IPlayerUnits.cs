@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SnehvideProject
 {
-	interface ITargetable
+	interface IPlayerUnits
 	{
 	}
 }
