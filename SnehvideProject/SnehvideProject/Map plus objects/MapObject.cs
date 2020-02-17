@@ -28,19 +28,19 @@ namespace SnehvideProject
                     {
                         case (0):
                             {
-                                GameObject newGrass = new BackgroundTile(Assets.GrassSprite, new Vector2(x * size, y * size), coordinate);
+                                GameObject newGrass = new BackgroundTile(new Vector2(x * size, y * size), coordinate);
                                 GameWorld.GameObjects.Add(newGrass);
                                 break;
                             }
                         case (1):
                             {
-                                GameObject newGround = new BackgroundTile(Assets.GroundSprite, new Vector2(x * size, y * size), coordinate);
+                                GameObject newGround = new BackgroundTile(new Vector2(x * size, y * size), coordinate);
                                 GameWorld.GameObjects.Add(newGround);
                                 break;
                             }
                         case (2):
                             {
-                                GameObject newWater = new BackgroundTile(Assets.WaterSprite, new Vector2(x * size, y * size), coordinate);
+                                GameObject newWater = new BackgroundTile(new Vector2(x * size, y * size), coordinate);
                                 GameWorld.GameObjects.Add(newWater);
                                 break;
                             }

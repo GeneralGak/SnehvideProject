@@ -11,7 +11,7 @@ namespace SnehvideProject
 	static class Camera
 	{
 		// FIELDS
-		private static KeyboardState keyState = Keyboard.GetState();
+		//private static KeyboardState keyState = Keyboard.GetState();
 		private static Vector2 velocity;
 		public static Vector2 CamPos = Vector2.Zero;
 		private static float speed = 10/*, previousScrollValue*/;
@@ -42,6 +42,7 @@ namespace SnehvideProject
 		/// </summary>
 		private static void HandleInput()
 		{
+			KeyboardState keyState = Keyboard.GetState();
 			velocity = Vector2.Zero;
 
 			if (keyState.IsKeyDown(Keys.W)) // Up
@@ -83,7 +84,7 @@ namespace SnehvideProject
 
 			// Changes cameraposition based on velocity multiplied by speed. Speed is divided by CamZoom to avoid slowing down when zooming in
 			// or speeding up when zooming out.
-			CamPos += velocity * speed / CamZoom;
+			CamPos += velocity * speed / CamZoom; ;
 
 			//previousScrollValue = GameWorld.Mousestate.ScrollWheelValue;
 		}
