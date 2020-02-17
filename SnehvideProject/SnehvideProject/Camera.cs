@@ -13,9 +13,9 @@ namespace SnehvideProject
         // FIELDS
         private static KeyboardState keyState = Keyboard.GetState();
         private static Vector2 velocity;
-		private static Vector2 CamPos = Vector2.Zero;
+		private static Vector2 camPos = Vector2.Zero;
 		private static float speed = 10, previousScrollValue;
-		private static float CamZoom = 1;
+		private static float camZoom = 1;
 
         // METHODS
 
@@ -31,8 +31,8 @@ namespace SnehvideProject
         static public void Update()
         {
             HandleInput();
-            Transform = Matrix.CreateTranslation(new Vector3(-CamPos, 0)) *
-                Matrix.CreateScale(new Vector3(CamZoom, CamZoom, 0)) *
+            Transform = Matrix.CreateTranslation(new Vector3(-camPos, 0)) *
+                Matrix.CreateScale(new Vector3(camZoom, camZoom, 0)) *
                 Matrix.CreateTranslation(GameWorld.ScrSize.X / 2, GameWorld.ScrSize.Y / 2, 0);
         }
 
@@ -65,7 +65,7 @@ namespace SnehvideProject
 
                 if (keyState.IsKeyDown(Keys.E)) // Zoom in
                 {
-                    CamZoom += 0.05f * CamZoom; // value * CamZoom to negate warping effect
+                    camZoom += 0.05f * camZoom; // value * CamZoom to negate warping effect
                 }
                 //else if (GameWorld.Mousestate.ScrollWheelValue > previousScrollValue)
                 //{
@@ -73,7 +73,7 @@ namespace SnehvideProject
                 //}
                 if (keyState.IsKeyDown(Keys.Q)) // Zoom out
                 {
-                    CamZoom -= 0.05f * CamZoom;
+                    camZoom -= 0.05f * camZoom;
                 }
             //else if (GameWorld.Mousestate.ScrollWheelValue < previousScrollValue)
             //{
@@ -82,7 +82,7 @@ namespace SnehvideProject
 
             // Changes cameraposition based on velocity multiplied by speed. Speed is divided by CamZoom to avoid slowing down when zooming in
             // or speeding up when zooming out.
-            CamPos += velocity * speed / CamZoom;
+            camPos += velocity * speed / camZoom;
 
             //previousScrollValue = GameWorld.Mousestate.ScrollWheelValue;
         }
