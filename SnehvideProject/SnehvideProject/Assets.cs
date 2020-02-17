@@ -10,19 +10,22 @@ namespace SnehvideProject
 {
 	public static class Assets
 	{
+		static Texture2D appleMonsterSprite;
+		static Texture2D dwarfMinerSprite;
+		static Texture2D dwarfFighterSprite;
+		static Texture2D friendlyBarrackSprite;
+		static Texture2D friendlyMineSprite;
 
-		static Texture2D AppleMonsterSprite;
-		static Texture2D DwarfMinerSprite;
-		static Texture2D DwarfFighterSprite;
-		static Texture2D FriendlyBarrackSprite;
-		static Texture2D FriendlyMineSprite;
+        // Map objects and background tiles.
+        static Texture2D grassSprite;
+        static Texture2D groundSprite;
+        static Texture2D waterSprite;
+        static Texture2D appletreeSprite;
+        static Texture2D treeSprite;
 
-		public static void LoadContent(ContentManager content)
+        public static void LoadContent(ContentManager content)
 		{
 
-
-
 		}
-
 	}
 }

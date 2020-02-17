@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SnehvideProject
 {
-    class MapObject
+    class Dwarf : Character
     {
     }
 }
