@@ -123,6 +123,36 @@ namespace SnehvideProject
 
 			// TODO: Add your update logic here
 
+			foreach (GameObject gameObject in GameObjects)
+			{
+				//Update all objects in active room
+				gameObject.Update(gameTime);
+				foreach (GameObject other in GameObjects)
+				{
+					gameObject.CheckCollision(other);
+				}
+			}
+
+			//Add new objects to rooms
+			foreach (GameObject gameObject in NewGameObjects)
+			{
+				GameObjects.Add(gameObject);
+			}
+			NewGameObjects.Clear();
+			//Remove gameobjects from rooms
+			foreach (GameObject gameObject in RemoveGameObjects)
+			{
+				if (gameObject != null)
+				{
+					GameObjects.Add(gameObject);
+				}
+				else
+				{
+					GameObjects.Remove(gameObject);
+				}
+			}
+			RemoveGameObjects.Clear();
+
 			base.Update(gameTime);
 		}
 
@@ -138,9 +168,24 @@ namespace SnehvideProject
 
 			// TODO: Add your drawing code here
 
+			//Draws all objects in active room
+			foreach (GameObject gameObject in GameObjects)
+			{
+				//Update all objects in active room
+				gameObject.Draw(spriteBatch);
+#if DEBUG
+				DrawCollisionBox(gameObject);
+#endif
+			}
+
 			spriteBatch.End();
 
 			base.Draw(gameTime);
+		}
+
+		private void DrawCollisionBox(GameObject gameObject)
+		{
+
 		}
 	}
 }
