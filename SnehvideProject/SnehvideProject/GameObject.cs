@@ -8,83 +8,86 @@ using System.Threading.Tasks;
 
 namespace SnehvideProject
 {
-	public abstract class GameObject
-	{
-		// FIELDS
-		protected Vector2 position;
-		protected float drawLayer = 0.01f;
-		protected float rotation;
-		protected float size = 1;
-		protected string name; // Behøver vi name?
-		protected Vector2 origin;
-		protected Texture2D sprite;
-		protected Texture2D[] sprites;
-		protected bool spriteFlippedX;
-		protected bool spriteFlippedY;
-		protected bool isHidden;
+    public abstract class GameObject
+    {
+        // FIELDS
+        protected Vector2 position;
+        protected float drawLayer = 0.01f;
+        protected float rotation;
+        protected float size = 1;
+        protected string name; // Behøver vi name?
+        protected Vector2 origin;
+        protected Texture2D sprite;
+        protected Texture2D[] sprites;
+        protected bool spriteFlippedX;
+        protected bool spriteFlippedY;
+        protected bool isHidden;
 
-		//PROPERTIES
+        //PROPERTIES
 
-		/// <summary>
-		/// Position Property
-		/// </summary>
-		public Vector2 Position
-		{
-			get { return position; }
-			set { position = value; }
-		}
+        /// <summary>
+        /// Position Property
+        /// </summary>
+        public Vector2 Position
+        {
+            get { return position; }
+            set { position = value; }
+        }
 
-		//public float PositionY
-		//{
-		//	get { return position.Y; }
-		//	set { position.Y = value; }
-		//}
+        //public float PositionY
+        //{
+        //	get { return position.Y; }
+        //	set { position.Y = value; }
+        //}
 
-		//public float PositionX
-		//{
-		//	get { return position.X; }
-		//	set { position.X = value; }
-		//}
+        //public float PositionX
+        //{
+        //	get { return position.X; }
+        //	set { position.X = value; }
+        //}
 
-		public bool SpriteFlippedX
-		{
-			get { return spriteFlippedX; }
-			set { spriteFlippedX = value; }
-		}
+        public bool SpriteFlippedX
+        {
+            get { return spriteFlippedX; }
+            set { spriteFlippedX = value; }
+        }
 
-		public bool SpriteFlippedY
-		{
-			get { return spriteFlippedY; }
-			set { spriteFlippedY = value; }
-		}
+        public bool SpriteFlippedY
+        {
+            get { return spriteFlippedY; }
+            set { spriteFlippedY = value; }
+        }
 
-		public Texture2D Sprite
-		{
-			get { return sprite; }
-		}
+        public Texture2D Sprite
+        {
+            get { return sprite; }
+        }
 
-		public float Size { get => size; set => size = value; }
-		public bool IsHidden { get; set; }
+        public float Size { get => size; set => size = value; }
+        public bool IsHidden { get; set; }
 
-		/// <summary>
-		/// Empty GameObject Constructor
-		/// </summary>
-		public GameObject() { }
+        /// <summary>
+        /// Empty GameObject Constructor
+        /// </summary>
+        public GameObject() { }
 
-		/// <summary>
-		/// GameObject constructor with 1 parameter for position
-		/// </summary>
-		/// <param name="position"></param>
-		public GameObject(Vector2 position)
-		{
-			this.position = position;
-		}
+        /// <summary>
+        /// GameObject constructor with 1 parameter for position
+        /// </summary>
+        /// <param name="position"></param>
+        public GameObject(Vector2 position)
+        {
+            this.position = position;
+        }
 
-		/// <summary>
-		/// Runs every frame
-		/// </summary>
-		/// <param name="gameTime"></param>
-		public abstract void Update(GameTime gameTime);
+        /// <summary>
+        /// Runs every frame
+        /// </summary>
+        /// <param name="gameTime"></param>
+        public virtual void Update(GameTime gameTime)
+        {
+
+        }
 
 		/// <summary>
 		/// Runs on collision with other objects

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,8 +21,19 @@ namespace SnehvideProject
 
                     switch (coordinate)
                     {
+                        case (0):
+                            {
+                                GameObject newGrass = new BackgroundTile(Assets.grassSprite, new Vector2(x * GameWorld.ScrScale, y * GameWorld.ScrScale));
+                                break;
+                            }
                         case (1):
                             {
+                                GameObject newGround = new BackgroundTile(Assets.groundSprite, new Vector2(x * GameWorld.ScrScale, y * GameWorld.ScrScale));
+                                break;
+                            }
+                        case (2):
+                            {
+                                GameObject newWater = new BackgroundTile(Assets.waterSprite, new Vector2(x * GameWorld.ScrScale, y * GameWorld.ScrScale));
                                 break;
                             }
                     }
@@ -37,8 +49,14 @@ namespace SnehvideProject
 
                     switch (coordinate)
                     {
+                        case (0):
+                            {
+                                GameObject newTree = new Tree(Assets.treeSprite, new Vector2(x * GameWorld.ScrScale, y * GameWorld.ScrScale));
+                                break;
+                            }
                         case (1):
                             {
+                                GameObject newAppletree = new Appletree(Assets.appletreeSprite, new Vector2(x * GameWorld.ScrScale, y * GameWorld.ScrScale));
                                 break;
                             }
                     }
