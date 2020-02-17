@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SnehvideProject
 {
-    class Fighter : Dwarf, IPlayerUnits
+    class Fighter : Dwarf, IPlayerUnit
     {
 
 		public Fighter(Vector2 position)

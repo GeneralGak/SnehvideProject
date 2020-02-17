@@ -125,7 +125,7 @@ namespace SnehvideProject
 		{
 			foreach (GameObject gameObject in GameWorld.GameObjects)
 			{
-				if (gameObject != null && gameObject is IPlayerUnits)
+				if (gameObject != null && gameObject is IPlayerUnit)
 				{
 					// Player is not close enough
 					if ((this.position.X + attackRange) < (gameObject.Position.X) || (this.position.X - attackRange) > (gameObject.Position.X))
