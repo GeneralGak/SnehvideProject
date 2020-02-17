@@ -7,7 +7,7 @@
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{1A853529-3835-470A-8FC1-938B1F33F9D0}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SnehvideProject</RootNamespace>
     <AssemblyName>SnehvideProject</AssemblyName>
@@ -40,8 +40,12 @@
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Compile Include="Character\AppleMonster.cs" />
+    <Compile Include="IPlayerUnits.cs" />
     <Compile Include="Map plus objects\Appletree.cs" />
     <Compile Include="Assets.cs" />
     <Compile Include="Map plus objects\BackgroundTile.cs" />

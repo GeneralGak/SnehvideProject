@@ -27,6 +27,7 @@ namespace SnehvideProject
 		protected Vector2 velocity;
 		protected Vector2 positionPreMove;
 		protected float invinsibilityTimer;
+		protected float attackRange;
 		protected bool takeDamage;
 
 
@@ -64,11 +65,6 @@ namespace SnehvideProject
 		/// Character attacks
 		/// </summary>
 		public abstract void Attack();
-
-		/// <summary>
-		/// Character reloads selected weapon
-		/// </summary>
-		public abstract void Reload();
 
 		/// <summary>
 		/// Update health of character
@@ -112,6 +108,7 @@ namespace SnehvideProject
 		{
 
 			positionPreMove = position;
+			CanAttack();
 
 		}
 
@@ -123,6 +120,31 @@ namespace SnehvideProject
 		}
 
 		public abstract void OnTakeDamage();
+
+		public bool CanAttack()
+		{
+			foreach (GameObject gameObject in GameWorld.GameObjects)
+			{
+				if (gameObject != null && gameObject is IPlayerUnits)
+				{
+					// Player is not close enough
+					if ((this.position.X + attackRange) < (gameObject.Position.X) || (this.position.X - attackRange) > (gameObject.Position.X))
+					{
+						return false;
+					}
+
+					// Player is not close enough
+					if ((this.position.Y + attackRange) < (gameObject.Position.Y) || (this.position.Y - attackRange) > (gameObject.Position.Y))
+					{
+						return false;
+					}
+				}
+			}
+
+			// Player is close enough
+			Console.WriteLine("Can Attack");
+			return true;
+		}
 
 	}
 }
