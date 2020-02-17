@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SnehvideProject
 {
-    class Fighter
+    class Fighter : Dwarf
     {
     }
 }

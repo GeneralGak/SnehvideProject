@@ -14,6 +14,7 @@ namespace SnehvideProject
 		private SpriteBatch spriteBatch;
 		private static Vector2 scrSize;
 		private static float scrScale;
+        private static float tileSize;
 
 		// PROPERTIES
 
@@ -33,7 +34,9 @@ namespace SnehvideProject
 			get { return scrScale; }
 		}
 
-		public GameWorld()
+        public static float TileSize { get => tileSize; set => tileSize = value; }
+
+        public GameWorld()
 		{
 			graphics = new GraphicsDeviceManager(this);
 			Content.RootDirectory = "Content";
@@ -51,9 +54,9 @@ namespace SnehvideProject
 
 			// Sets screen width and height in a vector
 			scrSize = new Vector2(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
-
+            tileSize = 64 * scrScale;
 			// Sets screen scale
-			scrScale = 1;
+			scrScale = ((1f / 1920f) * GraphicsDevice.DisplayMode.Width);
 
 			base.Initialize();
 		}
