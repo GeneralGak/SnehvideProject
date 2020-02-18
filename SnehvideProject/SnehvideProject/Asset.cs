@@ -23,6 +23,7 @@ namespace SnehvideProject
 		public static Texture2D WaterSprite;
 		public static Texture2D AppletreeSprite;
 		public static Texture2D TreeSprite;
+		public static Texture2D MainBase;
 
 		//Map arrays
 		public static int[,] map1Layer1, map1Layer2;
@@ -40,6 +41,7 @@ namespace SnehvideProject
             TreeSprite = content.Load<Texture2D>("Tree");
 			AppleMonsterSprite = content.Load<Texture2D>("MonsterÆble");
 			DwarfFighterSprite = content.Load<Texture2D>("Dwarf Sprite Sheet");
+			MainBase = content.Load<Texture2D>("fantasy-city");
 
 			map1Layer1 = new int[,]
 		{
