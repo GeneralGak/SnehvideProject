@@ -12,35 +12,24 @@ namespace SnehvideProject
 	/// </summary>
 	public class GameWorld : Game
 	{
+		// FIELDS
 
 		// List for all the gameObjects
 		public static List<GameObject> GameObjects = new List<GameObject>();
 
+		//Lists to add and remove objects in runtime
+		public static List<GameObject> NewGameObjects = new List<GameObject>(), RemoveGameObjects = new List<GameObject>();
+
 		//To get random numbers
 		public static Random rng = new Random();
-		//To add and remove objects in runtime
-		public static List<GameObject> NewGameObjects = new List<GameObject>();
-		public static List<GameObject> RemoveGameObjects = new List<GameObject>();
 
-        private static int screenWidth;
-        private static int screenHeight;
+		private static int screenWidth, screenHeight;
 
-        public static void AddGameObject(GameObject gameObject)
-		{
-			NewGameObjects.Add(gameObject);
-		}
-
-		public static void RemoveGameObject(GameObject gameObject)
-		{
-			RemoveGameObjects.Add(gameObject);
-		}
-
-		//FIELDS
+		
 		private GraphicsDeviceManager graphics;
 		private SpriteBatch spriteBatch;
 		private static Vector2 scrSize;
-		private static float scrScale;
-        private static float tileSize;
+		private static float scrScale, tileSize;
 		public static AppleMonster monster;
 		public static Fighter dwarf;
 		public static HomeBase homeBase;
@@ -66,6 +55,9 @@ namespace SnehvideProject
 			get { return scrScale; }
 		}
 
+		/// <summary>
+		/// Used for accessing tilesize elsewhere in the code
+		/// </summary>
         public static float TileSize
         {
             get { return tileSize; }
@@ -96,7 +88,7 @@ namespace SnehvideProject
             screenHeight = graphics.PreferredBackBufferHeight;
 
             // Sets screen width and height in a vector
-            scrSize = new Vector2(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
+            scrSize = new Vector2(screenWidth, screenHeight);
 			// Sets screen scale
 			scrScale = ((1f / 1920f) * GraphicsDevice.DisplayMode.Width);
             // Sets tilesize
@@ -104,7 +96,7 @@ namespace SnehvideProject
 
 			Asset.LoadContent(Content);
 			gameMap = new MapObject();
-			//gameMap.GenerateLevel(Assets.map1Layer1, Assets.map1Layer2, tileSize);
+			//gameMap.GenerateLevel(Asset.map1Layer1, Asset.map1Layer2, tileSize);
 			Thread generateMapThread = new Thread(() => gameMap.GenerateMap(Asset.map1Layer1, Asset.map1Layer2, tileSize));
 			generateMapThread.Start();
 
@@ -237,5 +229,24 @@ namespace SnehvideProject
 		{
 
 		}
+
+		/// <summary>
+		/// Method for adding new gameobjects while the game is running
+		/// </summary>
+		/// <param name="gameObject"></param>
+		public static void AddGameObject(GameObject gameObject)
+		{
+			NewGameObjects.Add(gameObject);
+		}
+
+		/// <summary>
+		/// Method for removing gameobjects while the game is running
+		/// </summary>
+		/// <param name="gameObject"></param>
+		public static void RemoveGameObject(GameObject gameObject)
+		{
+			RemoveGameObjects.Add(gameObject);
+		}
+
 	}
 }

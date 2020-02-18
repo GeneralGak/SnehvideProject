@@ -9,12 +9,10 @@ namespace SnehvideProject
 {
     class MapObject
     {
+        // FIELDS
         private static int coordinate;
 
-        //public static int Coordinate
-        //{
-        //    get { return coordinate; }
-        //}
+        // METHODS 
 
         /// <summary>
         /// Empty Constructor for MapObject
@@ -63,7 +61,7 @@ namespace SnehvideProject
                 }
             }
 
-            // Layer for items: trees, houses etc.
+            // Layer two is for items: trees, houses etc.
             for (int x = 0; x < layerTwo.GetLength(1); x++)
             {
                 for (int y = 0; y < layerTwo.GetLength(0); y++)
