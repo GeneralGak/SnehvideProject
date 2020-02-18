@@ -28,7 +28,7 @@ namespace SnehvideProject
 		public static int[,] map1Layer1, map1Layer2;
 
 		/// <summary>
-		/// LoadContent method for assets.
+		/// LoadContent method for the Asset class.
 		/// </summary>
 		/// <param name="content"></param>
         public static void LoadContent(ContentManager content)

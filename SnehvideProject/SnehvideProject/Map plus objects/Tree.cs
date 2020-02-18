@@ -10,6 +10,13 @@ namespace SnehvideProject
 {
     class Tree : GameObject
     {
+        // METHODS 
+
+        /// <summary>
+        /// Constructor for the Tree class
+        /// </summary>
+        /// <param name="sprite"></param>
+        /// <param name="position"></param>
         public Tree(Texture2D sprite, Vector2 position)
         {
             base.sprite = sprite;
