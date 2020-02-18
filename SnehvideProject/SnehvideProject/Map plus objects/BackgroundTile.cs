@@ -11,9 +11,18 @@ namespace SnehvideProject
 {
     class BackgroundTile : GameObject
     {
+        // FIELDS
         private int coordinate;
-        public BackgroundTile(Vector2 position, int coordinate)
+
+        /// <summary>
+        /// Constructor for backgroundtiles ie. grass, ground, water. 
+        /// </summary>
+        /// <param name="sprite"></param>
+        /// <param name="position"></param>
+        /// <param name="coordinate"></param>
+        public BackgroundTile(Texture2D sprite, Vector2 position, int coordinate)
         {
+            base.sprite = sprite;
             this.position = position;
             this.coordinate = coordinate;
         }
@@ -24,24 +33,5 @@ namespace SnehvideProject
 
         }
 
-        public override void LoadContent(ContentManager content)
-        {
-            //Texture2D GrassSprite = content.Load<Texture2D>("tile_02");
-            //Texture2D GroundSprite = content.Load<Texture2D>("tile_06");
-            //Texture2D WaterSprite = content.Load<Texture2D>("tile_19");
-
-            switch (coordinate)
-            {
-                case (0):
-                    sprite = Assets.GrassSprite;
-                    break;
-                case (1):
-                    sprite = Assets.GroundSprite;
-                    break;
-                case (2):
-                    sprite = Assets.WaterSprite;
-                    break;
-            }
-        }
     }
 }

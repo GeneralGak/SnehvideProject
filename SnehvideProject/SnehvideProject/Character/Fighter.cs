@@ -14,7 +14,7 @@ namespace SnehvideProject
 		{
 			this.Position = position;
 			this.Faction = Faction.Player;
-			ChangeSprite(Assets.DwarfFighterSprite);
+			ChangeSprite(Asset.DwarfFighterSprite);
 		}
     }
 }

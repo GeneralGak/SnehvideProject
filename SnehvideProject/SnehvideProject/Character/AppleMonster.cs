@@ -16,7 +16,7 @@ namespace SnehvideProject
 			this.Position = position;
 			attackRange = 150;
 			this.Faction = Faction.Enemy;
-			ChangeSprite(Assets.AppleMonsterSprite);
+			ChangeSprite(Asset.AppleMonsterSprite);
 		}
 
 

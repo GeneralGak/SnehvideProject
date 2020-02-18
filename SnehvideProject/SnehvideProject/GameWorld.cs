@@ -100,9 +100,10 @@ namespace SnehvideProject
             // Sets tilesize
             tileSize = 64 * scrScale;
 
-			Assets.LoadContent(Content);
+			Asset.LoadContent(Content);
 			gameMap = new MapObject();
-			Thread generateMapThread = new Thread(() => gameMap.GenerateLevel(Assets.map1Layer1, Assets.map1Layer2, tileSize));
+			//gameMap.GenerateLevel(Assets.map1Layer1, Assets.map1Layer2, tileSize);
+			Thread generateMapThread = new Thread(() => gameMap.GenerateMap(Asset.map1Layer1, Asset.map1Layer2, tileSize));
 			generateMapThread.Start();
 
 			base.Initialize();
@@ -117,13 +118,7 @@ namespace SnehvideProject
 			// Create a new SpriteBatch, which can be used to draw textures.
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 
-			
-			
-
 			// TODO: use this.Content to load your game content here
-
-
-			//gameMap.GenerateLevel(Assets.map1Layer1, Assets.map1Layer2, tileSize);
 
 			// Test Monster and Dwarf
 			monster = new AppleMonster(new Vector2(100, 100));
@@ -131,11 +126,6 @@ namespace SnehvideProject
 			GameObjects.Add(monster);
 			GameObjects.Add(dwarf);
 
-
-			foreach (GameObject gameObject in GameObjects)
-			{
-				gameObject.LoadContent(Content);
-			}
 		}
 
 		/// <summary
@@ -208,11 +198,14 @@ namespace SnehvideProject
 			//Draws all objects in active room
 			foreach (GameObject gameObject in GameObjects)
 			{
-				//Update all objects in active room
-				gameObject.Draw(spriteBatch);
+				//Ensures that only the objects within the screenbounds are drawn. 
+				if (gameObject.Position.X <= Camera.CamPos.X + scrSize.X && gameObject.Position.Y <= Camera.CamPos.Y + scrSize.Y)
+				{
+					gameObject.Draw(spriteBatch);
 #if DEBUG
-				DrawCollisionBox(gameObject);
+					DrawCollisionBox(gameObject);
 #endif
+				}
 			}
 
 			spriteBatch.End();
