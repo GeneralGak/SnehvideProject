@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace SnehvideProject
 {
@@ -44,7 +45,7 @@ namespace SnehvideProject
 		public static Fighter dwarf;
 		public static HomeBase homeBase;
 
-        private Map gameMap;
+		private MapObject gameMap;
 
 		// PROPERTIES
 
@@ -100,6 +101,12 @@ namespace SnehvideProject
             // Sets tilesize
             tileSize = 64 * scrScale;
 
+			Asset.LoadContent(Content);
+			gameMap = new MapObject();
+			//gameMap.GenerateLevel(Assets.map1Layer1, Assets.map1Layer2, tileSize);
+			Thread generateMapThread = new Thread(() => gameMap.GenerateMap(Asset.map1Layer1, Asset.map1Layer2, tileSize));
+			generateMapThread.Start();
+
 			base.Initialize();
 		}
 
@@ -111,11 +118,8 @@ namespace SnehvideProject
 		{
 			// Create a new SpriteBatch, which can be used to draw textures.
 			spriteBatch = new SpriteBatch(GraphicsDevice);
-			Assets.LoadContent(Content);
 
 			// TODO: use this.Content to load your game content here
-
-			gameMap = new Map();
 
 			// Test Monster and Dwarf
 			homeBase = new HomeBase(new Vector2(100, 1000));
@@ -126,14 +130,9 @@ namespace SnehvideProject
 			GameObjects.Add(homeBase);
 			EnemyWaves.StartTimer();
 
-
-			//foreach (GameObject gameObject in GameObjects)
-			//{
-			//    gameObject.LoadContent(Content);
-			//}
 		}
 
-		/// <summary>
+		/// <summary
 		/// UnloadContent will be called once per game and is the place to unload
 		/// game-specific content.
 		/// </summary>
@@ -195,19 +194,22 @@ namespace SnehvideProject
 		{
 			GraphicsDevice.Clear(Color.CornflowerBlue);
 
-			//spriteBatch.Begin(sortMode: SpriteSortMode.FrontToBack, null, SamplerState.PointClamp, null, null, null, Camera.Transform);
-			spriteBatch.Begin();
+			spriteBatch.Begin(sortMode: SpriteSortMode.FrontToBack, null, SamplerState.PointClamp, null, null, null, Camera.Transform);
+			//spriteBatch.Begin();
 
 			// TODO: Add your drawing code here
 
 			//Draws all objects in active room
 			foreach (GameObject gameObject in GameObjects)
 			{
-				//Update all objects in active room
-				gameObject.Draw(spriteBatch);
+				//Ensures that only the objects within the screenbounds are drawn. 
+				if (gameObject.Position.X <= Camera.CamPos.X + scrSize.X && gameObject.Position.Y <= Camera.CamPos.Y + scrSize.Y)
+				{
+					gameObject.Draw(spriteBatch);
 #if DEBUG
-				DrawCollisionBox(gameObject);
+					DrawCollisionBox(gameObject);
 #endif
+				}
 			}
 
 			spriteBatch.End();
