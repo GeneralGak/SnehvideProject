@@ -31,6 +31,13 @@ namespace SnehvideProject
 		protected bool takeDamage;
 
 
+
+		public Vector2 Velocity
+		{
+			get { return velocity; }
+			set { velocity = value; }
+		}
+
 		public int Health
 		{
 			get { return health; }
@@ -60,7 +67,10 @@ namespace SnehvideProject
 		/// <summary>
 		/// Character dies
 		/// </summary>
-		public abstract void Die();
+		public virtual void Die()
+		{
+
+		}
 
 		/// <summary>
 		/// Character attacks
@@ -125,6 +135,11 @@ namespace SnehvideProject
 
 		public abstract void OnTakeDamage();
 
+		/// <summary>
+		/// Returns true when a gameObject is close enough
+		/// </summary>
+		/// <param name="gameObject"></param>
+		/// <returns></returns>
 		public bool CanAttack(GameObject gameObject)
 		{
 

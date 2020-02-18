@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,14 @@ using System.Threading.Tasks;
 
 namespace SnehvideProject
 {
-    class HomeBase : Building, IPlayerUnit
+    public class HomeBase : Building, IPlayerUnit
     {
+
+		public HomeBase(Vector2 position)
+		{
+			this.Position = position;
+			ChangeSprite(Assets.HomeBase);
+		}
+
     }
 }

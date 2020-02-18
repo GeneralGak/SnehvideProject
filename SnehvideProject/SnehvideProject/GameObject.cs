@@ -20,7 +20,7 @@ namespace SnehvideProject
         protected float drawLayer = 0.01f;
         protected float rotation;
         protected float size = 1;
-        protected string name; // Behøver vi name?
+        protected string name; // TODO: Behøver vi name?
         protected Vector2 origin;
         protected Texture2D sprite;
         protected Texture2D[] sprites;
@@ -73,6 +73,7 @@ namespace SnehvideProject
 			get { return faction; }
 			set { faction = value; }
 		}
+
 
 		public float Size { get => size; set => size = value; }
         public bool IsHidden { get; set; }

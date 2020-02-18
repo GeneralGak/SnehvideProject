@@ -42,6 +42,7 @@ namespace SnehvideProject
         private static float tileSize;
 		public static AppleMonster monster;
 		public static Fighter dwarf;
+		public static HomeBase homeBase;
 
         private Map gameMap;
 
@@ -117,10 +118,13 @@ namespace SnehvideProject
 			gameMap = new Map();
 
 			// Test Monster and Dwarf
+			homeBase = new HomeBase(new Vector2(100, 1000));
 			monster = new AppleMonster(new Vector2(100, 100));
-			dwarf = new Fighter(new Vector2(500, 500));
+			dwarf = new Fighter(new Vector2(550, 550));
 			GameObjects.Add(monster);
 			GameObjects.Add(dwarf);
+			GameObjects.Add(homeBase);
+			EnemyWaves.StartTimer();
 
 
 			//foreach (GameObject gameObject in GameObjects)

@@ -22,6 +22,7 @@ namespace SnehvideProject
 		//public static Texture2D WaterSprite;
 		public static Texture2D AppletreeSprite;
 		public static Texture2D TreeSprite;
+		public static Texture2D HomeBase;
 
         public static void LoadContent(ContentManager content)
 		{
@@ -32,6 +33,7 @@ namespace SnehvideProject
             TreeSprite = content.Load<Texture2D>("Tree");
 			AppleMonsterSprite = content.Load<Texture2D>("MonsterÆble");
 			DwarfFighterSprite = content.Load<Texture2D>("Dwarf Sprite Sheet");
+			HomeBase = content.Load<Texture2D>("fantasy-city");
 		}
 	}
 }
