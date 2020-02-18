@@ -26,20 +26,20 @@ namespace SnehvideProject
 
         public override void LoadContent(ContentManager content)
         {
-            Texture2D GrassSprite = content.Load<Texture2D>("tile_02");
-            Texture2D GroundSprite = content.Load<Texture2D>("tile_06");
-            Texture2D WaterSprite = content.Load<Texture2D>("tile_19");
+            //Texture2D GrassSprite = content.Load<Texture2D>("tile_02");
+            //Texture2D GroundSprite = content.Load<Texture2D>("tile_06");
+            //Texture2D WaterSprite = content.Load<Texture2D>("tile_19");
 
             switch (coordinate)
             {
                 case (0):
-                    sprite = /*Assets.*/GrassSprite;
+                    sprite = Assets.GrassSprite;
                     break;
                 case (1):
-                    sprite = /*Assets.*/GroundSprite;
+                    sprite = Assets.GroundSprite;
                     break;
                 case (2):
-                    sprite = /*Assets.*/WaterSprite;
+                    sprite = Assets.WaterSprite;
                     break;
             }
         }

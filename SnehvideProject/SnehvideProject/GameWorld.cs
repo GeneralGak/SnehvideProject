@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace SnehvideProject
 {
@@ -43,7 +44,7 @@ namespace SnehvideProject
 		public static AppleMonster monster;
 		public static Fighter dwarf;
 
-        private Map gameMap;
+		private MapObject gameMap;
 
 		// PROPERTIES
 
@@ -99,6 +100,11 @@ namespace SnehvideProject
             // Sets tilesize
             tileSize = 64 * scrScale;
 
+			Assets.LoadContent(Content);
+			gameMap = new MapObject();
+			Thread generateMapThread = new Thread(() => gameMap.GenerateLevel(Assets.map1Layer1, Assets.map1Layer2, tileSize));
+			generateMapThread.Start();
+
 			base.Initialize();
 		}
 
@@ -110,11 +116,14 @@ namespace SnehvideProject
 		{
 			// Create a new SpriteBatch, which can be used to draw textures.
 			spriteBatch = new SpriteBatch(GraphicsDevice);
-			Assets.LoadContent(Content);
+
+			
+			
 
 			// TODO: use this.Content to load your game content here
 
-			gameMap = new Map();
+
+			//gameMap.GenerateLevel(Assets.map1Layer1, Assets.map1Layer2, tileSize);
 
 			// Test Monster and Dwarf
 			monster = new AppleMonster(new Vector2(100, 100));
@@ -123,13 +132,13 @@ namespace SnehvideProject
 			GameObjects.Add(dwarf);
 
 
-			//foreach (GameObject gameObject in GameObjects)
-			//{
-			//    gameObject.LoadContent(Content);
-			//}
+			foreach (GameObject gameObject in GameObjects)
+			{
+				gameObject.LoadContent(Content);
+			}
 		}
 
-		/// <summary>
+		/// <summary
 		/// UnloadContent will be called once per game and is the place to unload
 		/// game-specific content.
 		/// </summary>
@@ -191,8 +200,8 @@ namespace SnehvideProject
 		{
 			GraphicsDevice.Clear(Color.CornflowerBlue);
 
-			//spriteBatch.Begin(sortMode: SpriteSortMode.FrontToBack, null, SamplerState.PointClamp, null, null, null, Camera.Transform);
-			spriteBatch.Begin();
+			spriteBatch.Begin(sortMode: SpriteSortMode.FrontToBack, null, SamplerState.PointClamp, null, null, null, Camera.Transform);
+			//spriteBatch.Begin();
 
 			// TODO: Add your drawing code here
 

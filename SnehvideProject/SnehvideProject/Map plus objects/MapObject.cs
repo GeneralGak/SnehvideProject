@@ -15,7 +15,13 @@ namespace SnehvideProject
         {
             get { return coordinate; }
         }
-        protected void GenerateLevel(int[,] layerOne, int[,] layerTwo, float size)
+
+        public MapObject()
+        {
+
+        }
+
+        public void GenerateLevel(int[,] layerOne, int[,] layerTwo, float size)
         {
             // Layer one is for background tiles.
             for (int x = 0; x < layerOne.GetLength(1); x++)
