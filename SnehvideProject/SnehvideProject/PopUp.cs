@@ -18,7 +18,7 @@ namespace SnehvideProject
 
         public override void OnCollision(GameObject otherObject)
         {
-            throw new NotImplementedException();
+
         }
     }
 }
