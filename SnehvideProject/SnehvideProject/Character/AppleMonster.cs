@@ -128,5 +128,9 @@ namespace SnehvideProject
 			Move(gameTime);
 		}
 
+		public override void Direction()
+		{
+			throw new NotImplementedException();
+		}
 	}
 }

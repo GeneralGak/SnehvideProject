@@ -8,5 +8,7 @@ namespace SnehvideProject
 {
     class Treasury : Building, IPlayerUnit
     {
+       
+
     }
 }

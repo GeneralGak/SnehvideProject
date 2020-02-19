@@ -101,6 +101,8 @@ namespace SnehvideProject
 			return Health;
 		}
 
+		public abstract void Direction();
+
 		public virtual void Move(GameTime gameTime)
 		{
 			//deltaTime based on gameTime

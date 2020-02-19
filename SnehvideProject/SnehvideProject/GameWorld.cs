@@ -27,7 +27,6 @@ namespace SnehvideProject
 		private static int screenWidth;
 		private static int screenHeight;
 
-
 		private GraphicsDeviceManager graphics;
 		private SpriteBatch spriteBatch;
 		private static Vector2 scrSize;
@@ -35,6 +34,8 @@ namespace SnehvideProject
 		private static float tileSize;
 		public static AppleMonster monster;
 		public static Fighter dwarf;
+        private Miner minerDwarf;
+
 		public static HomeBase homeBase;
 		public static Mine mine;
 
@@ -118,10 +119,6 @@ namespace SnehvideProject
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            foreach (GameObject gameObject in GameObjects)
-            {
-                gameObject.LoadContent(Content);
-            }
             // TODO: use this.Content to load your game content here
 
             // Test Monster and Dwarf
@@ -129,15 +126,22 @@ namespace SnehvideProject
             homeBase = new HomeBase(new Vector2(100, 1000));
             monster = new AppleMonster(new Vector2(100, 100));
             dwarf = new Fighter(new Vector2(550, 550));
+            minerDwarf = new Miner(new Vector2(100,100));
             GameObjects.Add(monster);
             GameObjects.Add(dwarf);
             GameObjects.Add(homeBase);
             GameObjects.Add(mine);
+            GameObjects.Add(minerDwarf);
             EnemyWaves.StartTimer();
             //mine.Initialise();
             mine.EnterMine();
             mine.EnterMine();
             mine.EnterMine();
+
+            //foreach (GameObject gameObject in GameObjects)
+            //{
+            //    gameObject.LoadContent(Content);
+            //}
         }
 
 

@@ -26,6 +26,11 @@ namespace SnehvideProject
 			mineCapacity.Release(maxCapacity);
 		}
 
+		public int Gold
+		{
+			get { return gold; }
+		}
+
 		/// <summary>
 		/// Adds threads to the ValueIncreaser class (Used to test functionality)
 		/// </summary>

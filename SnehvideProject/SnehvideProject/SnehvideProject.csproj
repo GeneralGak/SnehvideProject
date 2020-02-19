@@ -62,7 +62,6 @@
     <Compile Include="Helper.cs" />
     <Compile Include="Buildings\HomeBase.cs" />
     <Compile Include="KeyboardAndMouse.cs" />
-    <Compile Include="Map plus objects\Map.cs" />
     <Compile Include="Map plus objects\MapObject.cs" />
     <Compile Include="Buildings\Mine.cs" />
     <Compile Include="Character\Miner.cs" />
