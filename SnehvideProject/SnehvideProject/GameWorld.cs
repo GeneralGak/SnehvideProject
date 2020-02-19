@@ -153,6 +153,7 @@ namespace SnehvideProject
             mine.EnterMine();
         }
 
+
         /// <summary
         /// UnloadContent will be called once per game and is the place to unload
         /// game-specific content.
@@ -162,16 +163,15 @@ namespace SnehvideProject
             // TODO: Unload any non ContentManager content here
         }
 
-        /// <summary>
-        /// Allows the game to run logic such as updating the world,
-        /// checking for collisions, gathering input, and playing audio.
-        /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
-        protected override void Update(GameTime gameTime)
-        {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || KeyboardAndMouse.GetState().IsKeyDown(Keys.Escape))
-                Exit();
-
+		/// <summary>
+		/// Allows the game to run logic such as updating the world,
+		/// checking for collisions, gathering input, and playing audio.
+		/// </summary>
+		/// <param name="gameTime">Provides a snapshot of timing values.</param>
+		protected override void Update(GameTime gameTime)
+		{
+			if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || KeyboardAndMouse.GetState().IsKeyDown(Keys.Escape))
+				Exit();
             // TODO: Add your update logic here
             Camera.Update();
 
@@ -222,8 +222,9 @@ namespace SnehvideProject
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            //spriteBatch.Begin(sortMode: SpriteSortMode.FrontToBack, null, SamplerState.PointClamp, null, null, null, Camera.Transform);
-            spriteBatch.Begin();
+			spriteBatch.Begin(sortMode: SpriteSortMode.FrontToBack, null, SamplerState.PointClamp, null, null, null, Camera.Transform);
+			//spriteBatch.Begin();
+
 
             // TODO: Add your drawing code here
             //Draws all objects in active room
@@ -267,5 +268,3 @@ namespace SnehvideProject
         }
     }
 }
-
-
