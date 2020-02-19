@@ -45,7 +45,7 @@ namespace SnehvideProject
 		{
 			if (closeMine == false)
 			{
-				MineCapacity.WaitOne();
+				mineCapacity.WaitOne();
 				Console.WriteLine("Enter Mine");
 				// counts up gold and XP
 				//while (emptyMine == false)
@@ -58,13 +58,13 @@ namespace SnehvideProject
 
 				Thread.Sleep(6000);
 				// TODO: Tilføj funktion til at giver mineren guld
-				MineCapacity.Release();
+				mineCapacity.Release();
 				Console.WriteLine("Leave Mine");
 			}
 			else
 			{
 				Thread.Sleep(6002);
-				MineCapacity.WaitOne();
+				mineCapacity.WaitOne();
 				Console.WriteLine("Enter Mine");
 				// counts up gold and XP
 				//while (emptyMine == false)
@@ -77,7 +77,7 @@ namespace SnehvideProject
 
 				Thread.Sleep(6000);
 				// TODO: Tilføj funktion til at giver mineren guld
-				MineCapacity.Release();
+				mineCapacity.Release();
 				Console.WriteLine("Leave Mine");
 			}
 
@@ -103,8 +103,8 @@ namespace SnehvideProject
 			closeMine = true;
 			Thread.Sleep(6001);
 			maxCapacity++;
-			MineCapacity = new Semaphore(0, maxCapacity);
-			MineCapacity.Release(maxCapacity);
+			mineCapacity = new Semaphore(0, maxCapacity);
+			mineCapacity.Release(maxCapacity);
 			Console.WriteLine("Mine have been upgraded");
 			haveBeenUpgraded = true;
 			closeMine = false;
