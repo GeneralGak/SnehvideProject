@@ -127,20 +127,25 @@ namespace SnehvideProject
             homeBase = new HomeBase(new Vector2(100, 1000));
             monster = new AppleMonster(new Vector2(100, 100));
             dwarf = new Fighter(new Vector2(550, 550));
-            minerDwarf = new Miner(new Vector2(100,100));
+            minerDwarf = new Miner(new Vector2(400,500));
             cursor = new MouseControl();
 
             GameObjects.Add(monster);
             GameObjects.Add(dwarf);
 
             //Loads buildings and mouse.
+
             mine = new Mine(new Vector2(100, 100));
+
             homeBase = new HomeBase(new Vector2(100, 1000));
             cursor = new MouseControl();
             GameObjects.Add(homeBase);
             GameObjects.Add(mine);
 
             GameObjects.Add(minerDwarf);
+            GameObjects.Add(new Miner(new Vector2(500, 400)));
+            GameObjects.Add(new Miner(new Vector2(600, 500)));
+            GameObjects.Add(new Miner(new Vector2(500, 600)));
             GameObjects.Add(cursor);
 
             EnemyWaves.StartTimer();
