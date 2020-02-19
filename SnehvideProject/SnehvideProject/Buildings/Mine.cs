@@ -16,14 +16,14 @@ namespace SnehvideProject
 		private bool haveBeenUpgraded = false;
 		private bool closeMine = false;
 		private int gold;
-		private int miner;
+		private int minerCount;
 		private int XP;
 		private static int maxCapacity = 2;
-		Semaphore MineCapacity = new Semaphore(0, maxCapacity);
+		private Semaphore mineCapacity = new Semaphore(0, maxCapacity);
 
 		public void Initialise()
 		{
-			MineCapacity.Release(maxCapacity);
+			mineCapacity.Release(maxCapacity);
 		}
 
 		/// <summary>
@@ -45,7 +45,7 @@ namespace SnehvideProject
 		{
 			if (closeMine == false)
 			{
-				MineCapacity.WaitOne();
+				mineCapacity.WaitOne();
 				Console.WriteLine("Enter Mine");
 				// counts up gold and XP
 				//while (emptyMine == false)
@@ -65,7 +65,7 @@ namespace SnehvideProject
 			else
 			{
 				Thread.Sleep(6002);
-				MineCapacity.WaitOne();
+				mineCapacity.WaitOne();
 				Console.WriteLine("Enter Mine");
 				// counts up gold and XP
 				//while (emptyMine == false)
@@ -91,7 +91,7 @@ namespace SnehvideProject
 		/// </summary>
 		public void Release()
 		{
-			if (miner > 0)
+			if(minerCount > 0)
 			{
 				emptyMine = true;
 			}
@@ -105,8 +105,8 @@ namespace SnehvideProject
 			closeMine = true;
 			Thread.Sleep(6001);
 			maxCapacity++;
-			MineCapacity = new Semaphore(0, maxCapacity);
-			MineCapacity.Release(maxCapacity);
+			mineCapacity = new Semaphore(0, maxCapacity);
+			mineCapacity.Release(maxCapacity);
 			Console.WriteLine("Mine have been upgraded");
 			haveBeenUpgraded = true;
 			closeMine = false;

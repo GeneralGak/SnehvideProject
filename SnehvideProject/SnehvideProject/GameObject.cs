@@ -17,18 +17,22 @@ namespace SnehvideProject
 		// FIELDS
 		protected Faction faction = Faction.Neutral;
         protected Vector2 position, origin;
-        protected float drawLayer = 0.01f, rotation, size = 1;
-        protected string name; // TODO: Behøver vi name?
+        protected float drawLayer = 0.01f;
+		protected float rotation;
+		protected float size = 1;
+		protected string name; // TODO: Behøver vi name?
         protected Texture2D sprite;
         protected Texture2D[] sprites;
-        protected bool spriteFlippedX, spriteFlippedY, isHidden;
+        protected bool spriteFlippedX;
+		protected bool spriteFlippedY;
+		protected bool isHidden;
 
-        //PROPERTIES
+		//PROPERTIES
 
-        /// <summary>
-        /// Position property used to acces an objects oosition elsewhere in the code
-        /// </summary>
-        public Vector2 Position
+		/// <summary>
+		/// Position property used to acces an objects oosition elsewhere in the code
+		/// </summary>
+		public Vector2 Position
         {
             get { return position; }
             set { position = value; }

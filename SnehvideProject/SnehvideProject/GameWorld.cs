@@ -24,24 +24,19 @@ namespace SnehvideProject
         public static List<GameObject> NewGameObjects = new List<GameObject>();
         public static List<GameObject> RemoveGameObjects = new List<GameObject>();
 
-        private static int screenWidth;
-        private static int screenHeight;
-
-        private bool generatedMap = false;
+		private static int screenWidth;
+		private static int screenHeight;
 
 
-
-        private GraphicsDeviceManager graphics;
-        private SpriteBatch spriteBatch;
-        private static Vector2 scrSize;
-
-        private static float scrScale;
-        private static float tileSize;
-
-        public static AppleMonster monster;
-        public static Fighter dwarf;
-        public static HomeBase homeBase;
-        public static Mine mine;
+		private GraphicsDeviceManager graphics;
+		private SpriteBatch spriteBatch;
+		private static Vector2 scrSize;
+		private static float scrScale;
+		private static float tileSize;
+		public static AppleMonster monster;
+		public static Fighter dwarf;
+		public static HomeBase homeBase;
+		public static Mine mine;
 
         private MapObject gameMap;
 
@@ -122,14 +117,6 @@ namespace SnehvideProject
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
-
-            // Makes sure the map doesn't get drawn twice. OR AT LEAST THAT'S WHAT I WAS GOING FOR.
-            if (generatedMap == false)
-            {
-                gameMap = new Map();
-                generatedMap = true;
-            }
 
             foreach (GameObject gameObject in GameObjects)
             {
