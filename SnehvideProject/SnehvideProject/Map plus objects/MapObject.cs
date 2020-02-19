@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,35 +26,20 @@ namespace SnehvideProject
         /// <summary>
         /// Method for generating the map
         /// </summary>
-        /// <param name="layerOne"></param>
-        /// <param name="layerTwo"></param>
+        /// <param name="backGroundLayer"></param>
+        /// <param name="objectLayer"></param>
         /// <param name="size"></param>
-        public void GenerateMap(int[,] layerOne, int[,] layerTwo, float size)
+        public void GenerateMap(Texture2D backGroundLayer, int[,] objectLayer, float size)
         {
-            // Layer one is for background tiles.
-            for (int x = 0; x < layerOne.GetLength(1); x++)
-            {
-                for (int y = 0; y < layerOne.GetLength(0); y++)
-                {
-                    coordinate = layerOne[y, x];
+            // Background layer is one image.
+            GameWorld.GameObjects.Add(new BackgroundTile(backGroundLayer, Vector2.Zero));
 
-                    switch (coordinate)
-                    {
-                        case (4):
-                            {
-                                GameWorld.GameObjects.Add(new BackgroundTile(Asset.BackgroundPic, new Vector2(0, 0), coordinate));
-                                break;
-                            }
-                    }
-                }
-            }
-
-            // Layer two is for items: trees, houses etc.
-            for (int x = 0; x < layerTwo.GetLength(1); x++)
+            // Object layer is for items: trees, houses etc.
+            for (int x = 0; x < objectLayer.GetLength(1); x++)
             {
-                for (int y = 0; y < layerTwo.GetLength(0); y++)
+                for (int y = 0; y < objectLayer.GetLength(0); y++)
                 {
-                    coordinate = layerTwo[y, x];
+                    coordinate = objectLayer[y, x];
 
                     switch (coordinate)
                     {

@@ -105,7 +105,7 @@ namespace SnehvideProject
             Asset.LoadContent(Content);
             gameMap = new MapObject();
             //gameMap.GenerateLevel(Asset.map1Layer1, Asset.map1Layer2, tileSize);
-            Thread generateMapThread = new Thread(() => gameMap.GenerateMap(Asset.map1Layer1, Asset.map1Layer2, tileSize));
+            Thread generateMapThread = new Thread(() => gameMap.GenerateMap(Asset.BackgroundPic, Asset.map1Layer2, tileSize));
             generateMapThread.Start();
 
             base.Initialize();
@@ -130,13 +130,10 @@ namespace SnehvideProject
             minerDwarf = new Miner(new Vector2(400,500));
             cursor = new MouseControl();
 
+            // Adds objects to a list og gameobjects
             GameObjects.Add(monster);
             GameObjects.Add(dwarf);
 
-            //Loads buildings and mouse.
-            mine = new Mine(new Vector2(400, 400));
-            homeBase = new HomeBase(new Vector2(100, 1000));
-            cursor = new MouseControl();
             GameObjects.Add(homeBase);
             GameObjects.Add(mine);
 

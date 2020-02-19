@@ -45,22 +45,22 @@ namespace SnehvideProject
 			KeyboardState keyState = KeyboardAndMouse.GetState();
 			velocity = Vector2.Zero;
 
-			if (keyState.IsKeyDown(Keys.W) && CamPos.Y > 0+(GameWorld.ScrSize.Y/2)) // Up
+			if (keyState.IsKeyDown(Keys.W) && CamPos.Y > 0 + (GameWorld.ScrSize.Y / 2)) // Up
 			{
 				velocity.Y -= 1;
 			}
 
-			if (keyState.IsKeyDown(Keys.S) && CamPos.Y < 0+(GameWorld.ScrSize.Y)) // Down
+			if (keyState.IsKeyDown(Keys.S) && CamPos.Y < 0 + Asset.BackgroundPic.Height - GameWorld.ScrSize.Y / 2) // Down
 			{
 				velocity.Y += 1;
 			}
 
-			if (keyState.IsKeyDown(Keys.A) && CamPos.X > 0+(GameWorld.ScrSize.X/2)) // Left
+			if (keyState.IsKeyDown(Keys.A) && CamPos.X > 0 + (GameWorld.ScrSize.X / 2)) // Left
 			{
 				velocity.X -= 1;
 			}
 
-			if (keyState.IsKeyDown(Keys.D) && CamPos.X < 0 + (GameWorld.ScrSize.X)) // Right
+			if (keyState.IsKeyDown(Keys.D) && CamPos.X < 0 + Asset.BackgroundPic.Width - GameWorld.ScrSize.X / 2) // Right
 			{
 				velocity.X += 1;
 			}

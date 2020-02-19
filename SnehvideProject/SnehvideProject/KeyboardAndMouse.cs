@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SnehvideProject
 {
-	public static class KeyboardAndMouse
+	public static class KeyboardAndMouse // Skal ændres til bare at hedde KeyBoard
 	{
         private static KeyboardState currentKeyState;
         private static KeyboardState previousKeyState;
