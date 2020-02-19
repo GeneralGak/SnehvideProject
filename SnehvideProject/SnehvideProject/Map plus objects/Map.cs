@@ -15,7 +15,7 @@ namespace SnehvideProject
 
         public Map()
         {
-            GenerateLevel(new int[,]
+            GenerateMap(new int[,]
             {
                 // 44 * 22
                 {1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0/*,0,0,0,0,0,0*/},

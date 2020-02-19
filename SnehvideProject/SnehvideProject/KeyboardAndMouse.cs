@@ -25,19 +25,19 @@ namespace SnehvideProject
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
-        //public static bool IsPressed(Keys key)
-        //{
-        //	return currentKeyState.IsKeyDown(key);
-        //}
+        public static bool IsPressed(Keys key)
+        {
+            return currentKeyState.IsKeyDown(key);
+        }
 
         ///// <summary>
         ///// Checks if key is being pressed (It triggers once)
         ///// </summary>
         ///// <param name="key"></param>
         ///// <returns></returns>
-        //public static bool HasBeenPressed(Keys key)
-        //{
-        //	return currentKeyState.IsKeyDown(key) && !previousKeyState.IsKeyDown(key);
-        //}
-	}
+        public static bool HasBeenPressed(Keys key)
+        {
+            return currentKeyState.IsKeyDown(key) && !previousKeyState.IsKeyDown(key);
+        }
+    }
 }

@@ -13,7 +13,7 @@ namespace SnehvideProject
         {
             this.position = position;
             this.Faction = Faction.Player;
-            ChangeSprite(Assets.DwarfMinerSprite);
+            ChangeSprite(Asset.DwarfMinerSprite);
             health = 5;
             movementSpeed = 300;
         }
@@ -21,6 +21,11 @@ namespace SnehvideProject
         public override void Die()
         {
                 GameWorld.RemoveGameObject(this);
+        }
+
+        public override void OnTakeDamage()
+        {
+            throw new NotImplementedException();
         }
     }
 }

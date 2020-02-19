@@ -16,7 +16,7 @@ namespace SnehvideProject
         public MouseControl()
         {
             //Loads the correct sprite.
-            ChangeSprite(Assets.MouseCursorSprite);
+            ChangeSprite(Asset.MouseCursorSprite);
             //Sets the sprite position to be where the mouse is.
             this.Position = new Vector2(Mouse.GetState().X, Mouse.GetState().Y);
         }
