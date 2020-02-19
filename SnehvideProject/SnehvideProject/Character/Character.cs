@@ -74,7 +74,6 @@ namespace SnehvideProject
 		/// <returns></returns>
 		public virtual int UpdateHealth(int damage)
 		{
-
 			if (damage > 0)
 			{
 				Health -= damage;
@@ -88,11 +87,7 @@ namespace SnehvideProject
 			if (Health == 0)
 			{
 				Die();
-			}
-
-			OnTakeDamage();
-			
-
+			}			
 			return Health;
 		}
 
@@ -122,8 +117,6 @@ namespace SnehvideProject
 
 
 		}
-
-		public abstract void OnTakeDamage();
 
 		public bool CanAttack(GameObject gameObject)
 		{

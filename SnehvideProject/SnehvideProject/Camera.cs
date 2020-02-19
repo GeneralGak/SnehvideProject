@@ -34,7 +34,7 @@ namespace SnehvideProject
 			Transform = Matrix.CreateTranslation(new Vector3(-CamPos, 0)) *
 				Matrix.CreateScale(new Vector3(CamZoom, CamZoom, 0)) *
 				Matrix.CreateTranslation(GameWorld.ScrSize.X / 2, GameWorld.ScrSize.Y / 2, 0);
-			Console.WriteLine(CamPos + " " + speed);
+			//Console.WriteLine(CamPos + " " + speed);
 		}
 
 		/// <summary>
@@ -42,7 +42,7 @@ namespace SnehvideProject
 		/// </summary>
 		private static void HandleInput()
 		{
-			KeyboardState keyState = Keyboard.GetState();
+			KeyboardState keyState = KeyboardAndMouse.GetState();
 			velocity = Vector2.Zero;
 
 			if (keyState.IsKeyDown(Keys.W)) // Up

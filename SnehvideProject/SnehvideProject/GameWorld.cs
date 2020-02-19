@@ -24,6 +24,8 @@ namespace SnehvideProject
         private static int screenWidth;
         private static int screenHeight;
 
+        private bool generatedMap = false;
+
         public static void AddGameObject(GameObject gameObject)
 		{
 			NewGameObjects.Add(gameObject);
@@ -40,8 +42,7 @@ namespace SnehvideProject
 		private static Vector2 scrSize;
 		private static float scrScale;
         private static float tileSize;
-		public static AppleMonster monster;
-		public static Fighter dwarf;
+
 
         private Map gameMap;
 
@@ -92,6 +93,9 @@ namespace SnehvideProject
             screenWidth = graphics.PreferredBackBufferWidth;
             screenHeight = graphics.PreferredBackBufferHeight;
 
+            // Makes the PC's mouse cursor invisible. That way, only the game sprite cursor can be seen.
+            IsMouseVisible = false;
+
             // Sets screen width and height in a vector
             scrSize = new Vector2(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
 			// Sets screen scale
@@ -112,22 +116,18 @@ namespace SnehvideProject
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 			Assets.LoadContent(Content);
 
-			// TODO: use this.Content to load your game content here
+            // Makes sure the map doesn't get drawn twice. OR AT LEAST THAT'S WHAT I WAS GOING FOR.
+            if (generatedMap == false)
+            {
+                gameMap = new Map();
+                generatedMap = true;
+            }
 
-			gameMap = new Map();
-
-			// Test Monster and Dwarf
-			monster = new AppleMonster(new Vector2(100, 100));
-			dwarf = new Fighter(new Vector2(500, 500));
-			GameObjects.Add(monster);
-			GameObjects.Add(dwarf);
-
-
-			//foreach (GameObject gameObject in GameObjects)
-			//{
-			//    gameObject.LoadContent(Content);
-			//}
-		}
+            foreach (GameObject gameObject in GameObjects)
+            {
+                gameObject.LoadContent(Content);
+            }
+        }
 
 		/// <summary>
 		/// UnloadContent will be called once per game and is the place to unload
@@ -145,11 +145,11 @@ namespace SnehvideProject
 		/// <param name="gameTime">Provides a snapshot of timing values.</param>
 		protected override void Update(GameTime gameTime)
 		{
-			if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+			if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || KeyboardAndMouse.GetState().IsKeyDown(Keys.Escape))
 				Exit();
 
-			// TODO: Add your update logic here
-			Camera.Update();
+            // TODO: Add your update logic here
+            Camera.Update();
 			foreach (GameObject gameObject in GameObjects)
 			{
 				//Update all objects in active room
@@ -160,25 +160,19 @@ namespace SnehvideProject
 				}
 			}
 
-			//Add new objects to rooms
+			// Adds new objects to rooms
 			foreach (GameObject gameObject in NewGameObjects)
 			{
 				GameObjects.Add(gameObject);
 			}
 			NewGameObjects.Clear();
-			//Remove gameobjects from rooms
-			foreach (GameObject gameObject in RemoveGameObjects)
-			{
-				if (gameObject != null)
-				{
-					GameObjects.Add(gameObject);
-				}
-				else
-				{
-					GameObjects.Remove(gameObject);
-				}
-			}
-			RemoveGameObjects.Clear();
+
+            // Removes gameobjects from the map.
+            foreach (GameObject gameObject in RemoveGameObjects)
+            {
+                GameObjects.Remove(gameObject);
+            }
+            RemoveGameObjects.Clear();
 
 			base.Update(gameTime);
 		}
@@ -194,26 +188,20 @@ namespace SnehvideProject
 			//spriteBatch.Begin(sortMode: SpriteSortMode.FrontToBack, null, SamplerState.PointClamp, null, null, null, Camera.Transform);
 			spriteBatch.Begin();
 
-			// TODO: Add your drawing code here
-
+            // TODO: Add your drawing code here
 			//Draws all objects in active room
 			foreach (GameObject gameObject in GameObjects)
 			{
 				//Update all objects in active room
 				gameObject.Draw(spriteBatch);
-#if DEBUG
-				DrawCollisionBox(gameObject);
-#endif
+//#if DEBUG
+//				DrawCollisionBox(gameObject);
+//#endif
 			}
 
-			spriteBatch.End();
+            spriteBatch.End();
 
 			base.Draw(gameTime);
-		}
-
-		private void DrawCollisionBox(GameObject gameObject)
-		{
-
 		}
 	}
 }

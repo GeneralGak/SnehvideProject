@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,10 @@ namespace SnehvideProject
 {
     class Map : MapObject
     {
+        public static AppleMonster monster;
+        public static Fighter dwarf;
+        public static MouseControl cursor;
+
         public Map()
         {
             GenerateLevel(new int[,]
@@ -61,6 +66,13 @@ namespace SnehvideProject
          //       {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0/*,0,0,0,0,0,0*/},
             },
             GameWorld.TileSize);
+
+            monster = new AppleMonster(new Vector2(100, 100));
+            dwarf = new Fighter(new Vector2(500, 500));
+            cursor = new MouseControl();
+            GameWorld.GameObjects.Add(monster);
+            GameWorld.GameObjects.Add(dwarf);
+            GameWorld.GameObjects.Add(cursor);
         }
     }
 }

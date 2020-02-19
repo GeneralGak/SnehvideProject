@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,18 @@ namespace SnehvideProject
 {
     class Miner : Dwarf, IPlayerUnit
     {
+        public Miner(Vector2 position)
+        {
+            this.position = position;
+            this.Faction = Faction.Player;
+            ChangeSprite(Assets.DwarfMinerSprite);
+            health = 5;
+            movementSpeed = 300;
+        }
+
+        public override void Die()
+        {
+                GameWorld.RemoveGameObject(this);
+        }
     }
 }
