@@ -106,11 +106,11 @@ namespace SnehvideProject
 					if (canSeeUnit == true && GameWorld.dwarf is IPlayerUnit)
 					{
 						Console.WriteLine("Can see Dwarf");
-						this.Velocity = GameWorld.dwarf.Position;
+						this.Velocity = GameWorld.dwarf.Position - this.position;
 					}
 					else
 					{
-						this.Velocity = GameWorld.homeBase.Position;
+						this.Velocity = GameWorld.homeBase.Position - this.position;
 					}
 				}
 
