@@ -44,21 +44,6 @@ namespace SnehvideProject
                                 GameWorld.GameObjects.Add(new BackgroundTile(Asset.BackgroundPic, new Vector2(0, 0), coordinate));
                                 break;
                             }
-                        case (5):
-                            {
-                                GameWorld.GameObjects.Add(new BackgroundTile(Asset.GrassSprite, new Vector2(x * size, y * size), coordinate));
-                                break;
-                            }
-                        case (6):
-                            {
-                                GameWorld.GameObjects.Add(new BackgroundTile(Asset.GroundSprite, new Vector2(x * size, y * size), coordinate));
-                                break;
-                            }
-                        case (7):
-                            {
-                                GameWorld.GameObjects.Add(new BackgroundTile(Asset.WaterSprite, new Vector2(x * size, y * size), coordinate));
-                                break;
-                            }
                     }
                 }
             }
