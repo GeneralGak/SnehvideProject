@@ -14,14 +14,14 @@ namespace SnehvideProject
 		private bool emptyMine = false;
 		private bool haveBeenUpgraded = false;
 		private int gold;
-		private int miner;
+		private int minerCount;
 		private int XP;
 		private static int maxCapacity = 2;
-		Semaphore MineCapacity = new Semaphore(0, maxCapacity);
+		private Semaphore mineCapacity = new Semaphore(0, maxCapacity);
 
 		public void Initialise()
 		{
-			MineCapacity.Release(maxCapacity);
+			mineCapacity.Release(maxCapacity);
 		}
 
 		/// <summary>
@@ -42,14 +42,14 @@ namespace SnehvideProject
 		public void ValueIncreaser()
 		{
 			// if there is no more space in the mine
-			if (miner >= maxCapacity)
+			if (minerCount >= maxCapacity)
 			{
 				Console.WriteLine("Mine is full.");
 			}
 			else
 			{
-				MineCapacity.WaitOne();
-				miner++;
+				mineCapacity.WaitOne();
+				minerCount++;
 				Console.WriteLine("Enter Mine");
 				// counts up gold and XP
 				while (emptyMine == false)
@@ -59,8 +59,8 @@ namespace SnehvideProject
 					XP++;
 					Console.WriteLine(gold);
 				}
-				MineCapacity.Release();
-				miner--;
+				mineCapacity.Release();
+				minerCount--;
 				Console.WriteLine("Leave Mine");
 			}
 						
@@ -72,7 +72,7 @@ namespace SnehvideProject
 		/// </summary>
 		public void Release()
 		{
-			if(miner > 0)
+			if(minerCount > 0)
 			{
 				emptyMine = true;
 			}
