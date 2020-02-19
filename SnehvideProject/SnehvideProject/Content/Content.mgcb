@@ -25,6 +25,18 @@
 /processorParam:TextureFormat=Color
 /build:Appletree.png
 
+#begin cave-entrance-pixel-art.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:cave-entrance-pixel-art.png
+
 #begin Dwarf Sprite Sheet.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -37,11 +49,7 @@
 /processorParam:TextureFormat=Color
 /build:Dwarf Sprite Sheet.png
 
-
-#begin Fighter Dwarf.png
-
 #begin fantasy-city.png
-
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -51,7 +59,18 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
+/build:fantasy-city.png
 
+#begin Fighter Dwarf.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
 /build:Fighter Dwarf.png
 
 #begin Miner Dwarf.png
@@ -65,9 +84,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Miner Dwarf.png
-
-/build:fantasy-city.png
-
 
 #begin MonsterÆble.png
 /importer:TextureImporter
@@ -164,3 +180,4 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Tree.png
+
