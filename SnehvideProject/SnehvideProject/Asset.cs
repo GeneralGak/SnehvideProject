@@ -33,6 +33,9 @@ namespace SnehvideProject
 
         public static Texture2D BackgroundPic;
 
+		public static Texture2D MineSprite;
+
+
 		//Map arrays
 		public static int[,] map1Layer1;
 		public static int[,] map1Layer2;
@@ -62,10 +65,14 @@ namespace SnehvideProject
             SlaveShip = content.Load<Texture2D>("MonsterÆble");
             //Mouse
             MouseCursorSprite = content.Load<Texture2D>("mousecursor2");
+
             //Pop ups
             SlaveShipPopUp = content.Load<Texture2D>("Slaveship popup with text");
             SlaveShipFighter = content.Load<Texture2D>("fighter dwarf");
             SlaveShipMiner = content.Load<Texture2D>("miner dwarf");
+
+			MineSprite = content.Load<Texture2D>("cave-entrance-pixel-art");
+
 
             map1Layer1 = new int[,]
              {
@@ -120,7 +127,7 @@ namespace SnehvideProject
 			//	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
 			//	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
 		    };
-            
+
 		}
 
 	}

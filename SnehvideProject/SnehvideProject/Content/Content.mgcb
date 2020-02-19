@@ -25,7 +25,10 @@
 /processorParam:TextureFormat=Color
 /build:Appletree.png
 
+
 #begin background.png
+
+#begin cave-entrance-pixel-art.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -35,7 +38,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:background.png
+/build:cave-entrance-pixel-art.png
+
+
 
 #begin background2.png
 /importer:TextureImporter
@@ -60,6 +65,7 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Dwarf Sprite Sheet.png
+
 
 #begin fantasy-city.png
 /importer:TextureImporter
@@ -204,4 +210,3 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Tree.png
-

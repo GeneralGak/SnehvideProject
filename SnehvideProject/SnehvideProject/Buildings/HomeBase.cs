@@ -9,8 +9,20 @@ namespace SnehvideProject
 {
     public class HomeBase : Building, IPlayerUnit
     {
+        // FIELDS 
+        private int goldAmount;
 
-		public HomeBase(Vector2 position)
+        // PROPERTIES
+
+        public int GoldAmount
+        {
+            get { return goldAmount; }
+            set { goldAmount = value; }
+        }
+
+        // METHODS
+
+        public HomeBase(Vector2 position)
 		{
 			this.Position = position;
 			ChangeSprite(Asset.MainBase);

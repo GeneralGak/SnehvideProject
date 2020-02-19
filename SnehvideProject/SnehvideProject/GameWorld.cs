@@ -27,7 +27,6 @@ namespace SnehvideProject
 		private static int screenWidth;
 		private static int screenHeight;
 
-
 		private GraphicsDeviceManager graphics;
 		private SpriteBatch spriteBatch;
 		private static Vector2 scrSize;
@@ -35,6 +34,8 @@ namespace SnehvideProject
 		private static float tileSize;
 		public static AppleMonster monster;
 		public static Fighter dwarf;
+        private Miner minerDwarf;
+
 		public static HomeBase homeBase;
 		public static Mine mine;
         public static MouseControl cursor;
@@ -119,15 +120,16 @@ namespace SnehvideProject
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            foreach (GameObject gameObject in GameObjects)
-            {
-                gameObject.LoadContent(Content);
-            }
             // TODO: use this.Content to load your game content here
 
             // Test Monster and Dwarf
+            mine = new Mine(new Vector2(400, 400));
+            homeBase = new HomeBase(new Vector2(100, 1000));
             monster = new AppleMonster(new Vector2(100, 100));
             dwarf = new Fighter(new Vector2(550, 550));
+            minerDwarf = new Miner(new Vector2(100,100));
+            cursor = new MouseControl();
+
             GameObjects.Add(monster);
             GameObjects.Add(dwarf);
 
@@ -137,12 +139,20 @@ namespace SnehvideProject
             cursor = new MouseControl();
             GameObjects.Add(homeBase);
             GameObjects.Add(mine);
+
+            GameObjects.Add(minerDwarf);
             GameObjects.Add(cursor);
+
             EnemyWaves.StartTimer();
             //mine.Initialise();
             mine.EnterMine();
             mine.EnterMine();
             mine.EnterMine();
+
+            //foreach (GameObject gameObject in GameObjects)
+            //{
+            //    gameObject.LoadContent(Content);
+            //}
         }
 
 
@@ -218,9 +228,9 @@ namespace SnehvideProject
 			//spriteBatch.Begin();
 
 
-            // TODO: Add your drawing code here
-            //Draws all objects in active room
-            foreach (GameObject gameObject in GameObjects)
+			// TODO: Add your drawing code here
+			//Draws all objects in active room
+			foreach (GameObject gameObject in GameObjects)
             {
                 //Ensures that only the objects within the screenbounds are drawn.
                 if (gameObject.Position.X <= Camera.CamPos.X + scrSize.X && gameObject.Position.Y <= Camera.CamPos.Y + scrSize.Y)

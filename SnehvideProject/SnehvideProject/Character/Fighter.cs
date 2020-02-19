@@ -24,6 +24,11 @@ namespace SnehvideProject
             GameWorld.RemoveGameObject(this);
         }
 
+        public override void Direction()
+        {
+            throw new NotImplementedException();
+        }
+
         public override void OnTakeDamage()
         {
             throw new NotImplementedException();
