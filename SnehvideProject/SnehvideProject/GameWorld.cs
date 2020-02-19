@@ -126,13 +126,15 @@ namespace SnehvideProject
             // TODO: use this.Content to load your game content here
 
             // Test Monster and Dwarf
-            mine = new Mine();
-            homeBase = new HomeBase(new Vector2(100, 1000));
             monster = new AppleMonster(new Vector2(100, 100));
             dwarf = new Fighter(new Vector2(550, 550));
-            cursor = new MouseControl();
             GameObjects.Add(monster);
             GameObjects.Add(dwarf);
+
+            //Loads buildings and mouse.
+            mine = new Mine();
+            homeBase = new HomeBase(new Vector2(100, 1000));
+            cursor = new MouseControl();
             GameObjects.Add(homeBase);
             GameObjects.Add(mine);
             GameObjects.Add(cursor);

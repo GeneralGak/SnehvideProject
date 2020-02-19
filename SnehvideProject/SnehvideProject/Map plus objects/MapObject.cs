@@ -39,22 +39,24 @@ namespace SnehvideProject
 
                     switch (coordinate)
                     {
-                        case (0):
+                        case (4):
                             {
-                                GameObject newGrass = new BackgroundTile(Asset.GrassSprite, new Vector2(x * size, y * size), coordinate);
-                                GameWorld.GameObjects.Add(newGrass);
+                                GameWorld.GameObjects.Add(new BackgroundTile(Asset.BackgroundPic, new Vector2(0, 0), coordinate));
                                 break;
                             }
-                        case (1):
+                        case (5):
                             {
-                                GameObject newGround = new BackgroundTile(Asset.GroundSprite, new Vector2(x * size, y * size), coordinate);
-                                GameWorld.GameObjects.Add(newGround);
+                                GameWorld.GameObjects.Add(new BackgroundTile(Asset.GrassSprite, new Vector2(x * size, y * size), coordinate));
                                 break;
                             }
-                        case (2):
+                        case (6):
                             {
-                                GameObject newWater = new BackgroundTile(Asset.WaterSprite, new Vector2(x * size, y * size), coordinate);
-                                GameWorld.GameObjects.Add(newWater);
+                                GameWorld.GameObjects.Add(new BackgroundTile(Asset.GroundSprite, new Vector2(x * size, y * size), coordinate));
+                                break;
+                            }
+                        case (7):
+                            {
+                                GameWorld.GameObjects.Add(new BackgroundTile(Asset.WaterSprite, new Vector2(x * size, y * size), coordinate));
                                 break;
                             }
                     }
@@ -73,15 +75,16 @@ namespace SnehvideProject
                         case (1):
                             {
                                 GameWorld.GameObjects.Add(new Tree(Asset.TreeSprite, new Vector2(x * size, y * size)));
-                                //GameObject newTree = new Tree(Assets.TreeSprite, new Vector2(x * size, y * size));
-                                //GameWorld.GameObjects.Add(newTree);
                                 break;
                             }
                         case (2):
                             {
                                 GameWorld.GameObjects.Add(new Appletree(Asset.AppletreeSprite, new Vector2(x * size, y * size)));
-                                //GameObject newAppletree = new Appletree(Assets.AppletreeSprite, new Vector2(x * size, y * size));
-                                //GameWorld.GameObjects.Add(newAppletree);
+                                break;
+                            }
+                        case (3):
+                            {
+                                GameWorld.GameObjects.Add(new SlaveShip(new Vector2(x * size, y * size)));
                                 break;
                             }
                     }
