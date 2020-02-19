@@ -134,7 +134,7 @@ namespace SnehvideProject
             GameObjects.Add(dwarf);
 
             //Loads buildings and mouse.
-            mine = new Mine();
+            mine = new Mine(new Vector2(400, 400));
             homeBase = new HomeBase(new Vector2(100, 1000));
             cursor = new MouseControl();
             GameObjects.Add(homeBase);

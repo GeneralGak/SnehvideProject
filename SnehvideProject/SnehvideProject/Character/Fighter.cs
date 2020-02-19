@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace SnehvideProject
@@ -15,8 +16,12 @@ namespace SnehvideProject
 			this.Position = position;
 			this.Faction = Faction.Player;
 			ChangeSprite(Asset.DwarfFighterSprite);
-            health = 10;
-            movementSpeed = 300;
+			this.damage = 2;
+            this.health = 10;
+            this.movementSpeed = 300;
+			Thread dwarfThread = new Thread(SwithAction);
+			dwarfThread.IsBackground = true;
+			dwarfThread.Start();
 		}
 
         public override void Die()
@@ -33,5 +38,13 @@ namespace SnehvideProject
         {
             throw new NotImplementedException();
         }
+
+		public void SwithAction()
+		{
+			while(true)
+			{
+
+			}
+		}
     }
 }
