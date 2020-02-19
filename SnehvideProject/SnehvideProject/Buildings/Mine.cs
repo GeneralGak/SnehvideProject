@@ -73,6 +73,7 @@ namespace SnehvideProject
 				Thread.Sleep(6000);
 				// TODO: Tilføj funktion til at giver mineren guld
 				XP++;
+				//gold = 10;
 				mineCapacity.Release();
 				Console.WriteLine("Leave Mine");
 			}

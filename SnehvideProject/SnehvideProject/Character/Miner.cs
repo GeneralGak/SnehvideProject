@@ -1,8 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace SnehvideProject
@@ -29,14 +31,18 @@ namespace SnehvideProject
             this.Faction = Faction.Player;
             ChangeSprite(Asset.DwarfMinerSprite);
             health = 5;
-            movementSpeed = 300;
-            orderGvn = 1;
+            movementSpeed = 200;
+            orderGvn = 0;
+            isAlive = true;
+            Thread minerThread = new Thread(() => SwitchAction());
+            minerThread.IsBackground = true;
+            minerThread.Start();
         }
 
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
-            SwitchAction(gameTime);
+            Move(gameTime);
         }
 
         public override void Die()
@@ -71,11 +77,13 @@ namespace SnehvideProject
             if (otherObject is Mine)
             {
                 collisionObject = GameWorld.mine;
+                moveTowardsMine = false;
             }
 
             if (otherObject is HomeBase)
             {
                 collisionObject = GameWorld.homeBase;
+                moveTowardsHB = false;
             }
 
             if (collisionObject == GameWorld.mine)
@@ -95,27 +103,28 @@ namespace SnehvideProject
             }
         }
 
-        public void SwitchAction(GameTime gameTime)
+        public void SwitchAction()
         {
-            if (orderGvn == 0 && !carryingGold && !isInMine) // If a miner is not carrying gold and is not in the mine he must go towards the mine
+            while (isAlive)
             {
-                moveTowardsMine = true;
-                moveTowardsHB = false;
-                Move(gameTime);
-            }
-            if (orderGvn == 0 && carryingGold && !isInHB) // If a miner is carrying gold and is not in home base he should go twards home base
-            {
-                moveTowardsMine = false;
-                moveTowardsHB = true;
-                Move(gameTime);
-            }
-            if (orderGvn == 0 && isInMine && !carryingGold) // If a miner is in the mine and isn't carrying gold he should mine
-            {
-                MineGold();
-            }
-            if (orderGvn == 0 && carryingGold && isInHB) // If a miner is in the home base and carrying gold he should deliver it
-            {
-                DeliverGold();
+                if (orderGvn == 0 && !carryingGold && !isInMine) // If a miner is not carrying gold and is not in the mine he must go towards the mine
+                {
+                    moveTowardsMine = true;
+                    moveTowardsHB = false;
+                }
+                if (orderGvn == 0 && carryingGold && !isInHB) // If a miner is carrying gold and is not in home base he should go twards home base
+                {
+                    moveTowardsMine = false;
+                    moveTowardsHB = true;
+                }
+                if (orderGvn == 0 && isInMine && !carryingGold) // If a miner is in the mine and isn't carrying gold he should mine
+                {
+                    MineGold();
+                }
+                if (orderGvn == 0 && carryingGold && isInHB) // If a miner is in the home base and carrying gold he should deliver it
+                {
+                    DeliverGold();
+                }
             }
         }
 
@@ -180,13 +189,8 @@ namespace SnehvideProject
         private void MineGold()
         {
             GameWorld.mine.MineGold();
-            goldAmount = GameWorld.mine.Gold;
+            goldAmount += 10;
             carryingGold = true;
-        }
-
-        public void Wait()
-        {
-
         }
 
         public void DeliverGold()
@@ -195,6 +199,20 @@ namespace SnehvideProject
             goldAmount = 0;
             carryingGold = false;
         }
+
+        //public override void Draw(SpriteBatch spriteBatch)
+        //{
+        //    if (isInMine)
+        //    {
+
+        //    }
+        //    else
+        //    {
+        //        base.Draw(spriteBatch);
+        //    }
+
+        //}
+
 
     }
 
