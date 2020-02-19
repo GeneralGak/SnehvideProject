@@ -16,22 +16,17 @@ namespace SnehvideProject
     {
 		// FIELDS
 		protected Faction faction = Faction.Neutral;
-        protected Vector2 position;
-        protected float drawLayer = 0.01f;
-        protected float rotation;
-        protected float size = 1;
-        protected string name; // Behøver vi name?
-        protected Vector2 origin;
+        protected Vector2 position, origin;
+        protected float drawLayer = 0.01f, rotation, size = 1;
+        protected string name; // TODO: Behøver vi name?
         protected Texture2D sprite;
         protected Texture2D[] sprites;
-        protected bool spriteFlippedX;
-        protected bool spriteFlippedY;
-        protected bool isHidden;
+        protected bool spriteFlippedX, spriteFlippedY, isHidden;
 
         //PROPERTIES
 
         /// <summary>
-        /// Position Property
+        /// Position property used to acces an objects oosition elsewhere in the code
         /// </summary>
         public Vector2 Position
         {
@@ -39,43 +34,58 @@ namespace SnehvideProject
             set { position = value; }
         }
 
-        //public float PositionY
-        //{
-        //	get { return position.Y; }
-        //	set { position.Y = value; }
-        //}
-
-        //public float PositionX
-        //{
-        //	get { return position.X; }
-        //	set { position.X = value; }
-        //}
-
+		/// <summary>
+		/// Property used to acces the bool for SpriteFlippedX elsewhere in the code
+		/// </summary>
         public bool SpriteFlippedX
         {
             get { return spriteFlippedX; }
             set { spriteFlippedX = value; }
         }
 
-        public bool SpriteFlippedY
+		/// <summary>
+		/// Property used to acces the bool for SpriteFlippedY elsewhere in the code
+		/// </summary>
+		public bool SpriteFlippedY
         {
             get { return spriteFlippedY; }
             set { spriteFlippedY = value; }
         }
 
+		/// <summary>
+		/// Property used to acces the sprite variable elsewhere in the code
+		/// </summary>
         public Texture2D Sprite
         {
             get { return sprite; }
         }
 
+		/// <summary>
+		/// Property used to acces the faction variable elsewhere int he code
+		/// </summary>
 		public Faction Faction
 		{
 			get { return faction; }
 			set { faction = value; }
 		}
 
-		public float Size { get => size; set => size = value; }
-        public bool IsHidden { get; set; }
+		/// <summary>
+		/// Property used to access the size variable elsewhere in the code
+		/// </summary>
+		public float Size
+		{
+			get { return size; }
+			set { size = value; }
+		}
+
+		/// <summary>
+		/// Property used to acces the isHidden bool elsewhere in the code
+		/// </summary>
+        public bool IsHidden
+		{
+			get { return isHidden; }
+			set { isHidden = value; }
+		}
 
         /// <summary>
         /// Empty GameObject Constructor
@@ -91,13 +101,17 @@ namespace SnehvideProject
             this.position = position;
         }
 
+		/// <summary>
+		/// LoadContent method for GameObject class. It is virtual so that it may be overridden.
+		/// </summary>
+		/// <param name="content"></param>
         public virtual void LoadContent(ContentManager content)
         {
 
         }
 
         /// <summary>
-        /// Runs every frame
+        /// Update method for GameObject class. Runs every frame
         /// </summary>
         /// <param name="gameTime"></param>
         public virtual void Update(GameTime gameTime)
@@ -106,13 +120,14 @@ namespace SnehvideProject
         }
 
 		/// <summary>
-		/// Runs on collision with other objects
+		/// Abstract Oncollision Method for GameObject. Runs on collision with other objects
 		/// </summary>
 		/// <param name="otherObject"></param>
 		public abstract void OnCollision(GameObject otherObject);
 
 		/// <summary>
-		/// Draw object sprite
+		/// Draw method for GameObject. Draws an objects sprite. It is virtual so that it may be overridden if 
+		/// but ultimately most classes will use the same standard drawmethod as written here. 
 		/// </summary>
 		/// <param name="spriteBatch"></param>
 		public virtual void Draw(SpriteBatch spriteBatch)

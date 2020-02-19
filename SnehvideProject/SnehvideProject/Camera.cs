@@ -13,7 +13,7 @@ namespace SnehvideProject
 		// FIELDS
 		//private static KeyboardState keyState = Keyboard.GetState();
 		private static Vector2 velocity;
-		public static Vector2 CamPos = Vector2.Zero;
+		public static Vector2 CamPos = new Vector2(0 + (GameWorld.ScrSize.X / 2), 0 + (GameWorld.ScrSize.Y / 2));
 		private static float speed = 10/*, previousScrollValue*/;
 		public static float CamZoom = 1;
 
@@ -45,22 +45,22 @@ namespace SnehvideProject
 			KeyboardState keyState = KeyboardAndMouse.GetState();
 			velocity = Vector2.Zero;
 
-			if (keyState.IsKeyDown(Keys.W)) // Up
+			if (keyState.IsKeyDown(Keys.W) && CamPos.Y > 0+(GameWorld.ScrSize.Y/2)) // Up
 			{
 				velocity.Y -= 1;
 			}
 
-			if (keyState.IsKeyDown(Keys.S)) // Down
+			if (keyState.IsKeyDown(Keys.S) && CamPos.Y < 0+(GameWorld.ScrSize.Y)) // Down
 			{
 				velocity.Y += 1;
 			}
 
-			if (keyState.IsKeyDown(Keys.A)) // Left
+			if (keyState.IsKeyDown(Keys.A) && CamPos.X > 0+(GameWorld.ScrSize.X/2)) // Left
 			{
 				velocity.X -= 1;
 			}
 
-			if (keyState.IsKeyDown(Keys.D)) // Right
+			if (keyState.IsKeyDown(Keys.D) && CamPos.X < 0 + (GameWorld.ScrSize.X)) // Right
 			{
 				velocity.X += 1;
 			}

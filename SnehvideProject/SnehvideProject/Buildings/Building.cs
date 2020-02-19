@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace SnehvideProject
 {
-    class Building
-    {
-    }
+	public class Building : GameObject
+	{
+		public override void OnCollision(GameObject otherObject)
+		{
+			
+		}
+	}
 }

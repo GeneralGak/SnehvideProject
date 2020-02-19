@@ -22,6 +22,7 @@ namespace SnehvideProject
         public static Texture2D WaterSprite;
         public static Texture2D AppletreeSprite;
 		public static Texture2D TreeSprite;
+		public static Texture2D HomeBase;
 
         public static Texture2D MouseCursorSprite;
 
@@ -38,6 +39,7 @@ namespace SnehvideProject
             DwarfMinerSprite = content.Load<Texture2D>("Miner Dwarf");
 
             MouseCursorSprite = content.Load<Texture2D>("mousecursor2");
+			HomeBase = content.Load<Texture2D>("fantasy-city");
 		}
 	}
 }

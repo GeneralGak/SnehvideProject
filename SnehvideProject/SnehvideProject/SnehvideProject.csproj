@@ -49,7 +49,7 @@
     <Compile Include="ICanTakeDamage.cs" />
     <Compile Include="IPlayerUnit.cs" />
     <Compile Include="Map plus objects\Appletree.cs" />
-    <Compile Include="Assets.cs" />
+    <Compile Include="Asset.cs" />
     <Compile Include="Map plus objects\BackgroundTile.cs" />
     <Compile Include="Buildings\Barrack.cs" />
     <Compile Include="Buildings\Building.cs" />
@@ -63,6 +63,7 @@
     <Compile Include="Buildings\HomeBase.cs" />
     <Compile Include="KeyboardAndMouse.cs" />
     <Compile Include="Map plus objects\Map.cs" />
+    <Compile Include="Keyboard.cs" />
     <Compile Include="Map plus objects\MapObject.cs" />
     <Compile Include="Buildings\Mine.cs" />
     <Compile Include="Character\Miner.cs" />

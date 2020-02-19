@@ -9,13 +9,26 @@ namespace SnehvideProject
 {
     class MapObject
     {
+        // FIELDS
         private static int coordinate;
 
-        public static int Coordinate
+        // METHODS
+
+        /// <summary>
+        /// Empty Constructor for MapObject
+        /// </summary>
+        public MapObject()
         {
-            get { return coordinate; }
+
         }
-        protected void GenerateLevel(int[,] layerOne, int[,] layerTwo, float size)
+
+        /// <summary>
+        /// Method for generating the map
+        /// </summary>
+        /// <param name="layerOne"></param>
+        /// <param name="layerTwo"></param>
+        /// <param name="size"></param>
+        public void GenerateMap(int[,] layerOne, int[,] layerTwo, float size)
         {
             // Layer one is for background tiles.
             for (int x = 0; x < layerOne.GetLength(1); x++)
@@ -28,19 +41,19 @@ namespace SnehvideProject
                     {
                         case (0):
                             {
-                                GameObject newGrass = new BackgroundTile(new Vector2(x * size, y * size), coordinate);
+                                GameObject newGrass = new BackgroundTile(Asset.GrassSprite, new Vector2(x * size, y * size), coordinate);
                                 GameWorld.GameObjects.Add(newGrass);
                                 break;
                             }
                         case (1):
                             {
-                                GameObject newGround = new BackgroundTile(new Vector2(x * size, y * size), coordinate);
+                                GameObject newGround = new BackgroundTile(Asset.GroundSprite, new Vector2(x * size, y * size), coordinate);
                                 GameWorld.GameObjects.Add(newGround);
                                 break;
                             }
                         case (2):
                             {
-                                GameObject newWater = new BackgroundTile(new Vector2(x * size, y * size), coordinate);
+                                GameObject newWater = new BackgroundTile(Asset.WaterSprite, new Vector2(x * size, y * size), coordinate);
                                 GameWorld.GameObjects.Add(newWater);
                                 break;
                             }
@@ -48,7 +61,7 @@ namespace SnehvideProject
                 }
             }
 
-            // Layer for items: trees, houses etc.
+            // Layer two is for items: trees, houses etc.
             for (int x = 0; x < layerTwo.GetLength(1); x++)
             {
                 for (int y = 0; y < layerTwo.GetLength(0); y++)
