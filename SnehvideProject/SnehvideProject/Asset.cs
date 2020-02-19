@@ -26,13 +26,14 @@ namespace SnehvideProject
 		public static Texture2D MainBase;
 
 		//Map arrays
-		public static int[,] map1Layer1, map1Layer2;
+		public static int[,] map1Layer1;
+		public static int[,] map1Layer2;
 
 		/// <summary>
 		/// LoadContent method for the Asset class.
 		/// </summary>
 		/// <param name="content"></param>
-        public static void LoadContent(ContentManager content)
+		public static void LoadContent(ContentManager content)
 		{
 			GrassSprite = content.Load<Texture2D>("tile_02");
 			GroundSprite = content.Load<Texture2D>("tile_06");

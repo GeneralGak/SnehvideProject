@@ -13,6 +13,7 @@ namespace SnehvideProject
         private bool carryingGold;
         private bool isSelected;
         private bool isInMine = false;
+        private bool isInTreasury = false;
         private int goldAmount;
         private int orderGvn; // 0 = mine gold, 1 = attack
 
@@ -24,6 +25,11 @@ namespace SnehvideProject
             {
                 isInMine = true;
             }
+
+            if(otherObject is Treasury)
+            {
+                isInTreasury = true;
+            }
             base.OnCollision(otherObject);
         }
 
@@ -31,7 +37,7 @@ namespace SnehvideProject
         {
             if (orderGvn == 0 && isInMine == true)
             {
-
+                
             }
         }
 
@@ -59,6 +65,6 @@ namespace SnehvideProject
 
         }
 
-
     }
+
 }

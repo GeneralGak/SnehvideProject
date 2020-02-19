@@ -18,18 +18,21 @@ namespace SnehvideProject
 		public static List<GameObject> GameObjects = new List<GameObject>();
 
 		//Lists to add and remove objects in runtime
-		public static List<GameObject> NewGameObjects = new List<GameObject>(), RemoveGameObjects = new List<GameObject>();
+		public static List<GameObject> NewGameObjects = new List<GameObject>();
+		public static List<GameObject> RemoveGameObjects = new List<GameObject>();
 
 		//To get random numbers
 		public static Random rng = new Random();
 
-		private static int screenWidth, screenHeight;
+		private static int screenWidth;
+		private static int screenHeight;
 
-		
+
 		private GraphicsDeviceManager graphics;
 		private SpriteBatch spriteBatch;
 		private static Vector2 scrSize;
-		private static float scrScale, tileSize;
+		private static float scrScale;
+		private static float tileSize;
 		public static AppleMonster monster;
 		public static Fighter dwarf;
 		public static HomeBase homeBase;
