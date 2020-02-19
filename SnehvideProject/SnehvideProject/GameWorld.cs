@@ -39,6 +39,7 @@ namespace SnehvideProject
 		public static HomeBase homeBase;
 		public static Mine mine;
         public static MouseControl cursor;
+		public static Barrack barrack;
 
         private MapObject gameMap;
 
@@ -136,9 +137,11 @@ namespace SnehvideProject
             //Loads buildings and mouse.
             mine = new Mine(new Vector2(400, 400));
             homeBase = new HomeBase(new Vector2(100, 1000));
-            cursor = new MouseControl();
+			barrack = new Barrack(new Vector2(800, 800));
+			cursor = new MouseControl();
             GameObjects.Add(homeBase);
             GameObjects.Add(mine);
+			GameObjects.Add(barrack);
 
             GameObjects.Add(minerDwarf);
             GameObjects.Add(new Miner(new Vector2(500, 400)));
@@ -147,10 +150,6 @@ namespace SnehvideProject
             GameObjects.Add(cursor);
 
             EnemyWaves.StartTimer();
-            //mine.Initialise();
-            mine.EnterMine();
-            mine.EnterMine();
-            mine.EnterMine();
 
             //foreach (GameObject gameObject in GameObjects)
             //{

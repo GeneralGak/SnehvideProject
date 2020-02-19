@@ -30,6 +30,7 @@ namespace SnehvideProject
         public static Texture2D SlaveShipPopUp;
         public static Texture2D SlaveShipFighter;
         public static Texture2D SlaveShipMiner;
+		public static Texture2D BarrackSprite;
 
         public static Texture2D BackgroundPic;
 
@@ -63,6 +64,7 @@ namespace SnehvideProject
             //Buildings
 			MainBase = content.Load<Texture2D>("fantasy-city");
             SlaveShip = content.Load<Texture2D>("MonsterÆble");
+			BarrackSprite = content.Load<Texture2D>("Base_Camp");
             //Mouse
             MouseCursorSprite = content.Load<Texture2D>("mousecursor2");
 
