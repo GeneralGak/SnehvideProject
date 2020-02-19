@@ -51,7 +51,6 @@ namespace SnehvideProject
 		public static AppleMonster monster;
 		public static Fighter dwarf;
 		public static HomeBase homeBase;
-		public static Mine mine;
 
 		private MapObject gameMap;
 
@@ -150,19 +149,13 @@ namespace SnehvideProject
 			// TODO: use this.Content to load your game content here
 
 			// Test Monster and Dwarf
-			mine = new Mine();
 			homeBase = new HomeBase(new Vector2(100, 1000));
 			monster = new AppleMonster(new Vector2(100, 100));
 			dwarf = new Fighter(new Vector2(550, 550));
 			GameObjects.Add(monster);
 			GameObjects.Add(dwarf);
 			GameObjects.Add(homeBase);
-			GameObjects.Add(mine);
 			EnemyWaves.StartTimer();
-			mine.Initialise();
-			mine.EnterMine();
-			mine.EnterMine();
-			mine.EnterMine();
 
 		}
 
@@ -189,15 +182,6 @@ namespace SnehvideProject
             Camera.Update();
 
 			// TODO: Add your update logic here
-
-			//================================
-			// test
-			if (Keyboard.HasBeenPressed(Keys.Q))
-			{
-				Console.WriteLine("PRESSED BUTTON");
-				mine.Release();
-			}
-
 			Camera.Update();
 
 			foreach (GameObject gameObject in GameObjects)
@@ -235,8 +219,8 @@ namespace SnehvideProject
 		{
 			GraphicsDevice.Clear(Color.CornflowerBlue);
 
-			//spriteBatch.Begin(sortMode: SpriteSortMode.FrontToBack, null, SamplerState.PointClamp, null, null, null, Camera.Transform);
-			spriteBatch.Begin();
+			spriteBatch.Begin(sortMode: SpriteSortMode.FrontToBack, null, SamplerState.PointClamp, null, null, null, Camera.Transform);
+			//spriteBatch.Begin();
 
             // TODO: Add your drawing code here
 			//Draws all objects in active room

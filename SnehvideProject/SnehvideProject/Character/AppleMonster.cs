@@ -108,7 +108,7 @@ namespace SnehvideProject
 			this.movementSpeed = 350;
 			this.Faction = Faction.Enemy;
 			velocity = Vector2.Zero;
-			ChangeSprite(Asset.AppleMonsterSprite);
+			ChangeSprite(Assets.AppleMonsterSprite);
 		}
 
 		/// <summary>

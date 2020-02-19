@@ -13,7 +13,7 @@ namespace SnehvideProject
 		public HomeBase(Vector2 position)
 		{
 			this.Position = position;
-			ChangeSprite(Asset.MainBase);
+			ChangeSprite(Assets.HomeBase);
 		}
 
     }
