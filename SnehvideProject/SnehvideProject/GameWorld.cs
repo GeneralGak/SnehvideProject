@@ -147,7 +147,7 @@ namespace SnehvideProject
             GameObjects.Add(homeBase);
             GameObjects.Add(mine);
             EnemyWaves.StartTimer();
-            mine.Initialise();
+            //mine.Initialise();
             mine.EnterMine();
             mine.EnterMine();
             mine.EnterMine();
