@@ -37,6 +37,7 @@ namespace SnehvideProject
 		public static Fighter dwarf;
 		public static HomeBase homeBase;
 		public static Mine mine;
+        public static MouseControl cursor;
 
         private MapObject gameMap;
 
@@ -129,10 +130,12 @@ namespace SnehvideProject
             homeBase = new HomeBase(new Vector2(100, 1000));
             monster = new AppleMonster(new Vector2(100, 100));
             dwarf = new Fighter(new Vector2(550, 550));
+            cursor = new MouseControl();
             GameObjects.Add(monster);
             GameObjects.Add(dwarf);
             GameObjects.Add(homeBase);
             GameObjects.Add(mine);
+            GameObjects.Add(cursor);
             EnemyWaves.StartTimer();
             //mine.Initialise();
             mine.EnterMine();
