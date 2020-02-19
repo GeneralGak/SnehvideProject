@@ -8,5 +8,8 @@ namespace SnehvideProject
 {
     class Barrack : Building, IPlayerUnit
     {
+
+
+
     }
 }

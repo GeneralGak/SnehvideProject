@@ -21,9 +21,18 @@ namespace SnehvideProject
 		private static int maxCapacity = 2;
 		private Semaphore mineCapacity = new Semaphore(0, maxCapacity);
 
+
+
+		public Mine(Vector2 position)
+		{
+			this.Position = position;
+			Initialise();
+		}
+
 		public void Initialise()
 		{
 			mineCapacity.Release(maxCapacity);
+			ChangeSprite(Asset.MineSprite);
 		}
 
 		public int Gold
@@ -63,6 +72,7 @@ namespace SnehvideProject
 
 				Thread.Sleep(6000);
 				// TODO: Tilføj funktion til at giver mineren guld
+				XP++;
 				mineCapacity.Release();
 				Console.WriteLine("Leave Mine");
 			}
@@ -82,6 +92,7 @@ namespace SnehvideProject
 
 				Thread.Sleep(6000);
 				// TODO: Tilføj funktion til at giver mineren guld
+				XP++;
 				mineCapacity.Release();
 				Console.WriteLine("Leave Mine");
 			}

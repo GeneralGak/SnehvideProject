@@ -38,6 +38,7 @@ namespace SnehvideProject
 
 		public static HomeBase homeBase;
 		public static Mine mine;
+        public static MouseControl cursor;
 
         private MapObject gameMap;
 
@@ -122,16 +123,20 @@ namespace SnehvideProject
             // TODO: use this.Content to load your game content here
 
             // Test Monster and Dwarf
-            mine = new Mine();
+            mine = new Mine(new Vector2(400, 400));
             homeBase = new HomeBase(new Vector2(100, 1000));
             monster = new AppleMonster(new Vector2(100, 100));
             dwarf = new Fighter(new Vector2(550, 550));
             minerDwarf = new Miner(new Vector2(100,100));
+            cursor = new MouseControl();
             GameObjects.Add(monster);
             GameObjects.Add(dwarf);
             GameObjects.Add(homeBase);
             GameObjects.Add(mine);
+
             GameObjects.Add(minerDwarf);
+            GameObjects.Add(cursor);
+
             EnemyWaves.StartTimer();
             //mine.Initialise();
             mine.EnterMine();
@@ -217,9 +222,9 @@ namespace SnehvideProject
 			//spriteBatch.Begin();
 
 
-            // TODO: Add your drawing code here
-            //Draws all objects in active room
-            foreach (GameObject gameObject in GameObjects)
+			// TODO: Add your drawing code here
+			//Draws all objects in active room
+			foreach (GameObject gameObject in GameObjects)
             {
                 //Ensures that only the objects within the screenbounds are drawn.
                 if (gameObject.Position.X <= Camera.CamPos.X + scrSize.X && gameObject.Position.Y <= Camera.CamPos.Y + scrSize.Y)
