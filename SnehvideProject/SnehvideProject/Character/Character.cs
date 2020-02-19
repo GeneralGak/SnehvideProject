@@ -84,7 +84,6 @@ namespace SnehvideProject
 		/// <returns></returns>
 		public virtual int UpdateHealth(int damage)
 		{
-
 			if (damage > 0)
 			{
 				Health -= damage;
@@ -99,10 +98,6 @@ namespace SnehvideProject
 			{
 				Die();
 			}
-
-			OnTakeDamage();
-			
-
 			return Health;
 		}
 
@@ -140,6 +135,7 @@ namespace SnehvideProject
 		/// </summary>
 		/// <param name="gameObject"></param>
 		/// <returns></returns>
+
 		public bool CanAttack(GameObject gameObject)
 		{
 
@@ -161,7 +157,7 @@ namespace SnehvideProject
 			{
 				return false;
 			}
-			
+
 
 			// Character is close enough
 			return true;

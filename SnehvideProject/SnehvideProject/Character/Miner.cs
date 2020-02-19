@@ -18,6 +18,24 @@ namespace SnehvideProject
         private int orderGvn; // 0 = mine gold, 1 = attack
 
         // METHODS
+        public Miner(Vector2 position)
+        {
+            this.position = position;
+            this.Faction = Faction.Player;
+            ChangeSprite(Asset.DwarfMinerSprite);
+            health = 5;
+            movementSpeed = 300;
+        }
+
+        public override void Die()
+        {
+                GameWorld.RemoveGameObject(this);
+        }
+
+        public override void OnTakeDamage()
+        {
+            throw new NotImplementedException();
+        }
 
         public override void OnCollision(GameObject otherObject)
         {
@@ -37,7 +55,7 @@ namespace SnehvideProject
         {
             if (orderGvn == 0 && isInMine == true)
             {
-                
+
             }
         }
 

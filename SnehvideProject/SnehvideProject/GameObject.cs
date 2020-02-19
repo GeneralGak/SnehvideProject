@@ -136,6 +136,7 @@ namespace SnehvideProject
 		/// <param name="spriteBatch"></param>
 		public virtual void Draw(SpriteBatch spriteBatch)
 		{
+
 			if (sprite != null && !IsHidden)
 			{
 				SpriteEffects effect = SpriteEffects.None;
@@ -156,7 +157,7 @@ namespace SnehvideProject
 		/// Create the collision box
 		/// </summary>
 		/// <returns></returns>
-		public Rectangle GetCollisionBox()
+		public virtual Rectangle GetCollisionBox()
 		{
 			if (sprite != null)
 			{

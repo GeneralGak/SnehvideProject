@@ -17,10 +17,5 @@ namespace SnehvideProject
         {
             throw new NotImplementedException();
         }
-
-        public override void OnTakeDamage()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

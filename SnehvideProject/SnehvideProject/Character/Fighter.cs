@@ -15,6 +15,18 @@ namespace SnehvideProject
 			this.Position = position;
 			this.Faction = Faction.Player;
 			ChangeSprite(Asset.DwarfFighterSprite);
+            health = 10;
+            movementSpeed = 300;
 		}
+
+        public override void Die()
+        {
+            GameWorld.RemoveGameObject(this);
+        }
+
+        public override void OnTakeDamage()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

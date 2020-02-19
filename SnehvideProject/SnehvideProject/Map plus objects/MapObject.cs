@@ -12,7 +12,7 @@ namespace SnehvideProject
         // FIELDS
         private static int coordinate;
 
-        // METHODS 
+        // METHODS
 
         /// <summary>
         /// Empty Constructor for MapObject
@@ -72,14 +72,16 @@ namespace SnehvideProject
                     {
                         case (1):
                             {
-                                GameObject newTree = new Tree(Asset.TreeSprite, new Vector2(x * size, y * size));
-                                GameWorld.GameObjects.Add(newTree);
+                                GameWorld.GameObjects.Add(new Tree(Asset.TreeSprite, new Vector2(x * size, y * size)));
+                                //GameObject newTree = new Tree(Assets.TreeSprite, new Vector2(x * size, y * size));
+                                //GameWorld.GameObjects.Add(newTree);
                                 break;
                             }
                         case (2):
                             {
-                                GameObject newAppletree = new Appletree(Asset.AppletreeSprite, new Vector2(x * size, y * size));
-                                GameWorld.GameObjects.Add(newAppletree);
+                                GameWorld.GameObjects.Add(new Appletree(Asset.AppletreeSprite, new Vector2(x * size, y * size)));
+                                //GameObject newAppletree = new Appletree(Assets.AppletreeSprite, new Vector2(x * size, y * size));
+                                //GameWorld.GameObjects.Add(newAppletree);
                                 break;
                             }
                     }

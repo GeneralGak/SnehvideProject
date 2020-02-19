@@ -71,14 +71,14 @@ namespace SnehvideProject
 				{
 
 					return false;
-					
+
 				}
 
 
 				if ((this.position.Y + 500) < (gameObject.Position.Y) || (this.position.Y - 500) > (gameObject.Position.Y))
 				{
-						
-					return false;					
+
+					return false;
 				}
 			}
 			else
@@ -118,7 +118,7 @@ namespace SnehvideProject
 			}
 
 			// Makes appleMonster change direction when statement is met.
-			
+
 
 			if (velocity != Vector2.Zero)
 			{

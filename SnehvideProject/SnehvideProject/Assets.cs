@@ -16,23 +16,29 @@ namespace SnehvideProject
 		public static Texture2D FriendlyBarrackSprite;
 		public static Texture2D FriendlyMineSprite;
 
-		// Map objects and background tiles.
-		//public static Texture2D GrassSprite;
-		//public static Texture2D GroundSprite;
-		//public static Texture2D WaterSprite;
-		public static Texture2D AppletreeSprite;
+        // Map objects and background tiles.
+        public static Texture2D GrassSprite;
+        public static Texture2D GroundSprite;
+        public static Texture2D WaterSprite;
+        public static Texture2D AppletreeSprite;
 		public static Texture2D TreeSprite;
 		public static Texture2D HomeBase;
 
+        public static Texture2D MouseCursorSprite;
+
+
         public static void LoadContent(ContentManager content)
 		{
-   //         GrassSprite = content.Load<Texture2D> ("tile_02");
-			//GroundSprite = content.Load<Texture2D> ("tile_06");
-   //         WaterSprite = content.Load<Texture2D>("tile_19");
+            GrassSprite = content.Load<Texture2D>("tile_02");
+            GroundSprite = content.Load<Texture2D>("tile_06");
+            WaterSprite = content.Load<Texture2D>("tile_19");
             AppletreeSprite = content.Load<Texture2D>("Appletree");
             TreeSprite = content.Load<Texture2D>("Tree");
 			AppleMonsterSprite = content.Load<Texture2D>("MonsterÆble");
-			DwarfFighterSprite = content.Load<Texture2D>("Dwarf Sprite Sheet");
+			DwarfFighterSprite = content.Load<Texture2D>("Fighter Dwarf");
+            DwarfMinerSprite = content.Load<Texture2D>("Miner Dwarf");
+
+            MouseCursorSprite = content.Load<Texture2D>("mousecursor2");
 			HomeBase = content.Load<Texture2D>("fantasy-city");
 		}
 	}
