@@ -24,9 +24,6 @@ namespace SnehvideProject
 			MineCapacity.Release(maxCapacity);
 		}
 
-		/// <summary>
-		/// Adds threads to the ValueIncreaser class (Used to test functionality)
-		/// </summary>
 		public void EnterMine()
 		{
 			// TODO: Add a thread for every miner that enters the Mine.
@@ -36,12 +33,8 @@ namespace SnehvideProject
 			DwarfMining.Start();
 		}
 
-		/// <summary>
-		/// Adds gold to the player by using threads as counters
-		/// </summary>
 		public void ValueIncreaser()
 		{
-			// if there is no more space in the mine
 			if (miner >= maxCapacity)
 			{
 				Console.WriteLine("Mine is full.");
@@ -51,7 +44,6 @@ namespace SnehvideProject
 				MineCapacity.WaitOne();
 				miner++;
 				Console.WriteLine("Enter Mine");
-				// counts up gold and XP
 				while (emptyMine == false)
 				{
 					Thread.Sleep(3000);
@@ -63,13 +55,11 @@ namespace SnehvideProject
 				miner--;
 				Console.WriteLine("Leave Mine");
 			}
-						
+			
+			
 			// TODO: Add the functionality that adds value to the Treasury. (Or something else to keep track for gold)
 		}
 
-		/// <summary>
-		/// Used to relase all the miners
-		/// </summary>
 		public void Release()
 		{
 			if(miner > 0)
@@ -78,9 +68,6 @@ namespace SnehvideProject
 			}
 		}
 
-		/// <summary>
-		/// Upgrades the mine to have more miners
-		/// </summary>
 		public void Upgrade()
 		{
 			Console.WriteLine("Mine have been upgraded");
