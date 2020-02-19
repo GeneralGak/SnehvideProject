@@ -13,7 +13,6 @@ namespace SnehvideProject
 
 		private bool emptyMine = false;
 		private bool haveBeenUpgraded = false;
-		private bool closeMine = false;
 		private int gold;
 		private int miner;
 		private int XP;
@@ -32,7 +31,7 @@ namespace SnehvideProject
 		{
 			// TODO: Add a thread for every miner that enters the Mine.
 			emptyMine = false;
-			Thread DwarfMining = new Thread(MineGold);
+			Thread DwarfMining = new Thread(ValueIncreaser);
 			DwarfMining.IsBackground = true;
 			DwarfMining.Start();
 		}
@@ -40,46 +39,31 @@ namespace SnehvideProject
 		/// <summary>
 		/// Adds gold to the player by using threads as counters
 		/// </summary>
-		public void MineGold()
+		public void ValueIncreaser()
 		{
-			if(closeMine == false)
+			// if there is no more space in the mine
+			if (miner >= maxCapacity)
 			{
-				MineCapacity.WaitOne();
-				Console.WriteLine("Enter Mine");
-				// counts up gold and XP
-				//while (emptyMine == false)
-				//{
-				//	Thread.Sleep(3000);
-				//	gold += 10;
-				//	XP++;
-				//	Console.WriteLine(gold);
-				//}
-
-				Thread.Sleep(6000);
-				// TODO: Tilføj funktion til at giver mineren guld
-				MineCapacity.Release();
-				Console.WriteLine("Leave Mine");
+				Console.WriteLine("Mine is full.");
 			}
 			else
 			{
-				Thread.Sleep(6002);
 				MineCapacity.WaitOne();
+				miner++;
 				Console.WriteLine("Enter Mine");
 				// counts up gold and XP
-				//while (emptyMine == false)
-				//{
-				//	Thread.Sleep(3000);
-				//	gold += 10;
-				//	XP++;
-				//	Console.WriteLine(gold);
-				//}
-
-				Thread.Sleep(6000);
-				// TODO: Tilføj funktion til at giver mineren guld
+				while (emptyMine == false)
+				{
+					Thread.Sleep(3000);
+					gold += 10;
+					XP++;
+					Console.WriteLine(gold);
+				}
 				MineCapacity.Release();
+				miner--;
 				Console.WriteLine("Leave Mine");
 			}
-									
+						
 			// TODO: Add the functionality that adds value to the Treasury. (Or something else to keep track for gold)
 		}
 
@@ -99,14 +83,8 @@ namespace SnehvideProject
 		/// </summary>
 		public void Upgrade()
 		{
-			closeMine = true;
-			Thread.Sleep(6001);
-			maxCapacity++;
-			MineCapacity = new Semaphore(0, maxCapacity);
-			MineCapacity.Release(maxCapacity);
 			Console.WriteLine("Mine have been upgraded");
-			haveBeenUpgraded = true;
-			closeMine = false;
+			maxCapacity++;		
 		}
 
 		public override void Update(GameTime gameTime)
