@@ -30,7 +30,7 @@ namespace SnehvideProject
 				Console.WriteLine("Start training");
 				Thread.Sleep(3000);
 				toughedFighter.CompletedTraining();
-				toughedFighter.OrderNumber = 0;
+				toughedFighter.OrderNumber = 2;
 				Console.WriteLine("Leave training");
 
 			}
@@ -62,6 +62,7 @@ namespace SnehvideProject
 			if(otherObject is Fighter)
 			{
 				toughedFighter = otherObject as Fighter;
+				toughedFighter.IsInBarrack = true;
 			}
 		}
 

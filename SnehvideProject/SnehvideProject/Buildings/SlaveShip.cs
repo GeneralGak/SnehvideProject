@@ -15,8 +15,8 @@ namespace SnehvideProject
         public static PopUp windowFighter;
         public static PopUp windowMiner;
 
-        private MouseState previousMouse;
-        private MouseState currentMouse;
+        //private MouseState previousMouse;
+        //private MouseState currentMouse;
 
         private static bool purchaseDwarf = false;
         private bool pressed;
@@ -35,11 +35,13 @@ namespace SnehvideProject
 
         public override void Update(GameTime gameTime)
         {
-            previousMouse = currentMouse;
-            currentMouse = Mouse.GetState();
+            MouseControl.PreviousMouse = MouseControl.CurrentMouse;
+            MouseControl.CurrentMouse = Mouse.GetState();
+
+            PopUpWindow();
 
             //When right button is pressed anywhere on the screen, the pop-up disappears.
-            if (currentMouse.RightButton == ButtonState.Released && previousMouse.RightButton == ButtonState.Pressed)
+            if (MouseControl.CurrentMouse.RightButton == ButtonState.Released && MouseControl.PreviousMouse.RightButton == ButtonState.Pressed)
             {
                 GameWorld.RemoveGameObject(PopWindow);
                 GameWorld.RemoveGameObject(WindowFighter);
@@ -78,10 +80,11 @@ namespace SnehvideProject
                 {
                     pressed = false;
                 }
-            }
-            
-        }
 
+                }
+            }
+
+        }
         public static void PopUpWindow()
         {
             PopWindow = new PopUp(Asset.SlaveShipPopUp, new Vector2(MapObject.SlaveShipSprite.position.X, MapObject.SlaveShipSprite.position.Y), 0.04f);

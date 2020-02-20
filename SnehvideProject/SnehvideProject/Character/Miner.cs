@@ -34,6 +34,7 @@ namespace SnehvideProject
             movementSpeed = 200;
             orderGvn = 0;
             isAlive = true;
+            drawLayer = 0.5f;
             Thread minerThread = new Thread(() => SwitchAction());
             minerThread.IsBackground = true;
             minerThread.Start();

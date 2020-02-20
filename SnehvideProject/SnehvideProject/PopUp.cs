@@ -23,7 +23,7 @@ namespace SnehvideProject
 
         public override void OnCollision(GameObject otherObject)
         {
-            
+
         }
 
         public override void Update(GameTime gameTime)
@@ -41,39 +41,25 @@ namespace SnehvideProject
                 {
                         if (!pressed)
                         {
+                          if (sprite == Asset.DwarfFighterSprite)
+                          {
                             Console.WriteLine("Popup");
-                            Fighter newOneF = new Fighter(new Vector2(700, 0));
+                            Fighter newOneF = new Fighter(new Vector2(MapObject.SlaveShipSprite.Position.X - Asset.DwarfFighterSprite.Width * 30, MapObject.SlaveShipSprite.Position.Y));
                             GameWorld.NewGameObjects.Add(newOneF);
-                            GameWorld.homeBase.GoldAmount -= 15;
+                            //GameWorld.homeBase.GoldAmount -= 15;
                             pickedDwarf = true;
                             pressed = true;
-                        }                    
+                          }
+                          if (sprite == Asset.SlaveShipMiner)
+                          {
+                            Miner newOneM = new Miner(new Vector2(MapObject.SlaveShipSprite.Position.X - Asset.DwarfMinerSprite.Width * 30, MapObject.SlaveShipSprite.Position.Y));
+                            GameWorld.NewGameObjects.Add(newOneM);
+                            /*GameWorld.homeBase.GoldAmount -= 15;*/
+                            pickedDwarf = true;
+                          }
+                        }
                 }
                 
-
-                //if (intersectionMiner.X > intersectionMiner.Y || intersectionMiner.X < intersectionMiner.Y)
-                //{
-                //    if (MouseControl.PreviousMouse.LeftButton == ButtonState.Pressed && pickedDwarf == false && GameWorld.homeBase.GoldAmount >= 15)
-                //    {
-                //        // Makes sure only one dwarf gets instantiated per click.
-                //        while (pickedDwarf == false)
-                //        {
-                //            Miner newOneM = new Miner(new Vector2(700, 0));
-                //            GameWorld.NewGameObjects.Add(newOneM);
-                //            GameWorld.homeBase.GoldAmount -= 15;
-                //            pickedDwarf = true;
-                //        }
-                //    }
-                //    else
-                //    {
-                //        // Resets the bool so dwarfs can be purchased again.
-                //        pickedDwarf = false;
-                //    }
-                //}
-            }
-            else
-            {
-                pressed = false;
             }
         }
     }
