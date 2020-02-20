@@ -114,12 +114,12 @@ namespace SnehvideProject
 
 		public void CanUpgrade()
 		{
-			while(haveBeenUpgraded == false)
+			while(hasBeenUpgraded == false)
 			{
-				if (XP >= 10 && haveBeenUpgraded == false)
+				if (XP >= 10 && hasBeenUpgraded == false)
 				{
 					Upgrade();
-					haveBeenUpgraded = true;
+					hasBeenUpgraded = true;
 				}
 			}
 		}
