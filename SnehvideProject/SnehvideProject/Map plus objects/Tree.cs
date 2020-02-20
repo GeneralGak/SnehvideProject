@@ -21,6 +21,7 @@ namespace SnehvideProject
         {
             base.sprite = sprite;
             this.position = position;
+            drawLayer = 0.03f;
         }
 
         public override void OnCollision(GameObject gameobject)

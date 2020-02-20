@@ -37,6 +37,7 @@ namespace SnehvideProject
             Thread minerThread = new Thread(() => SwitchAction());
             minerThread.IsBackground = true;
             minerThread.Start();
+            drawLayer = 0.02f;
         }
 
         public override void Update(GameTime gameTime)

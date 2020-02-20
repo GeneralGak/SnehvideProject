@@ -19,6 +19,7 @@ namespace SnehvideProject
 		{
 			this.Position = position;
 			ChangeSprite(Asset.BarrackSprite);
+			drawLayer = 0.04f;
 		}
 
 

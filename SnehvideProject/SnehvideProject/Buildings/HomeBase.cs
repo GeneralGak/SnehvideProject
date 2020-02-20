@@ -30,15 +30,12 @@ namespace SnehvideProject
 			this.Position = position;
 			ChangeSprite(Asset.MainBase);
 			homeBaseCapacity.Release(2);
+			drawLayer = 0.04f;
 		}
 
 		public override void Update(GameTime gameTime)
 		{
 			base.Update(gameTime);
-			if (GetCollisionBox().Contains(GameWorld.Point))
-			{
-				Console.WriteLine("Contains point");
-			}
 		}
 
 		public void DeliverGold()

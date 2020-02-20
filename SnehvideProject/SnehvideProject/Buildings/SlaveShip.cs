@@ -19,6 +19,7 @@ namespace SnehvideProject
         private MouseState currentMouse;
 
         private static bool purchaseDwarf = false;
+        private bool pressed;
 
         public static PopUp PopWindow { get => popWindow; set => popWindow = value; }
         public static PopUp WindowFighter { get => windowFighter; set => windowFighter = value; }
@@ -29,6 +30,7 @@ namespace SnehvideProject
         {
             ChangeSprite(Asset.SlaveShip);
             this.position = position;
+            drawLayer = 0.04f;
         }
 
         public override void Update(GameTime gameTime)
@@ -45,27 +47,49 @@ namespace SnehvideProject
                 // Bool to make sure the dwarfs can be purchased in PopUp class.
                 PurchaseDwarf = false;
             }
+            ShowPopUpWindow();
         }
 
-        public override void OnCollision(GameObject otherObject)
+        //public override void OnCollision(GameObject otherObject)
+        //{
+        //    if (otherObject is MouseControl)
+        //    {
+        //        if (currentMouse.LeftButton == ButtonState.Released && previousMouse.LeftButton == ButtonState.Pressed)
+        //        {
+        //            PopUpWindow();
+        //        }
+        //    }
+        //}
+
+        public void ShowPopUpWindow()
         {
-            if (otherObject is MouseControl)
+            MouseState mouseState = Mouse.GetState();
+            if (GetCollisionBox().Contains(GameWorld.Point))
             {
-                if (currentMouse.LeftButton == ButtonState.Released && previousMouse.LeftButton == ButtonState.Pressed)
+                if (mouseState.LeftButton == ButtonState.Pressed)
                 {
-                    PopUpWindow();
+                    if (!pressed)
+                    {
+                        PopUpWindow();
+                        pressed = true;
+                    }
+                }
+                else
+                {
+                    pressed = false;
                 }
             }
+            
         }
 
         public static void PopUpWindow()
         {
-            PopWindow = new PopUp(Asset.SlaveShipPopUp, new Vector2(MapObject.SlaveShipSprite.position.X, MapObject.SlaveShipSprite.position.Y));
+            PopWindow = new PopUp(Asset.SlaveShipPopUp, new Vector2(MapObject.SlaveShipSprite.position.X, MapObject.SlaveShipSprite.position.Y), 0.04f);
             //For testing
             //WindowFighter = new PopUp(Asset.SlaveShipFighter, new Vector2(500, 0));
             //WindowMiner = new PopUp(Asset.SlaveShipMiner, new Vector2(600, 0));
-            WindowFighter = new PopUp(Asset.SlaveShipFighter, new Vector2(MapObject.SlaveShipSprite.position.X + Asset.SlaveShipFighter.Width * 3, MapObject.SlaveShipSprite.position.Y + Asset.SlaveShipFighter.Height * 3));
-            WindowMiner = new PopUp(Asset.SlaveShipMiner, new Vector2(MapObject.SlaveShipSprite.position.X + Asset.SlaveShipMiner.Width * 5, MapObject.SlaveShipSprite.position.Y + Asset.SlaveShipMiner.Height * 2.45f));
+            WindowFighter = new PopUp(Asset.SlaveShipFighter, new Vector2(MapObject.SlaveShipSprite.position.X + Asset.SlaveShipFighter.Width * 3, MapObject.SlaveShipSprite.position.Y + Asset.SlaveShipFighter.Height * 3), 0.05f);
+            WindowMiner = new PopUp(Asset.SlaveShipMiner, new Vector2(MapObject.SlaveShipSprite.position.X + Asset.SlaveShipMiner.Width * 5, MapObject.SlaveShipSprite.position.Y + Asset.SlaveShipMiner.Height * 2.45f), 0.05f);
             GameWorld.NewGameObjects.Add(PopWindow);
             GameWorld.NewGameObjects.Add(WindowFighter);
             GameWorld.NewGameObjects.Add(WindowMiner);

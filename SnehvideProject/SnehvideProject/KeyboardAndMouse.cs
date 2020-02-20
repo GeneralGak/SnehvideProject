@@ -13,6 +13,9 @@ namespace SnehvideProject
         private static KeyboardState currentKeyState;
         private static KeyboardState previousKeyState;
 
+        public static MouseState currentState;
+        public static MouseState previousState;
+
         public static KeyboardState GetState()
         {
             previousKeyState = currentKeyState;

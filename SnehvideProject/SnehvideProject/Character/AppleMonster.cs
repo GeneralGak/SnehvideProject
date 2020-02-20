@@ -33,6 +33,7 @@ namespace SnehvideProject
 			this.Faction = Faction.Enemy;
 			velocity = Vector2.Zero;
 			ChangeSprite(Asset.AppleMonsterSprite);
+			drawLayer = 0.02f;
 		}
 
 		/// <summary>
@@ -100,10 +101,6 @@ namespace SnehvideProject
 		public override void Update(GameTime gameTime)
 		{
 			MouseState mouseState = Mouse.GetState();
-			if (GetCollisionBox().Contains(GameWorld.Point))
-			{
-				Console.WriteLine("Contains point");
-			}
 			base.Update(gameTime);
 			foreach(GameObject gameObject in GameWorld.GameObjects)
 			{

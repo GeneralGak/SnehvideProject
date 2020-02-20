@@ -37,6 +37,7 @@ namespace SnehvideProject
 			Thread dwarfThread = new Thread(SwithAction);
 			dwarfThread.IsBackground = true;
 			dwarfThread.Start();
+			drawLayer = 0.02f;
 		}
 
         public override void Die()
