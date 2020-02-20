@@ -20,11 +20,10 @@ namespace SnehvideProject
         /// <param name="sprite"></param>
         /// <param name="position"></param>
         /// <param name="coordinate"></param>
-        public BackgroundTile(Texture2D sprite, Vector2 position, int coordinate)
+        public BackgroundTile(Texture2D sprite, Vector2 position)
         {
             base.sprite = sprite;
             this.position = position;
-            this.coordinate = coordinate;
         }
 
 

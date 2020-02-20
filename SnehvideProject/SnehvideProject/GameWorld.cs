@@ -39,6 +39,7 @@ namespace SnehvideProject
 		public static HomeBase homeBase;
 		public static Mine mine;
         public static MouseControl cursor;
+		public static Barrack barrack;
 
         private MapObject gameMap;
 
@@ -105,7 +106,7 @@ namespace SnehvideProject
             Asset.LoadContent(Content);
             gameMap = new MapObject();
             //gameMap.GenerateLevel(Asset.map1Layer1, Asset.map1Layer2, tileSize);
-            Thread generateMapThread = new Thread(() => gameMap.GenerateMap(Asset.map1Layer1, Asset.map1Layer2, tileSize));
+            Thread generateMapThread = new Thread(() => gameMap.GenerateMap(Asset.BackgroundPic, Asset.map1Layer2, tileSize));
             generateMapThread.Start();
 
             base.Initialize();
@@ -125,22 +126,19 @@ namespace SnehvideProject
             // Test Monster and Dwarf
             mine = new Mine(new Vector2(400, 400));
             homeBase = new HomeBase(new Vector2(100, 1000));
+            barrack = new Barrack(new Vector2(800, 800));
             monster = new AppleMonster(new Vector2(100, 100));
             dwarf = new Fighter(new Vector2(550, 550));
             minerDwarf = new Miner(new Vector2(400,500));
             cursor = new MouseControl();
 
+            // Adds objects to a list og gameobjects
             GameObjects.Add(monster);
             GameObjects.Add(dwarf);
 
-            //Loads buildings and mouse.
-
-            mine = new Mine(new Vector2(100, 100));
-
-            homeBase = new HomeBase(new Vector2(100, 1000));
-            cursor = new MouseControl();
             GameObjects.Add(homeBase);
             GameObjects.Add(mine);
+			GameObjects.Add(barrack);
 
             GameObjects.Add(minerDwarf);
             GameObjects.Add(new Miner(new Vector2(500, 400)));
@@ -149,10 +147,6 @@ namespace SnehvideProject
             GameObjects.Add(cursor);
 
             EnemyWaves.StartTimer();
-            //mine.Initialise();
-            mine.EnterMine();
-            mine.EnterMine();
-            mine.EnterMine();
 
             //foreach (GameObject gameObject in GameObjects)
             //{

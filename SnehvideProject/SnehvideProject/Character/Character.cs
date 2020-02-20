@@ -28,6 +28,7 @@ namespace SnehvideProject
 		protected Vector2 positionPreMove;
 		protected float invinsibilityTimer;
 		protected float attackRange;
+		protected float damage;
 		protected bool takeDamage;
 
 
@@ -61,6 +62,12 @@ namespace SnehvideProject
 		{
 			get { return isAlive; }
 			set { isAlive = value; }
+		}
+
+		public float Damage
+		{
+			get { return damage; }
+			set { damage = value; }
 		}
 
 
