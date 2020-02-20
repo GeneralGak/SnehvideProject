@@ -79,7 +79,7 @@ namespace SnehvideProject
 			}
 			else
 			{
-				Thread.Sleep(6002);
+				Thread.Sleep(6200);
 				mineCapacity.WaitOne();
 				Console.WriteLine("Enter Mine");
 				// counts up gold and XP
@@ -101,17 +101,6 @@ namespace SnehvideProject
 			// TODO: Add the functionality that adds value to the Treasury. (Or something else to keep track for gold)
 		}
 
-		/// <summary>
-		/// Used to relase all the miners
-		/// </summary>
-		public void Release()
-		{
-			if(minerCount > 0)
-			{
-				emptyMine = true;
-			}
-		}
-
 		public void CanUpgrade()
 		{
 			while(hasBeenUpgraded == false)
@@ -130,11 +119,11 @@ namespace SnehvideProject
 		public void Upgrade()
 		{
 			closeMine = true;
-			Thread.Sleep(6001);
+			Thread.Sleep(6100);
 			maxCapacity++;
-			mineCapacity = new Semaphore(0, maxCapacity);
-			mineCapacity.Release(maxCapacity);
-			Console.WriteLine("Mine has been upgraded");
+			mineCapacity = new Semaphore(maxCapacity, maxCapacity);
+			//mineCapacity.Release(maxCapacity);
+			Console.WriteLine("Mine have been upgraded");
 			hasBeenUpgraded = true;
 			closeMine = false;
 		}

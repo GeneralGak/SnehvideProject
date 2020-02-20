@@ -23,6 +23,12 @@ namespace SnehvideProject
 			set { orderNumber = value; }
 		}
 
+		public bool IsInBarrack
+		{
+			get { return isInBarrack; }
+			set { isInBarrack = value; }
+		}
+
 
         public Fighter(Vector2 position)
         {
@@ -61,12 +67,18 @@ namespace SnehvideProject
 
 			Barrack barrack = otherObject as Barrack;
 
-			if (barrack != null)
-			{
-				isInBarrack = true;
-				//touchedBarrack = otherObject as Barrack;
-				touchedBarrack = barrack;
-			}
+			//if (barrack != null)
+			//{
+			//	isInBarrack = true;
+			//	//touchedBarrack = otherObject as Barrack;
+			//	touchedBarrack = barrack;
+			//}
+
+			//if(otherObject is Barrack)
+			//{
+			//	isInBarrack = true;
+			//	touchedBarrack = otherObject as Barrack;
+			//}
 		}
 
 
@@ -95,14 +107,20 @@ namespace SnehvideProject
 				{
 					this.Velocity = Vector2.Zero;
 				}
-				//if(orderNumber == 1 && isInBarrack == true)
-				//{
-				//	MoveDirection(Vector2.Zero);
-				//	touchedBarrack.TrainDwarf();
-				//}
-				if(orderNumber == 1)
+				if (orderNumber == 1 && isInBarrack == true)
+				{
+					MoveDirection(Vector2.Zero);
+					GameWorld.barrack.TrainDwarf();
+				}
+				if (orderNumber == 1 && isInBarrack == false)
 				{
 					MoveDirection(GameWorld.barrack.Position);
+					Console.WriteLine($"Fighter position: {Position}");
+				}
+				if(orderNumber == 2)
+				{
+					MoveDirection(GameWorld.homeBase.Position);
+					Console.WriteLine("");
 				}
 			}
 		}
@@ -133,12 +151,19 @@ namespace SnehvideProject
 			Damage += 2;
 			Health += 4;
 			Console.WriteLine("Training done.");
-			orderNumber = 0;
 		}
 
 		public override void Update(GameTime gameTime)
 		{
 			base.Update(gameTime);
+
+			//================================
+			// test
+			if (KeyboardAndMouse.HasBeenPressed(Keys.F))
+			{
+				Console.WriteLine("PRESSED BUTTON");
+				OrderNumber = 1;
+			}
 
 			Move(gameTime);
 		}
