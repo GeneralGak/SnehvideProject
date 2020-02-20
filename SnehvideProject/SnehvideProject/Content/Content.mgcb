@@ -13,6 +13,18 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin Applemonster.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Applemonster.png
+
 #begin Appletree.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -96,6 +108,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Fighter Dwarf.png
+
+#begin homebase finished.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:homebase finished.png
+
+#begin mine redone.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:mine redone.png
 
 #begin Miner Dwarf.png
 /importer:TextureImporter
@@ -265,7 +301,6 @@
 /processorParam:TextureFormat=Color
 /build:Tree.png
 
-
 #begin whitepixel.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -277,3 +312,4 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:whitepixel.png
+

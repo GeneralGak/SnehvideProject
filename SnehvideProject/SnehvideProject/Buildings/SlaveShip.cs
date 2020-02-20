@@ -60,12 +60,12 @@ namespace SnehvideProject
             {
                 if (MouseControl.CurrentMouse.LeftButton == ButtonState.Released && MouseControl.PreviousMouse.LeftButton == ButtonState.Pressed)
                 {
-                    PopWindow = new PopUp(Asset.SlaveShipPopUp, new Vector2(MapObject.SlaveShipSprite.position.X, MapObject.SlaveShipSprite.position.Y));
+                    PopWindow = new PopUp(Asset.SlaveShipPopUp, new Vector2(MapObject.SlaveShipSprite.position.X - Asset.SlaveShipPopUp.Width * 1.5f, MapObject.SlaveShipSprite.position.Y - Asset.SlaveShipPopUp.Height));
                     //For testing
-                    WindowFighter = new PopUp(Asset.SlaveShipFighter, new Vector2(500, 0));
-                    WindowMiner = new PopUp(Asset.SlaveShipMiner, new Vector2(600, 0));
-                    //WindowFighter = new PopUp(Asset.SlaveShipFighter, new Vector2(MapObject.SlaveShipSprite.position.X + Asset.SlaveShipFighter.Width * 3, MapObject.SlaveShipSprite.position.Y + Asset.SlaveShipFighter.Height * 3));
-                    //WindowMiner = new PopUp(Asset.SlaveShipMiner, new Vector2(MapObject.SlaveShipSprite.position.X + Asset.SlaveShipMiner.Width * 5, MapObject.SlaveShipSprite.position.Y + Asset.SlaveShipMiner.Height * 2.45f));
+                    //WindowFighter = new PopUp(Asset.SlaveShipFighter, new Vector2(500, 0));
+                    //WindowMiner = new PopUp(Asset.SlaveShipMiner, new Vector2(600, 0));
+                    WindowFighter = new PopUp(Asset.SlaveShipFighter, new Vector2(MapObject.SlaveShipSprite.position.X + Asset.SlaveShipFighter.Width * 3 - Asset.SlaveShipPopUp.Width *1.5f, MapObject.SlaveShipSprite.position.Y + Asset.SlaveShipFighter.Height * 3 - Asset.SlaveShipPopUp.Height));
+                    WindowMiner = new PopUp(Asset.SlaveShipMiner, new Vector2(MapObject.SlaveShipSprite.position.X + Asset.SlaveShipMiner.Width * 5 - Asset.SlaveShipPopUp.Width * 1.5f, MapObject.SlaveShipSprite.position.Y + Asset.SlaveShipMiner.Height * 2.45f - Asset.SlaveShipPopUp.Height));
                     GameWorld.NewGameObjects.Add(PopWindow);
                     GameWorld.NewGameObjects.Add(WindowFighter);
                     GameWorld.NewGameObjects.Add(WindowMiner);

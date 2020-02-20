@@ -40,7 +40,7 @@ namespace SnehvideProject
                         // Makes sure only one dwarf gets instantiated per click.
                         while (pickedDwarf == false)
                         {
-                            Fighter newOneF = new Fighter(new Vector2(700, 20));
+                            Fighter newOneF = new Fighter(new Vector2(MapObject.SlaveShipSprite.Position.X - Asset.DwarfFighterSprite.Width * 30, MapObject.SlaveShipSprite.Position.Y));
                             GameWorld.NewGameObjects.Add(newOneF);
                             //GameWorld.homeBase.GoldAmount -= 15;
                             pickedDwarf = true;
@@ -60,7 +60,7 @@ namespace SnehvideProject
                         // Makes sure only one dwarf gets instantiated per click.
                         while (pickedDwarf == false)
                         {
-                            Miner newOneM = new Miner(new Vector2(700, 0));
+                            Miner newOneM = new Miner(new Vector2(MapObject.SlaveShipSprite.Position.X - Asset.DwarfMinerSprite.Width * 30, MapObject.SlaveShipSprite.Position.Y));
                             GameWorld.NewGameObjects.Add(newOneM);
                             /*GameWorld.homeBase.GoldAmount -= 15;*/
                             pickedDwarf = true;
