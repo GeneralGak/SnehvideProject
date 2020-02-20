@@ -161,7 +161,10 @@ namespace SnehvideProject
             GameObjects.Add(mine);
 			GameObjects.Add(barrack);
 
-            GameObjects.Add(minerDwarf);
+			GameObjects.Add(new Fighter(new Vector2(430, 600)));
+			GameObjects.Add(new Fighter(new Vector2(340, 600)));
+
+			GameObjects.Add(minerDwarf);
             GameObjects.Add(new Miner(new Vector2(500, 400)));
             GameObjects.Add(new Miner(new Vector2(600, 500)));
             GameObjects.Add(new Miner(new Vector2(500, 600)));
@@ -231,14 +234,6 @@ namespace SnehvideProject
                 GameObjects.Remove(gameObject);
             }
             RemoveGameObjects.Clear();
-
-			//================================
-			// test
-			if (KeyboardAndMouse.HasBeenPressed(Keys.F))
-			{
-				Console.WriteLine("PRESSED BUTTON");
-				dwarf.OrderNumber = 1;
-			}
 
 			base.Update(gameTime);
         }
