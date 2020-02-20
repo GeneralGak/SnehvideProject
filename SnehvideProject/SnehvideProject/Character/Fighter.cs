@@ -85,7 +85,7 @@ namespace SnehvideProject
                 isInBarrack = false;
             }
 
-
+        }
 		public void SwithAction()
 		{
 			while(isAlive == true)
