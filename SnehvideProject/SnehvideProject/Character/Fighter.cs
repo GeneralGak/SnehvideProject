@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,14 +24,15 @@ namespace SnehvideProject
 		}
 
 
-		public Fighter(Vector2 position)
-		{
-			this.Position = position;
-			this.Faction = Faction.Player;
-			ChangeSprite(Asset.DwarfFighterSprite);
-			this.damage = 2;
+        public Fighter(Vector2 position)
+        {
+            this.Position = position;
+            this.Faction = Faction.Player;
+            ChangeSprite(Asset.DwarfFighterSprite);
+            this.damage = 2;
             this.health = 10;
             this.movementSpeed = 300;
+
 			this.IsAlive = true;
 			Thread dwarfThread = new Thread(SwithAction);
 			dwarfThread.IsBackground = true;
@@ -52,9 +54,9 @@ namespace SnehvideProject
             throw new NotImplementedException();
         }
 
-		public override void OnCollision(GameObject otherObject)
-		{
-			base.OnCollision(otherObject);
+        public override void OnCollision(GameObject otherObject)
+        {
+            base.OnCollision(otherObject);
 
 			Barrack barrack = otherObject as Barrack;
 
@@ -66,24 +68,24 @@ namespace SnehvideProject
 			}
 		}
 
-		public override void CheckCollision(GameObject otherObject)
-		{
-			base.CheckCollision(otherObject);
 
-			/// This checks to see if the field collisionObject has been set to an instance of an object. 
-			/// If collisionObject is not null that means the miner has just collided with an object fx the mine of homebase.
+        public override void CheckCollision(GameObject otherObject)
+        {
+            base.CheckCollision(otherObject);
 
-			if (!GetCollisionBox().Intersects(otherObject.GetCollisionBox()))
-			{
-				OnCollision(otherObject);
-			}
-			else if(otherObject == null && isInBarrack == true)
-			{
-				isInBarrack = false;
-			}
-			
-		}
+            /// This checks to see if the field collisionObject has been set to an instance of an object.
+            /// If collisionObject is not null that means the miner has just collided with an object fx the mine of homebase.
 
+            if (!GetCollisionBox().Intersects(otherObject.GetCollisionBox()))
+            {
+                OnCollision(otherObject);
+            }
+            else if (otherObject == null && isInBarrack == true)
+            {
+                isInBarrack = false;
+            }
+
+        }
 		public void SwithAction()
 		{
 			while(isAlive == true)
@@ -140,4 +142,5 @@ namespace SnehvideProject
 			Move(gameTime);
 		}
 	}
+
 }

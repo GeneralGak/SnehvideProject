@@ -68,7 +68,7 @@ namespace SnehvideProject
             //Mouse
             MouseCursorSprite = content.Load<Texture2D>("mousecursor2");
             //Pop ups
-            SlaveShipPopUp = content.Load<Texture2D>("Slaveship popup with text 2");
+            SlaveShipPopUp = content.Load<Texture2D>("Slaveship popup with text 3");
             SlaveShipFighter = content.Load<Texture2D>("fighter dwarf");
             SlaveShipMiner = content.Load<Texture2D>("miner dwarf");
 
