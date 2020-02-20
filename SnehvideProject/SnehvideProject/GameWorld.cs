@@ -32,13 +32,15 @@ namespace SnehvideProject
 		private static Vector2 scrSize;
 		private static float scrScale;
 		private static float tileSize;
+        private MouseState mouseState;
+        public static Point Point;
 		public static AppleMonster monster;
 		public static Fighter dwarf;
         private Miner minerDwarf;
 
 		public static HomeBase homeBase;
 		public static Mine mine;
-        public static MouseControl cursor;
+        //public static MouseControl cursor;
 		public static Barrack barrack;
 
         private MapObject gameMap;
@@ -68,7 +70,6 @@ namespace SnehvideProject
         {
             get { return tileSize; }
         }
-
 
 		// sets debug hitbox
 #if DEBUG
@@ -115,7 +116,7 @@ namespace SnehvideProject
             screenHeight = graphics.PreferredBackBufferHeight;
 
             // Makes the PC's mouse cursor invisible. That way, only the game sprite cursor can be seen.
-            IsMouseVisible = false;
+            IsMouseVisible = true;
 
             // Sets screen width and height in a vector
             scrSize = new Vector2(screenWidth, screenHeight);
@@ -146,12 +147,12 @@ namespace SnehvideProject
 
             // Test Monster and Dwarf
             mine = new Mine(new Vector2(400, 400));
-            homeBase = new HomeBase(new Vector2(100, 1000));
+            homeBase = new HomeBase(new Vector2(2300, 1000));
             barrack = new Barrack(new Vector2(800, 800));
             monster = new AppleMonster(new Vector2(100, 100));
             dwarf = new Fighter(new Vector2(550, 1050));
             minerDwarf = new Miner(new Vector2(400,500));
-            cursor = new MouseControl();
+            //cursor = new MouseControl();
 
             // Adds objects to a list og gameobjects
             GameObjects.Add(monster);
@@ -168,7 +169,7 @@ namespace SnehvideProject
             GameObjects.Add(new Miner(new Vector2(500, 400)));
             GameObjects.Add(new Miner(new Vector2(600, 500)));
             GameObjects.Add(new Miner(new Vector2(500, 600)));
-            GameObjects.Add(cursor);
+            //GameObjects.Add(cursor);
 
 			mine.UpgradeThread();
 
@@ -206,6 +207,8 @@ namespace SnehvideProject
 				Exit();
             // TODO: Add your update logic here
             Camera.Update();
+            mouseState = Mouse.GetState();
+            Point = new Point(mouseState.X+(int)(Camera.CamPos.X-Camera.CamPosStart.X), mouseState.Y+ (int)(Camera.CamPos.Y - Camera.CamPosStart.Y));
 
             // TODO: Add your update logic here
 

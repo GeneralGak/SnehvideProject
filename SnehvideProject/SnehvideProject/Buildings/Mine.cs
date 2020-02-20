@@ -13,7 +13,7 @@ namespace SnehvideProject
 	{
 
 		private bool emptyMine = false;
-		private bool haveBeenUpgraded = false;
+		private bool hasBeenUpgraded = false;
 		private bool closeMine = false;
 		private int gold;
 		private int minerCount;
@@ -103,14 +103,14 @@ namespace SnehvideProject
 
 		public void CanUpgrade()
 		{
-			while(haveBeenUpgraded == false)
+			while(hasBeenUpgraded == false)
 			{
-				if (XP >= 10 && haveBeenUpgraded == false)
+				if (XP >= 10 && hasBeenUpgraded == false)
 				{
 					Upgrade();
-					haveBeenUpgraded = true;
+					hasBeenUpgraded = true;
 				}
-			}			
+			}
 		}
 
 		/// <summary>
@@ -130,7 +130,6 @@ namespace SnehvideProject
 
 		public override void Update(GameTime gameTime)
 		{
-
 			base.Update(gameTime);
 		}
 

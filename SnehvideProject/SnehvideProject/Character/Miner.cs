@@ -34,6 +34,7 @@ namespace SnehvideProject
             movementSpeed = 200;
             orderGvn = 0;
             isAlive = true;
+            drawLayer = 0.5f;
             Thread minerThread = new Thread(() => SwitchAction());
             minerThread.IsBackground = true;
             minerThread.Start();
@@ -107,24 +108,28 @@ namespace SnehvideProject
         {
             while (isAlive)
             {
-                if (orderGvn == 0 && !carryingGold && !isInMine) // If a miner is not carrying gold and is not in the mine he must go towards the mine
+                if (orderGvn == 0) // Order given is to mine. The mining loop is started
                 {
-                    moveTowardsMine = true;
-                    moveTowardsHB = false;
+                    if (!carryingGold && !isInMine) // If a miner is not carrying gold and is not in the mine he must go towards the mine
+                    {
+                        moveTowardsMine = true;
+                        moveTowardsHB = false;
+                    }
+                    if (carryingGold && !isInHB) // If a miner is carrying gold and is not in home base he should go twards home base
+                    {
+                        moveTowardsMine = false;
+                        moveTowardsHB = true;
+                    }
+                    if (isInMine && !carryingGold) // If a miner is in the mine and isn't carrying gold he should mine
+                    {
+                        MineGold();
+                    }
+                    if (carryingGold && isInHB) // If a miner is in the home base and carrying gold he should deliver it
+                    {
+                        DeliverGold();
+                    }
                 }
-                if (orderGvn == 0 && carryingGold && !isInHB) // If a miner is carrying gold and is not in home base he should go twards home base
-                {
-                    moveTowardsMine = false;
-                    moveTowardsHB = true;
-                }
-                if (orderGvn == 0 && isInMine && !carryingGold) // If a miner is in the mine and isn't carrying gold he should mine
-                {
-                    MineGold();
-                }
-                if (orderGvn == 0 && carryingGold && isInHB) // If a miner is in the home base and carrying gold he should deliver it
-                {
-                    DeliverGold();
-                }
+                
             }
         }
 
@@ -201,20 +206,18 @@ namespace SnehvideProject
             carryingGold = false;
         }
 
-        //public override void Draw(SpriteBatch spriteBatch)
-        //{
-        //    if (isInMine)
-        //    {
+        public override void Draw(SpriteBatch spriteBatch)
+        {
+            if (isInMine || isInHB)
+            {
 
-        //    }
-        //    else
-        //    {
-        //        base.Draw(spriteBatch);
-        //    }
+            }
+            else
+            {
+                base.Draw(spriteBatch);
+            }
 
-        //}
-
-
+        }
     }
 
 }

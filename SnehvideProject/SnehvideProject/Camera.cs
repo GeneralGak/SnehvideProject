@@ -13,7 +13,8 @@ namespace SnehvideProject
 		// FIELDS
 		//private static KeyboardState keyState = Keyboard.GetState();
 		private static Vector2 velocity;
-		public static Vector2 CamPos = new Vector2(0 + (GameWorld.ScrSize.X / 2), 0 + (GameWorld.ScrSize.Y / 2));
+		public static Vector2 CamPosStart = new Vector2(0 + (GameWorld.ScrSize.X / 2), 0 + (GameWorld.ScrSize.Y / 2));
+		public static Vector2 CamPos = CamPosStart;
 		private static float speed = 10/*, previousScrollValue*/;
 		public static float CamZoom = 1;
 
@@ -65,18 +66,20 @@ namespace SnehvideProject
 				velocity.X += 1;
 			}
 
-			if (KeyboardAndMouse.IsPressed(Keys.E)) // Zoom in
-			{
-				CamZoom += 0.05f * CamZoom; // value * CamZoom to negate warping effect
-			}
+
+			//if (keyState.IsKeyDown(Keys.E)) // Zoom in
+			//{
+			//	CamZoom += 0.05f * CamZoom; // value * CamZoom to negate warping effect
+			//}
 			//else if (GameWorld.Mousestate.ScrollWheelValue > previousScrollValue)
 			//{
 			//    CamZoom += 0.05f * CamZoom * 5;
 			//}
-			if (KeyboardAndMouse.IsPressed(Keys.Q)) // Zoom out
-			{
-				CamZoom -= 0.05f * CamZoom;
-			}
+
+			//if (keyState.IsKeyDown(Keys.Q)) // Zoom out
+			//{
+			//	CamZoom -= 0.05f * CamZoom;
+			//}
 			//else if (GameWorld.Mousestate.ScrollWheelValue < previousScrollValue)
 			//{
 			//    CamZoom -= 0.05f * CamZoom * 5;
