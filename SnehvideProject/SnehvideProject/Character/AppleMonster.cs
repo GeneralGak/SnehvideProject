@@ -100,7 +100,6 @@ namespace SnehvideProject
 
 		public override void Update(GameTime gameTime)
 		{
-			MouseState mouseState = Mouse.GetState();
 			base.Update(gameTime);
 			foreach(GameObject gameObject in GameWorld.GameObjects)
 			{
