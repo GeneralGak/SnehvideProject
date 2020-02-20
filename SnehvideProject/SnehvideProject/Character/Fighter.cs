@@ -32,6 +32,7 @@ namespace SnehvideProject
             this.damage = 2;
             this.health = 10;
             this.movementSpeed = 300;
+            drawLayer = 0.5f;
 
 			this.IsAlive = true;
 			Thread dwarfThread = new Thread(SwithAction);
