@@ -38,8 +38,6 @@ namespace SnehvideProject
             MouseControl.PreviousMouse = MouseControl.CurrentMouse;
             MouseControl.CurrentMouse = Mouse.GetState();
 
-            PopUpWindow();
-
             //When right button is pressed anywhere on the screen, the pop-up disappears.
             if (MouseControl.CurrentMouse.RightButton == ButtonState.Released && MouseControl.PreviousMouse.RightButton == ButtonState.Pressed)
             {
@@ -81,24 +79,21 @@ namespace SnehvideProject
                     pressed = false;
                 }
 
-                }
+                
             }
 
         }
         public static void PopUpWindow()
         {
-            PopWindow = new PopUp(Asset.SlaveShipPopUp, new Vector2(MapObject.SlaveShipSprite.position.X, MapObject.SlaveShipSprite.position.Y), 0.04f);
-            //For testing
-            //WindowFighter = new PopUp(Asset.SlaveShipFighter, new Vector2(500, 0));
-            //WindowMiner = new PopUp(Asset.SlaveShipMiner, new Vector2(600, 0));
-            WindowFighter = new PopUp(Asset.SlaveShipFighter, new Vector2(MapObject.SlaveShipSprite.position.X + Asset.SlaveShipFighter.Width * 3, MapObject.SlaveShipSprite.position.Y + Asset.SlaveShipFighter.Height * 3), 0.05f);
-            WindowMiner = new PopUp(Asset.SlaveShipMiner, new Vector2(MapObject.SlaveShipSprite.position.X + Asset.SlaveShipMiner.Width * 5, MapObject.SlaveShipSprite.position.Y + Asset.SlaveShipMiner.Height * 2.45f), 0.05f);
+            PopWindow = new PopUp(Asset.SlaveShipPopUp, new Vector2(MapObject.SlaveShipSprite.position.X - Asset.SlaveShipPopUp.Width * 1.5f, MapObject.SlaveShipSprite.position.Y - Asset.SlaveShipPopUp.Height), 0.05f);
+            WindowFighter = new PopUp(Asset.SlaveShipFighter, new Vector2(MapObject.SlaveShipSprite.position.X + Asset.SlaveShipFighter.Width * 3 - Asset.SlaveShipPopUp.Width * 1.5f, MapObject.SlaveShipSprite.position.Y + Asset.SlaveShipFighter.Height * 3 - Asset.SlaveShipPopUp.Height), 0.06f);
+            WindowMiner = new PopUp(Asset.SlaveShipMiner, new Vector2(MapObject.SlaveShipSprite.position.X + Asset.SlaveShipMiner.Width * 5 - Asset.SlaveShipPopUp.Width * 1.5f, MapObject.SlaveShipSprite.position.Y + Asset.SlaveShipMiner.Height * 2.45f - Asset.SlaveShipPopUp.Height), 0.06f);
+
             GameWorld.NewGameObjects.Add(PopWindow);
             GameWorld.NewGameObjects.Add(WindowFighter);
             GameWorld.NewGameObjects.Add(WindowMiner);
             // Bool to make sure the dwarfs can be purchased in PopUp class.
             PurchaseDwarf = true;
-            Console.WriteLine(PurchaseDwarf);
         }
     }
 }
