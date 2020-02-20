@@ -79,7 +79,7 @@ namespace SnehvideProject
 			}
 			else
 			{
-				Thread.Sleep(6002);
+				Thread.Sleep(6200);
 				mineCapacity.WaitOne();
 				Console.WriteLine("Enter Mine");
 				// counts up gold and XP
@@ -124,7 +124,7 @@ namespace SnehvideProject
 			mineCapacity = new Semaphore(maxCapacity, maxCapacity);
 			//mineCapacity.Release(maxCapacity);
 			Console.WriteLine("Mine have been upgraded");
-			haveBeenUpgraded = true;
+			hasBeenUpgraded = true;
 			closeMine = false;
 		}
 
