@@ -13,7 +13,7 @@ namespace SnehvideProject
 	{
 
 		private bool emptyMine = false;
-		private bool haveBeenUpgraded = false;
+		private bool hasBeenUpgraded = false;
 		private bool closeMine = false;
 		private int gold;
 		private int minerCount;
@@ -43,14 +43,14 @@ namespace SnehvideProject
 		/// <summary>
 		/// Adds threads to the ValueIncreaser class (Used to test functionality)
 		/// </summary>
-		public void EnterMine()
-		{
-			// TODO: Add a thread for every miner that enters the Mine.
-			emptyMine = false;
-			Thread DwarfMining = new Thread(MineGold);
-			DwarfMining.IsBackground = true;
-			DwarfMining.Start();
-		}
+		//public void EnterMine()
+		//{
+		//	// TODO: Add a thread for every miner that enters the Mine.
+		//	emptyMine = false;
+		//	Thread DwarfMining = new Thread(MineGold);
+		//	DwarfMining.IsBackground = true;
+		//	DwarfMining.Start();
+		//}
 
 		/// <summary>
 		/// Adds gold to the player by using threads as counters
@@ -122,18 +122,18 @@ namespace SnehvideProject
 			maxCapacity++;
 			mineCapacity = new Semaphore(0, maxCapacity);
 			mineCapacity.Release(maxCapacity);
-			Console.WriteLine("Mine have been upgraded");
-			haveBeenUpgraded = true;
+			Console.WriteLine("Mine has been upgraded");
+			hasBeenUpgraded = true;
 			closeMine = false;
 		}
 
 		public override void Update(GameTime gameTime)
 		{
-			if (XP >= 10 && haveBeenUpgraded == false)
+			if (XP >= 10 && hasBeenUpgraded == false)
 			{
 				Upgrade();
-				EnterMine();
-				haveBeenUpgraded = true;
+				//EnterMine();
+				hasBeenUpgraded = true;
 			}
 			base.Update(gameTime);
 		}

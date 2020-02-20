@@ -29,6 +29,7 @@ namespace SnehvideProject
             this.position.Y = mouse.Position.Y;
             base.Update(gameTime);
             drawLayer = 0.8f;
+            Console.WriteLine(position.X + " : " + position.Y);
         }
 
         public override void OnCollision(GameObject otherObject)

@@ -14,7 +14,6 @@ namespace SnehvideProject
 		private int goldAmount;
 		private static int maxCapacity = 2;
 		private Semaphore homeBaseCapacity = new Semaphore(0, maxCapacity);
-		private int minerCount;
 
 		// PROPERTIES
 
@@ -36,18 +35,19 @@ namespace SnehvideProject
 		public override void Update(GameTime gameTime)
 		{
 			base.Update(gameTime);
-			Console.WriteLine(goldAmount);
+			if (GetCollisionBox().Contains(GameWorld.Point))
+			{
+				Console.WriteLine("Contains point");
+			}
 		}
 
 		public void DeliverGold()
 		{
 			homeBaseCapacity.WaitOne();
 			Console.WriteLine("Enter Home Base");
-			minerCount++;
 			Thread.Sleep(3000);
 			homeBaseCapacity.Release();
 			Console.WriteLine("Leave Home Base");
-			minerCount--;
 		}
 	}
 }

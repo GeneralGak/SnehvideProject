@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 
 namespace SnehvideProject
 {
@@ -98,6 +99,11 @@ namespace SnehvideProject
 
 		public override void Update(GameTime gameTime)
 		{
+			MouseState mouseState = Mouse.GetState();
+			if (GetCollisionBox().Contains(GameWorld.Point))
+			{
+				Console.WriteLine("Contains point");
+			}
 			base.Update(gameTime);
 			foreach(GameObject gameObject in GameWorld.GameObjects)
 			{
