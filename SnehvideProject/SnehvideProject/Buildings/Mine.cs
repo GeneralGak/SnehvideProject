@@ -43,14 +43,14 @@ namespace SnehvideProject
 		/// <summary>
 		/// Adds threads to the ValueIncreaser class (Used to test functionality)
 		/// </summary>
-		//public void EnterMine()
-		//{
-		//	// TODO: Add a thread for every miner that enters the Mine.
-		//	emptyMine = false;
-		//	Thread DwarfMining = new Thread(MineGold);
-		//	DwarfMining.IsBackground = true;
-		//	DwarfMining.Start();
-		//}
+		public void UpgradeThread()
+		{
+			// TODO: Add a thread for every miner that enters the Mine.
+			emptyMine = false;
+			Thread UpgradeMiniThread = new Thread(CanUpgrade);
+			UpgradeMiniThread.IsBackground = true;
+			UpgradeMiniThread.Start();
+		}
 
 		/// <summary>
 		/// Adds gold to the player by using threads as counters
@@ -112,6 +112,18 @@ namespace SnehvideProject
 			}
 		}
 
+		public void CanUpgrade()
+		{
+			while(haveBeenUpgraded == false)
+			{
+				if (XP >= 10 && haveBeenUpgraded == false)
+				{
+					Upgrade();
+					haveBeenUpgraded = true;
+				}
+			}
+		}
+
 		/// <summary>
 		/// Upgrades the mine to have more miners
 		/// </summary>
@@ -129,12 +141,6 @@ namespace SnehvideProject
 
 		public override void Update(GameTime gameTime)
 		{
-			if (XP >= 10 && hasBeenUpgraded == false)
-			{
-				Upgrade();
-				//EnterMine();
-				hasBeenUpgraded = true;
-			}
 			base.Update(gameTime);
 		}
 

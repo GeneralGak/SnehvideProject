@@ -12,6 +12,7 @@ namespace SnehvideProject
     {
         // FIELDS
         private static int coordinate;
+        private static SlaveShip slaveShipSprite;
 
         // METHODS
 
@@ -22,6 +23,10 @@ namespace SnehvideProject
         {
 
         }
+
+        //Makes sure we can reach it from the PopUp class.
+        //This is to ensure the pop-up can spawn at the same position as the ship-sprite.
+        public static SlaveShip SlaveShipSprite { get => slaveShipSprite; }
 
         /// <summary>
         /// Method for generating the map
@@ -55,7 +60,8 @@ namespace SnehvideProject
                             }
                         case (3):
                             {
-                                GameWorld.GameObjects.Add(new SlaveShip(new Vector2(x * size, y * size)));
+                                slaveShipSprite = new SlaveShip(new Vector2(x * size, y * size));
+                                GameWorld.NewGameObjects.Add(slaveShipSprite);
                                 break;
                             }
                     }

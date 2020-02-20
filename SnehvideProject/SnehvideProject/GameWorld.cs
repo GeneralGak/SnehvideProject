@@ -71,26 +71,40 @@ namespace SnehvideProject
             get { return tileSize; }
         }
 
-        //public static MouseState MouseState
-        //{
-        //    get { return mouseState; }
-        //    set { mouseState = value; }
-        //}
+		// sets debug hitbox
+#if DEBUG
+		Texture2D collisionTexture;
+		private void DrawCollisionBox(GameObject go)
+		{
+			Rectangle collisionBox = go.GetCollisionBox();
+			Rectangle topLine = new Rectangle(collisionBox.X, collisionBox.Y, collisionBox.Width, 1);
+			Rectangle bottomLine = new Rectangle(collisionBox.X, collisionBox.Y + collisionBox.Height, collisionBox.Width, 1);
+			Rectangle leftLine = new Rectangle(collisionBox.X, collisionBox.Y, 1, collisionBox.Height);
+			Rectangle rightLine = new Rectangle(collisionBox.X + collisionBox.Width, collisionBox.Y, 1, collisionBox.Height);
 
-        public GameWorld()
+			spriteBatch.Draw(collisionTexture, topLine, null, Color.Red, 0, Vector2.Zero, SpriteEffects.None, 1);
+			spriteBatch.Draw(collisionTexture, bottomLine, null, Color.Red, 0, Vector2.Zero, SpriteEffects.None, 1);
+			spriteBatch.Draw(collisionTexture, leftLine, null, Color.Red, 0, Vector2.Zero, SpriteEffects.None, 1);
+			spriteBatch.Draw(collisionTexture, rightLine, null, Color.Red, 0, Vector2.Zero, SpriteEffects.None, 1);
+		}
+#endif
+
+
+		public GameWorld()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
         }
 
-        /// <summary>
-        /// Allows the game to perform any initialization it needs to before starting to run.
-        /// This is where it can query for any required services and load any non-graphic
-        /// related content.  Calling base.Initialize will enumerate through any components
-        /// and initialize them as well.
-        /// </summary>
-        protected override void Initialize()
+
+		/// <summary>
+		/// Allows the game to perform any initialization it needs to before starting to run.
+		/// This is where it can query for any required services and load any non-graphic
+		/// related content.  Calling base.Initialize will enumerate through any components
+		/// and initialize them as well.
+		/// </summary>
+		protected override void Initialize()
         {
             // TODO: Add your initialization logic here
 
@@ -103,7 +117,7 @@ namespace SnehvideProject
 
             // Makes the PC's mouse cursor invisible. That way, only the game sprite cursor can be seen.
             IsMouseVisible = true;
-            
+
             // Sets screen width and height in a vector
             scrSize = new Vector2(screenWidth, screenHeight);
             // Sets screen scale
@@ -136,7 +150,7 @@ namespace SnehvideProject
             homeBase = new HomeBase(new Vector2(2300, 1000));
             barrack = new Barrack(new Vector2(800, 800));
             monster = new AppleMonster(new Vector2(100, 100));
-            dwarf = new Fighter(new Vector2(550, 550));
+            dwarf = new Fighter(new Vector2(550, 1050));
             minerDwarf = new Miner(new Vector2(400,500));
             //cursor = new MouseControl();
 
@@ -154,20 +168,27 @@ namespace SnehvideProject
             GameObjects.Add(new Miner(new Vector2(500, 600)));
             //GameObjects.Add(cursor);
 
+			mine.UpgradeThread();
+
             EnemyWaves.StartTimer();
 
-            //foreach (GameObject gameObject in GameObjects)
-            //{
-            //    gameObject.LoadContent(Content);
-            //}
-        }
+			// Loads debug hitbox
+#if DEBUG
+			collisionTexture = Content.Load<Texture2D>("whitepixel");
+#endif
+
+			//foreach (GameObject gameObject in GameObjects)
+			//{
+			//    gameObject.LoadContent(Content);
+			//}
+		}
 
 
-        /// <summary
-        /// UnloadContent will be called once per game and is the place to unload
-        /// game-specific content.
-        /// </summary>
-        protected override void UnloadContent()
+		/// <summary
+		/// UnloadContent will be called once per game and is the place to unload
+		/// game-specific content.
+		/// </summary>
+		protected override void UnloadContent()
         {
             // TODO: Unload any non ContentManager content here
         }
@@ -187,14 +208,6 @@ namespace SnehvideProject
             Point = new Point(mouseState.X+(int)(Camera.CamPos.X-Camera.CamPosStart.X), mouseState.Y+ (int)(Camera.CamPos.Y - Camera.CamPosStart.Y));
 
             // TODO: Add your update logic here
-
-            //================================
-            // test
-            if (KeyboardAndMouse.HasBeenPressed(Keys.Q))
-            {
-                Console.WriteLine("PRESSED BUTTON");
-                mine.Release();
-            }
 
             Camera.Update();
 
@@ -222,9 +235,15 @@ namespace SnehvideProject
             }
             RemoveGameObjects.Clear();
 
-            Console.WriteLine(Point);
+			//================================
+			// test
+			if (KeyboardAndMouse.HasBeenPressed(Keys.F))
+			{
+				Console.WriteLine("PRESSED BUTTON");
+				dwarf.OrderNumber = 1;
+			}
 
-            base.Update(gameTime);
+			base.Update(gameTime);
         }
 
         /// <summary>
@@ -242,25 +261,30 @@ namespace SnehvideProject
 			// TODO: Add your drawing code here
 			//Draws all objects in active room
 			foreach (GameObject gameObject in GameObjects)
-            {
-                //Ensures that only the objects within the screenbounds are drawn.
-                if (gameObject.Position.X <= Camera.CamPos.X + scrSize.X && gameObject.Position.Y <= Camera.CamPos.Y + scrSize.Y)
-                {
-                    gameObject.Draw(spriteBatch);
+			{
+				//Ensures that only the objects within the screenbounds are drawn.
+				if (gameObject.Position.X <= Camera.CamPos.X + scrSize.X && gameObject.Position.Y <= Camera.CamPos.Y + scrSize.Y)
+				{
+					gameObject.Draw(spriteBatch);
+
 #if DEBUG
-                    DrawCollisionBox(gameObject);
+					DrawCollisionBox(gameObject);
 #endif
-                }
-            }
-            spriteBatch.End();
+
+#if DEBUG
+					//DrawCollisionBox(gameObject);
+#endif
+				}
+			}
+			spriteBatch.End();
 
             base.Draw(gameTime);
         }
 
-        private void DrawCollisionBox(GameObject gameObject)
-        {
+        //private void DrawCollisionBox(GameObject gameObject)
+        //{
 
-        }
+        //}
 
         /// <summary>
         /// Method for adding new gameobjects while the game is running

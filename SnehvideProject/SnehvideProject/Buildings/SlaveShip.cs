@@ -51,9 +51,9 @@ namespace SnehvideProject
 
         public static void PopUpWindow()
         {
-            popWindow = new PopUp(Asset.SlaveShipPopUp, new Vector2(500, 500));
-            windowFighter = new PopUp(Asset.SlaveShipFighter, new Vector2(600, 600));
-            windowMiner = new PopUp(Asset.SlaveShipMiner, new Vector2(700, 600));
+            popWindow = new PopUp(Asset.SlaveShipPopUp, new Vector2(MapObject.SlaveShipSprite.position.X, MapObject.SlaveShipSprite.position.Y));
+            windowFighter = new PopUp(Asset.SlaveShipFighter, new Vector2(MapObject.SlaveShipSprite.position.X + Asset.SlaveShipFighter.Width * 3, MapObject.SlaveShipSprite.position.Y + Asset.SlaveShipFighter.Height * 3));
+            windowMiner = new PopUp(Asset.SlaveShipMiner, new Vector2(MapObject.SlaveShipSprite.position.X + Asset.SlaveShipMiner.Width * 5, MapObject.SlaveShipSprite.position.Y + Asset.SlaveShipMiner.Height * 2.45f));
             GameWorld.NewGameObjects.Add(popWindow);
             GameWorld.NewGameObjects.Add(windowFighter);
             GameWorld.NewGameObjects.Add(windowMiner);

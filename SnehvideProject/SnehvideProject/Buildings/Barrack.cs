@@ -26,9 +26,12 @@ namespace SnehvideProject
 		{
 			lock(lockObject)
 			{
+				Console.WriteLine("Start training");
 				Thread.Sleep(3000);
 				toughedFighter.CompletedTraining();
-				
+				toughedFighter.OrderNumber = 0;
+				Console.WriteLine("Leave training");
+
 			}
 		}
 
