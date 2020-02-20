@@ -195,6 +195,7 @@ namespace SnehvideProject
 
         public void DeliverGold()
         {
+            GameWorld.homeBase.DeliverGold();
             GameWorld.homeBase.GoldAmount += goldAmount;
             goldAmount = 0;
             carryingGold = false;

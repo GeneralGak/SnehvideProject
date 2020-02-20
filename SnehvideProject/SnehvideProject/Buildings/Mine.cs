@@ -95,7 +95,7 @@ namespace SnehvideProject
 				// TODO: Tilføj funktion til at giver mineren guld
 				XP++;
 				mineCapacity.Release();
-				Console.WriteLine("Leave Mine");
+				Console.WriteLine("Leave Mine"); // ???
 			}
 
 			// TODO: Add the functionality that adds value to the Treasury. (Or something else to keep track for gold)
