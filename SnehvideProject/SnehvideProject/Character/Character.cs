@@ -133,8 +133,6 @@ namespace SnehvideProject
 		public override void OnCollision(GameObject otherObject)
 		{
 
-
-
 		}
 
 		public abstract void OnTakeDamage();

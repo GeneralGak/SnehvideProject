@@ -42,30 +42,30 @@ namespace SnehvideProject
 		/// </summary>
 		private static void HandleInput()
 		{
-			KeyboardState keyState = KeyboardAndMouse.GetState();
+			//KeyboardState keyState = KeyboardAndMouse.GetState();
 			velocity = Vector2.Zero;
 
-			if (keyState.IsKeyDown(Keys.W) && CamPos.Y > 0 + (GameWorld.ScrSize.Y / 2)) // Up
+			if (KeyboardAndMouse.IsPressed(Keys.W) && CamPos.Y > 0 + (GameWorld.ScrSize.Y / 2)) // Up
 			{
 				velocity.Y -= 1;
 			}
 
-			if (keyState.IsKeyDown(Keys.S) && CamPos.Y < 0 + Asset.BackgroundPic.Height - GameWorld.ScrSize.Y / 2) // Down
+			if (KeyboardAndMouse.IsPressed(Keys.S) && CamPos.Y < 0 + Asset.BackgroundPic.Height - GameWorld.ScrSize.Y / 2) // Down
 			{
 				velocity.Y += 1;
 			}
 
-			if (keyState.IsKeyDown(Keys.A) && CamPos.X > 0 + (GameWorld.ScrSize.X / 2)) // Left
+			if (KeyboardAndMouse.IsPressed(Keys.A) && CamPos.X > 0 + (GameWorld.ScrSize.X / 2)) // Left
 			{
 				velocity.X -= 1;
 			}
 
-			if (keyState.IsKeyDown(Keys.D) && CamPos.X < 0 + Asset.BackgroundPic.Width - GameWorld.ScrSize.X / 2) // Right
+			if (KeyboardAndMouse.IsPressed(Keys.D) && CamPos.X < 0 + Asset.BackgroundPic.Width - GameWorld.ScrSize.X / 2) // Right
 			{
 				velocity.X += 1;
 			}
 
-			if (keyState.IsKeyDown(Keys.E)) // Zoom in
+			if (KeyboardAndMouse.IsPressed(Keys.E)) // Zoom in
 			{
 				CamZoom += 0.05f * CamZoom; // value * CamZoom to negate warping effect
 			}
@@ -73,7 +73,7 @@ namespace SnehvideProject
 			//{
 			//    CamZoom += 0.05f * CamZoom * 5;
 			//}
-			if (keyState.IsKeyDown(Keys.Q)) // Zoom out
+			if (KeyboardAndMouse.IsPressed(Keys.Q)) // Zoom out
 			{
 				CamZoom -= 0.05f * CamZoom;
 			}
