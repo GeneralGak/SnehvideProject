@@ -41,11 +41,10 @@ namespace SnehvideProject
 		}
 
 		/// <summary>
-		/// Adds threads to the ValueIncreaser class (Used to test functionality)
+		/// Adds threads to the CanUpgrade methode to tjek when to upgrade mine
 		/// </summary>
 		public void UpgradeThread()
 		{
-			// TODO: Add a thread for every miner that enters the Mine.
 			emptyMine = false;
 			Thread UpgradeMiniThread = new Thread(CanUpgrade);
 			UpgradeMiniThread.IsBackground = true;

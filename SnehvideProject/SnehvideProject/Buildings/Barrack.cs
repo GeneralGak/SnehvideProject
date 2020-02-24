@@ -22,7 +22,9 @@ namespace SnehvideProject
 			drawLayer = 0.04f;
 		}
 
-
+		/// <summary>
+		/// Makes one fighter at a time opgrade the damage and health
+		/// </summary>
 		public void TrainDwarf()
 		{
 			lock(lockObject)
